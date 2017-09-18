@@ -15,9 +15,9 @@ $(file_name).pdf: $(file_name).tex
 	# clean auxillary files
 	latexmk -c $(file_name).tex
 
-$(file_name).tex : $(file_name).Rnw
-	Rscript -e "library(knitr); knit('$(file_name).Rnw')"
+# $(file_name).tex : $(file_name).Rnw
+#	Rscript -e "library(knitr); knit('$(file_name).Rnw')"
 
 
 clean:
-	-rm $(file_name).pdf $(file_name).fls $(file_name).log $(file_name).out $(file_name).aux $(file_name).fdb_latexmk $(file_name).tex $(file_name)-concordance.tex
+	-rm $(file_name).pdf $(file_name).fls $(file_name).log $(file_name).out $(file_name).aux $(file_name).fdb_latexmk $(file_name)-concordance.tex
