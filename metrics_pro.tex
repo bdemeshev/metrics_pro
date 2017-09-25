@@ -456,6 +456,33 @@ Q(\hb) = (y - X\hb)'(y - X\hb) + \lambda hb' hb,
 
 
 
+% 4.13
+\begin{problem}
+Пусть $y_i = \beta_1 + \beta_2 x_{i2} + \beta_3 x_{i3} + \e_i$ — регрессионная модель, где $X = \begin{pmatrix} 1 & 0 & 0 \\ 1 & 0 & 0 \\ 1 & 0 & 0 \\ 1 & 1 & 0 \\ 1 & 1 & 1 \end{pmatrix}$, $y = \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \\ 5 \end{pmatrix}$, $\beta = \begin{pmatrix} \beta_1 \\ \beta_2 \\ \beta_3 \end{pmatrix}$, $\e = \begin{pmatrix} \e_1 \\ \e_2 \\ \e_3 \\ \e_4 \\ \e_5  \end{pmatrix}$, ошибки $\e_i$ независимы и нормально распределены с $\E(\e)$ = 0, $Var(\e) = \sigma^2 I$. Для удобства расчётов даны матрицы: $X'X = \begin{pmatrix} 5 & 2 & 1 \\ 2 & 2 & 1\\ 1 & 1 & 1 \end{pmatrix}$ и $(X'X)^{-1}= \begin{pmatrix} 0.3333 & -0.3333 & 0.0000 \\ -0.3333 & 1.3333 & -1.0000 \\ 0.0000 & -1.0000 & 2.0000 \end{pmatrix}$
+
+
+\begin{enumerate}
+\item Укажите число наблюдений.
+\item Укажите число регрессоров в модели, учитывая свободный член.
+\item Найдите $TSS = \sum_{i=1}^n (y_i - \bar y)^2$.
+\item Найдите $RSS = \sum_{i=1}^n (y_i - \hy_i)^2$.
+\item Методом МНК найдите оценку для вектора неизвестных коэффициентов.
+\item Чему равен $R^2$ в модели? Прокомментируйте полученное значение с точки зрения качества оценённого уравнения регрессии.\end{enumerate}
+\begin{sol}
+
+\begin{enumerate}
+\item $n = 5$
+\item $k = 3$
+\item $TSS = 10$
+\item $RSS = 2$
+\item $\hb = \begin{pmatrix} \hb_1 \\ \hb_2 \\ \hb_3 \end{pmatrix} = (X'X)^{-1}X'y = \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}$
+\item $R^2 = 1 - \frac {RSS}{TSS} = 0.8.$ $R^2$ высокий, построенная эконометрическая модель хорошо описывает данные
+\end{enumerate}
+\end{sol}
+\end{problem}
+
+
+
 \begin{problem}
 
 \begin{sol}
@@ -501,6 +528,103 @@ Q(\hb) = (y - X\hb)'(y - X\hb) + \lambda hb' hb,
 где $R$ — радиус мякоти, а $t$ — толщина кожуры апельсина. Оставляем только линейную часть по $t$ и затем максимизируем.
 
 Наибольшая вероятность попасть в апельсин радиуса $R=1$.
+\end{sol}
+\end{problem}
+
+
+
+\begin{problem}
+Пусть регрессионная модель $y_i = \beta_1 + \beta_2 x_{i2} + \beta_3 x_{i3} + \e_i$, $i = 1, \ldots, n$, задана в матричном виде при помощи уравнения $y = X \beta + \e$, где $\beta =  \begin{pmatrix}
+\beta_1 & \beta_2 & \beta_3\\
+\end{pmatrix} '$. Известно, что $\E \e = 0$ и $\Var (\e) = 4 \cdot I$. Известно также, что:
+
+$y =  \begin{pmatrix}
+1 \\
+2 \\
+3 \\
+4 \\
+5 \\
+\end{pmatrix} $, $X =  \begin{pmatrix}
+1 & 0 & 0 \\
+1 & 0 & 0 \\
+1 & 1 & 0 \\
+1 & 1 & 0 \\
+1 & 1 & 1 \\
+\end{pmatrix} $
+
+Для удобства расчётов ниже приведены матрицы:
+
+$X' X =  \begin{pmatrix}
+5 & 3 & 1 \\
+3 & 3 & 1 \\
+1 & 1 & 1 \\
+\end{pmatrix} $ и $(X' X)^{-1} =  \begin{pmatrix}
+0.5 & -0.5 & 0 \\
+-0.5 & 1 & -0.5 \\
+0 & -0.5 & 1.5 \\
+\end{pmatrix} $.
+
+Найдите:
+\begin{enumerate}
+\item $\Var (\e_1)$;
+\item $\Var (\beta_1)$;
+\item $\Var (\hb_1)$;
+\item $\hVar(\hb_1)$;
+\item $\E (\hb_1^2) - \beta_1^2$;
+\item $\Cov (\hb_2, \hb_3)$;
+\item $\hCov(\hb_2, \hb_3)$;
+\item $\Var (\hb_2 - \hb_3)$;
+\item $\hVar(\hb_2 - \hb_3)$;
+\item $\Var (\beta_2 - \beta_3)$;
+\item $\Corr (\hb_2, \hb_3)$;
+\item $\hCorr(\hb_2, \hb_3)$;
+\item $\E (\hs^2)$;
+\item $\hs^2$.
+\end{enumerate}
+
+
+\begin{sol}
+\begin{enumerate}
+\item $\Var(\e_1)=\Var(\e)_{(1,1)}=4\cdot I_{(1,1)}=4$
+\item $\Var(\beta_1)=0$, так как $\beta_1$ — детерминированная величина.
+\item $\Var(\hb_1)=\sigma^2(X'X)^{-1}_{(1,1)}=0.5\sigma^2=0.5\cdot 4=2$
+\item $\hVar(\hb_1)=\hat\sigma^2(X'X)^{-1}_{(1,1)}=0.5\hat\sigma^2_{(1,1)}=0.5\frac{RSS}{5-3}=0.25RSS=0.25y'(I-X(X'X)^{-1}X')y=0.25\cdot 1=0.25$
+
+$\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
+
+\item Так как оценки МНК являются несмещёнными, то $\E(\hb)=\beta$, значит:
+\[
+\E(\hb_1)-\beta_1^2=\E(\hb_1)-(\E(\hb_1))^2=\hVar(\hb_1)=0.25
+\]
+
+\item $\Cov(\hb_2,\hb_3)=\sigma^2(X'X)^{-1}_{(2,3)}=4\cdot\left(-\frac12\right)=-2$
+\item $\hCov(\hb_2,\hb_3)=\hVar(\hat\beta)_{(2,3)}=\hat\sigma^2(X'X)^{-1}_{(2,3)}=\frac{1}{2}\cdot\left(-\frac12\right)=-\frac14$
+
+\item $\Var(\hb_2-\hb_3)=\Var(\hb_2)+\Var(\hb_3)+2\Cov(\hb_2,\hb_3)=\sigma^2((X'X)^{-1}_{(2,2)}+(X'X)^{-1}_{(3,3)}+2(X'X)^{-1}_{(2,3)}=4(1+1.5+2\cdot(-0.5))=6$
+
+\item $\hVar(\hb_2-\hb_3)=\hVar(\hb_2)+\hVar(\hb_3)+2\hCov(\hb_2,\hb_3)=\hat\sigma^2((X'X)^{-1}_{(2,2)}+(X'X)^{-1}_{(3,3)}+2(X'X)^{-1}_{(2,3)}=\frac{1}{2}\cdot1.5=0.75$
+
+\item $\Var(\beta_2-\beta_3)=0$
+
+\item $\corr(\hb_2,\hb_3)=\frac{\Cov(\hb_2,\hb_3)}{\sqrt{\Var(\hb_2)\Var(\hb_3)}}=\frac{-2}{\sqrt{4\cdot6}}=-\frac{\sqrt6}{6}$
+
+\item $\hCorr(\beta_2,\beta_3)=\frac{\hCov(\hb_2,\hb_3)}{\sqrt{\hVar(\hb_2)\hVar(\hb_3)}}=\frac{-\frac14}{\sqrt{\frac12\cdot\frac34}}=-\frac{\sqrt6}{6}$
+
+\item $(n-k)\frac{\hat\sigma^2}{\sigma^2}\sim\chi^2_{n-k}$.
+\[
+\E\left((n-k)\frac{\hat\sigma^2}{\sigma^2}\right)=n-k
+\]
+\[
+\E\left(\frac{\hat\sigma^2}{2}\right)=1
+\]
+\[
+\E(\hat\sigma^2)=2
+\]
+
+\item $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$
+
+\end{enumerate}
+
 \end{sol}
 \end{problem}
 
