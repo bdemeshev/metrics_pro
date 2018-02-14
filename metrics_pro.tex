@@ -859,11 +859,6 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
 
 
 
-\begin{problem}
-    yyy
-\begin{sol}
-\end{sol}
-\end{problem}
 
 
 
@@ -874,8 +869,107 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
 \end{sol}
 \end{problem}
 
+\section{Блок}
 
-% \section{Хочу ещё задач!}
+\begin{problem}
+Найдите матрицу $M$ и укажите размеры всех блоков
+\begin{enumerate}
+  \item Блок $C$ имеет размер $p\times p$, блок $F$ — размер $q\times q$
+    \[M=\begin{pmatrix}
+      A & B \\
+    \end{pmatrix} \cdot
+    \begin{pmatrix}
+      C & D \\
+      E & F \\
+    \end{pmatrix}
+  \]
+\item Блок $C$ имеет размер $p\times p$, блок $F$ — размер $q\times q$
+  \[
+    M=\begin{pmatrix}
+      C & D \\
+      E & F \\
+    \end{pmatrix}\cdot 
+    \begin{pmatrix}
+      A \\
+      B \\
+    \end{pmatrix}
+  \]
+  \item Блок $C$ имеет размер $p\times p$, блок $B$ — размер $q\times q$
+    \[
+      M=\begin{pmatrix}
+      A & B \\
+      C & D \\
+    \end{pmatrix}^T
+  \]
+
+\end{enumerate}
+
+\begin{sol}
+\end{sol}
+\end{problem}
+
+\begin{problem}
+Найдите обратную матрицу $M^{-1}$ для каждого из случаев
+\begin{enumerate}
+  \item Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы, 
+    \[
+      M = \begin{pmatrix}
+	A & 0 \\
+	0 & B \\
+      \end{pmatrix}
+    \]
+  \item Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы, 
+    \[
+      M = \begin{pmatrix}
+	0 & A \\
+	B & 0 \\
+      \end{pmatrix}
+    \]
+
+ \item Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы, 
+    \[
+      M = \begin{pmatrix}
+	A & C \\
+	0 & B \\
+      \end{pmatrix}
+    \]
+  \item Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы, 
+    \[
+      M = \begin{pmatrix}
+	A & 0 \\
+	C & B \\
+      \end{pmatrix}
+    \]
+\end{enumerate}
+\begin{sol}
+\end{sol}
+\end{problem}
+
+\begin{problem}
+    Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы, матрица $M$ имеет вид
+    \[
+      M = \begin{pmatrix}
+	A & C \\
+	D & B \\
+      \end{pmatrix}
+    \]
+    Рассмотрим обратную матрицу $M^{-1}$
+    \[
+      M^{-1} = \begin{pmatrix}
+	X & Z \\
+	Y & W \\
+      \end{pmatrix}
+    \]
+    \begin{enumerate}
+      \item Найдите блок $X$ с помощью процедуры Гаусса;
+      \item Найдите блок $X$ решив систему двух уравнений на блоки $X$ и $Y$;
+      \item Докажите тождество Вудберри 
+    \end{enumerate}
+    \todo[inline]{добавить тождество Вудберри}
+
+\begin{sol}
+\end{sol}
+\end{problem}
 
 \section{Максимально правдоподобно}
 
@@ -946,7 +1040,23 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
   \end{sol}
 \end{problem}
 
+\section{Гетероскедастичность}
 
+\begin{problem}
+В оригинальном тесте Бройша-Пагана на гетероскедастичность два шага. Сначала строится основная регрессия $y_i$ на некоторые регрессоры и получаются остатки $\hat u_i$. На втором шаге строится регрессия квадрата остатков $\hat u_i$ на переменные, от которых потенциально зависит условная дисперсия $\Var(u_i|Z)$. Статистика Бройша-Пагана считается как $BP=ESS/2$, где $ESS$ — объяснённая сумма квадратов регрессии второго шага. Оригинальный тест Уайта считается как $W=nR^2$, где $R^2$ — коэффициент детерминации регрессии второго шага.  
+\begin{enumerate}
+  \item Найдите отношение $\frac{R^2}{ESS/2}$;
+  \item Найдите предел по вероятности $\plim \frac{R^2}{ESS/2}$;
+  \item Какое распределение имеют статистики $BP$ и $W$?
+  \item Какой вид имеет статистика множителей Лагранжа?
+\end{enumerate}
+
+\todo[inline]{распотрошить статью BP на задачу, статья о похожести BP и W, отдельно Коэнкера про студентизированную версию}
+
+\begin{sol}
+
+  \end{sol}
+\end{problem}
 
 
 
