@@ -116,11 +116,22 @@ $x_i$ & $y_i$ \\
 \item Нарисуйте исходные точки и полученную прямую регрессии.
 \item Выведите формулу для $\hb_2$ в общем виде для $n$ наблюдений.
 \end{enumerate}
-
 \end{enumerate}
 
 
 \begin{sol}
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item $\hb = 13/9$
+\item[c)] $\hb = \frac{\sum_{i=1}^n x_i y_i}{\sum_{i=1}^n x_i^2}$
+\end{enumerate}
+\item
+\begin{enumerate}
+\item $\hb_1 = -1$, $\hb_2 = 2$
+\item[c)] $\hb_2 = \frac{\sum_{i=1}^n (x_i - \bar x)(y_i - \bar y)}{\sum_{i=1}^n (x_i - \bar x)^2}$
+\end{enumerate}
+\end{enumerate}
 \end{sol}
 \end{problem}
 
@@ -135,7 +146,12 @@ $x_i$ & $y_i$ \\
 \end{enumerate}
 
 \begin{sol}
-Ответы: $0$, $0$, $0$, $\sum x_i^2$.
+\begin{enumerate}
+\item $0$
+\item $0$
+\item $0$
+\item $\sum x_i^2$
+\end{enumerate}
 \end{sol}
 \end{problem}
 
@@ -152,7 +168,10 @@ $x_i$ & $y_i$ \\
 
 \begin{sol}
 \begin{enumerate}
-\item \(\htheta = \sum \left((y_i - z_i)(x_i - z_i) \right) / \sum \left(x_i - z_i\right)^2 \)
+\item $\htheta = \frac{\sum y_i (1 + x_i)}{\sum (1 + x_i)^2}$
+\item $\htheta = \frac{\sum (y_i - 1) x_i}{\sum x_i^2}$
+\item $\htheta = \frac{\sum (y_i / x_i^2)}{\sum (1 / x_i^3)}$
+\item $\htheta = \sum \left((y_i - z_i)(x_i - z_i) \right) / \sum \left(x_i - z_i\right)^2$
 \end{enumerate}
 \end{sol}
 \end{problem}
@@ -278,6 +297,11 @@ RSS =  \sum\limits_{i=1}^{n}(y_i - x_i - \hb_2(z_i-x_i))^2 \rightarrow \min_{\hb
 \end{enumerate}
 
 \begin{sol}
+\begin{enumerate}
+\item Да
+\item Да
+\item Нет
+\end{enumerate}
 \end{sol}
 \end{problem}
 
@@ -314,6 +338,13 @@ RSS =  \sum\limits_{i=1}^{n}(y_i - x_i - \hb_2(z_i-x_i))^2 \rightarrow \min_{\hb
 Эконометрист Вовочка оценил методом наименьших квадратов модель 1, $y=\b_1+\b_2 x+\b_3 z+\e$, а затем модель 2, $y=\b_1+\b_2 x+\b_3 z+\b_4 w+\e$. Сравните полученные $ESS$, $RSS$, $TSS$ и $R^2$.
 
 \begin{sol}
+Поскольку значения $y$ остались теми же, $TSS_1 = TSS_2$.
+
+Добавление ещё одного регрессора не уменьшит точность оценки, то есть
+$RSS_2 \leq RSS_1$, $ESS_2 \geq ESS_1$.
+
+Тогда и коэффициент детерминации $R^2 = ESS / TSS$ не уменьшится, то есть
+$R^2_2 \geq R^2_1$.
 \end{sol}
 \end{problem}
 
@@ -440,6 +471,10 @@ $6$ & ? \\
             Выпишите выражение $\tr(F'dF)$ в явном виде без матриц.
     \end{enumerate}
 \begin{sol}
+\begin{enumerate}
+\item $f'(x) = 2x + 3$, $df = 2xdx + 3dx$, $df = 1.3$
+\item $df = 2 x_1 d x_1 + 3 d x_1 \cdot x_2^3 + 3x_1 \cdot 3 x_2^2 dx_2$, $df = -1.9$
+\end{enumerate}
 \end{sol}
 \end{problem}
 
@@ -459,6 +494,14 @@ $6$ & ? \\
 
 
 \begin{sol}
+\begin{enumerate}
+\item $A(dR)B$
+\item $2r'dr$
+\item $r'(A'+A)dr$
+\item $R^{-1}\cdot dR \cdot R^{-1}$
+\item $-\sin(r'r)\cdot 2r'dr$
+\item $\frac{r'(A'+A)dr \cdot r'r - r'Ar2r'dr}{(r'r)^2}$
+\end{enumerate}
 \end{sol}
 \end{problem}
 
@@ -477,11 +520,16 @@ Q(\hb) = (y - X\hb)'(y - X\hb).
 
 
 \begin{sol}
+\begin{enumerate}
+\item $dQ(\hb) = 2(y-X\hb)^T (-X) d\hb$, $d^2Q(\hb) = 2d\hb^T X^T X d\hb$
+\item $dQ(\hb) = 0$
+\item $\hb = (X^T X)^{-1} X^T y$
+\end{enumerate}
 \end{sol}
 \end{problem}
 
 \begin{problem}
-В методе LASSO минимизируется функция
+В методе Ridge минимизируется функция
 \[
 Q(\hb) = (y - X\hb)'(y - X\hb) + \lambda \hb' \hb,
 \]
@@ -494,6 +542,11 @@ Q(\hb) = (y - X\hb)'(y - X\hb) + \lambda \hb' \hb,
 \end{enumerate}
 
 \begin{sol}
+\begin{enumerate}
+\item $dQ(\hb) = -2((y-X\hb)^T X + \lambda \hb^T) d\hb$, $d^2Q(\hb)=2d\hb^T(X^T X - \lambda I) d\hb$
+\item $dQ(\hb) = 0$
+\item $\hb = (X^T X - \lambda I)^{-1} X^T y$
+\end{enumerate}
 \end{sol}
 \end{problem}
 
@@ -632,6 +685,12 @@ $\sCov(\hy, y)=\sqrt{ESS^2/(n-1)^2}=ESS/(n-1)$
     \item В какой пропорции соотносятся выборочные дисперсии $x$, $y$ и $z$?
 \end{enumerate}
 \begin{sol}
+\begin{enumerate}
+\item $\sCorr(x,y) = \sqrt{0.84}$, $\sCorr(y,z) = \frac{7}{10}\sqrt{\frac{35}{29}}$, $\sCorr(x,z) = \frac{9}{10}\sqrt{\frac{5}{87}}$
+\item $\frac{\hat{\sigma}_x}{\hat{\sigma}_y} = \sqrt{\frac{0.6}{1.4}}$,
+$\frac{\hat{\sigma}_z}{\hat{\sigma}_y} = \sqrt{\frac{29}{35}}$,
+$\frac{\hat{\sigma}_x}{\hat{\sigma}_z} = \sqrt{\frac{15}{29}}$
+\end{enumerate}
 \end{sol}
 \end{problem}
 
@@ -888,7 +947,7 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
     M=\begin{pmatrix}
       C & D \\
       E & F \\
-    \end{pmatrix}\cdot 
+    \end{pmatrix}\cdot
     \begin{pmatrix}
       A \\
       B \\
@@ -905,20 +964,44 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
 \end{enumerate}
 
 \begin{sol}
+\begin{enumerate}
+\item $M = \begin{pmatrix}
+AC + BE & AD + BF
+\end{pmatrix}
+$
+
+Предположим, что матрицы $A$ и $B$ имеют $m$ строк.
+Тогда размерность блока $AC + BE$ — $m \times p$, $AD + BF$ — $m \times q$.
+\item $M = \begin{pmatrix}
+CA + DB \\
+EA + FB
+\end{pmatrix}
+$
+
+Предположим, что матрицы $A$ и $B$ имеют $n$ столбцов.
+Тогда размерность блока $CA + DB$ — $p \times n$, $EA + FB$ — $q \times n$.
+\item $M = \begin{pmatrix}
+A^T & C^T \\
+B^T & D^T
+\end{pmatrix}
+$
+
+Блок $A^T$ имеет размерность $p \times q$, $B^T$ — $q \times q$, $C^T$ — $p \times p$, $D^T$ — $q \times p$.
+\end{enumerate}
 \end{sol}
 \end{problem}
 
 \begin{problem}
 Найдите обратную матрицу $M^{-1}$ для каждого из случаев
 \begin{enumerate}
-  \item Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы, 
+  \item Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы,
     \[
       M = \begin{pmatrix}
 	A & 0 \\
 	0 & B \\
       \end{pmatrix}
     \]
-  \item Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы, 
+  \item Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы,
     \[
       M = \begin{pmatrix}
 	0 & A \\
@@ -926,14 +1009,14 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
       \end{pmatrix}
     \]
 
- \item Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы, 
+ \item Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы,
     \[
       M = \begin{pmatrix}
 	A & C \\
 	0 & B \\
       \end{pmatrix}
     \]
-  \item Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы, 
+  \item Блоки $A_{p\times p}$ и $B_{q\times q}$ обратимы,
     \[
       M = \begin{pmatrix}
 	A & 0 \\
@@ -942,6 +1025,24 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
     \]
 \end{enumerate}
 \begin{sol}
+\begin{enumerate}
+\item $M^{-1} = \begin{pmatrix}
+A^{-1} & 0 \\
+0 & B^{-1}
+\end{pmatrix}$
+\item $M^{-1} = \begin{pmatrix}
+0 & B^{-1}  \\
+A^{-1} & 0
+\end{pmatrix}$
+\item $M^{-1} = \begin{pmatrix}
+A^{-1} & -A^{-1}CB^{-1}  \\
+0 & B^{-1}
+\end{pmatrix}$
+\item $M^{-1} = \begin{pmatrix}
+A^{-1} & 0  \\
+-B^{-1}CA^{-1} & B^{-1}
+\end{pmatrix}$
+\end{enumerate}
 \end{sol}
 \end{problem}
 
@@ -963,11 +1064,96 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
     \begin{enumerate}
       \item Найдите блок $X$ с помощью процедуры Гаусса;
       \item Найдите блок $X$ решив систему двух уравнений на блоки $X$ и $Y$;
-      \item Докажите тождество Вудберри 
+      \item Докажите тождество Вудберри
+      \[
+      (A - CB^{-1}D)^{-1}  =  A^{-1} + A^{-1}C(B - DA^{-1}C)^{-1}DA^{-1}
+      \]
     \end{enumerate}
-    \todo[inline]{добавить тождество Вудберри}
+    %\todo[inline]{добавить тождество Вудберри}
 
 \begin{sol}
+\begin{enumerate}
+\item \begin{multline*}
+\left(
+\begin{array}{cc|cc}
+A & C & I & 0 \\
+D & B & 0 & I
+\end{array}
+\right)
+\sim
+\left(
+\begin{array}{cc|cc}
+I & A^{-1}C & A^{-1} & 0 \\
+D & B & 0 & I
+\end{array}
+\right)
+\sim
+\left(
+\begin{array}{cc|cc}
+I & A^{-1}C & A^{-1} & 0 \\
+0 & B - DA^{-1}C & -DA^{-1} & I
+\end{array}
+\right)
+\sim \\
+\left(
+\begin{array}{cc|cc}
+I & A^{-1}C & A^{-1} & 0 \\
+0 & I & -(B - DA^{-1}C)^{-1}DA^{-1} & (B - DA^{-1}C)^{-1}
+\end{array}
+\right)
+\sim \\
+\left(
+\begin{array}{cc|cc}
+I & 0 & A^{-1} + A^{-1}C(B - DA^{-1}C)^{-1}DA^{-1}   & -A^{-1}C(B - DA^{-1}C)^{-1} \\
+0 & I & -(B - DA^{-1}C)^{-1}DA^{-1} & (B - DA^{-1}C)^{-1}
+\end{array}
+\right)
+\end{multline*}
+То есть $X = A^{-1} + A^{-1}C(B - DA^{-1}C)^{-1}DA^{-1}$.
+\item Из равенства
+\[
+\begin{pmatrix}
+A & C \\
+D & B
+\end{pmatrix}
+\begin{pmatrix}
+X & Z \\
+Y & W
+\end{pmatrix}
+=
+\begin{pmatrix}
+I & 0 \\
+0 & I
+\end{pmatrix}
+\]
+получаем систему:
+\begin{align*}
+\begin{cases}
+AX + CY = I \\
+DX + BY = 0
+\end{cases}
+\Rightarrow
+\begin{cases}
+X  = A^{-1}(I-CY) \\
+DX + BY = 0
+\end{cases}
+\end{align*}
+Подставляя первое уравнение во второе, получим:
+\[
+D A^{-1}(I-CY) = -BY \Rightarrow DA^{-1} = (DA^{-1}C- B)Y \Rightarrow I = (C - AD^{-1}B)Y \Rightarrow Y = (C - AD^{-1}B)^{-1}
+\]
+И окончательно из второго уравнения:
+\[
+DX = -B (C - AD^{-1}B)^{-1} \Rightarrow -(C - AD^{-1}B)B^{-1}DX = I \Rightarrow X = (A - CB^{-1}D)^{-1}
+\]
+\item
+\begin{multline*}
+(A - CB^{-1}D)(A^{-1} + A^{-1}C(B-DA^{-1}C)^{-1}DA^{-1}) = \\
+I - CB^{-1}DA^{-1} + (C - CB^{-1}DA^{-1}C)(B-DA^{-1}C)^{-1}DA^{-1} = \\
+I - CB^{-1}DA^{-1} + CB^{-1}(B - DA^{-1}C)(B-DA^{-1}C)^{-1}DA^{-1} = \\
+I - CB^{-1}DA^{-1} + CB^{-1}DA^{-1} = I
+\end{multline*}
+\end{enumerate}
 \end{sol}
 \end{problem}
 
@@ -984,7 +1170,7 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
   \item Выведите формулы для статистик отношения правдоподобия, множителей Лагранжа и Вальда в общем виде;
   \item Найдите значения статистик отношения правдоподобия, множителей Лагранжа и Вальда для имеющейся выборки;
   \item Проверьте гипотезу $H_0$ с помощью трёх статистик.
-\end{enumerate}     
+\end{enumerate}
   \begin{sol}
     $\ell'(\lambda)=\frac{n}{\lambda} - \sum y_i$; $I(\lambda)=n/\lambda^2$
   \end{sol}
@@ -993,10 +1179,10 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
 
 
 \begin{problem}
-  Рассмотрим модель простой регрессии $y_i = \beta x_i + u_i$, 
-  где ошибки $u_i$ независимы и имеют стандартное нормальное распределение, $u_i \sim \cN(0;1)$. 
-  По выборке из 100 наблюдений оказалось, 
-  что $\sum x_i^2 = 100$, $\sum y_i^2=900$,  а $\sum y_i x_i  = 250$. 
+  Рассмотрим модель простой регрессии $y_i = \beta x_i + u_i$,
+  где ошибки $u_i$ независимы и имеют стандартное нормальное распределение, $u_i \sim \cN(0;1)$.
+  По выборке из 100 наблюдений оказалось,
+  что $\sum x_i^2 = 100$, $\sum y_i^2=900$,  а $\sum y_i x_i  = 250$.
   Исследователь Рамирес хочет проверить $H_0$: $\beta=0$.
 
 
@@ -1008,7 +1194,7 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
   \item Выведите формулы для статистик отношения правдоподобия, множителей Лагранжа и Вальда в общем виде;
   \item Найдите значения статистик отношения правдоподобия, множителей Лагранжа и Вальда для имеющейся выборки;
   \item Проверьте гипотезу $H_0$ с помощью трёх статистик.
-\end{enumerate}     
+\end{enumerate}
 
   \begin{sol}
 
@@ -1032,7 +1218,7 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
   \item Найдите значения статистик отношения правдоподобия, множителей Лагранжа и Вальда для имеющейся выборки;
   \item Проверьте гипотезу $H_0$ с помощью трёх статистик на уровне значимости 5\%.
   \item (*) Обобщиет формулы трёх статистик на случай произвольного количества дисциплин и произвольной гипотезы $H_0$: $p=p^0$.
-\end{enumerate}     
+\end{enumerate}
 
 
   \begin{sol}
@@ -1042,11 +1228,11 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
 
 
 \begin{problem}
-  Логарифмическая функция правдоподобия имеет вид 
+  Логарифмическая функция правдоподобия имеет вид
   \[
      \ell(\theta) = a + (\theta - h(y))' Q (\theta - h(y)),
   \]
-  где $Q$ — постоянная матрица, а $h(y)$ — функция от выборки. 
+  где $Q$ — постоянная матрица, а $h(y)$ — функция от выборки.
   Вектор параметров $\theta$ состоит из двух блоков, а матрица $Q$ — из четырёх блоков
   \[
     \theta = \begin{pmatrix}
@@ -1078,7 +1264,7 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
 
 
 \begin{problem}
-  Рассмотрим модель множественной регрессии $y = X\beta + u$, где регрессоры детерминистические, 
+  Рассмотрим модель множественной регрессии $y = X\beta + u$, где регрессоры детерминистические,
   ошибки имеют многомерное нормальное распределение,
   а ковариационная матрица $\Var(u)$ единичная. Разобьём вектор коэффициентов $\beta$ на две части
   \[
@@ -1106,7 +1292,7 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
 
 
 \begin{problem}
-  Рассмотрим модель множественной регрессии $y = X\beta + u$, где регрессоры детерминистические, 
+  Рассмотрим модель множественной регрессии $y = X\beta + u$, где регрессоры детерминистические,
   ошибки имеют многомерное нормальное распределение,
   а ковариационная матрица $\Var(u)=\sigma^2 I$. Разобьём вектор коэффициентов $\beta$ на две части
   \[
@@ -1141,8 +1327,8 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
   \begin{tabular}{cccc}
     \toprule
   $x_i$ & $1$ & $2$ & $2$ \\
-  $y_i$ & $1$ & $2$ & $3$ \\ 
-\bottomrule 
+  $y_i$ & $1$ & $2$ & $3$ \\
+\bottomrule
   \end{tabular}
 
   Экономэтр Антоний хочет оценить зависимость $y_i = \beta x_i + u_i$.
@@ -1279,9 +1465,9 @@ $0.0752$, $5$, $10$
     \midrule
     $x_i = 0$ & $n_0 = 100$ & 200 & 4000 \\
     $x_i = 1$ & $n_1 = 100$ & 300 & 5000 \\
-\bottomrule 
+\bottomrule
   \end{tabular}
-  
+
   \begin{enumerate}
  \item Найдите МНК-оценки $\beta_1$ и $\beta_2$;
  \item Постройте 95\%-ый доверительный интервал для $\beta_2$ предполагая гомоскедастичность $u_i$;
@@ -1364,7 +1550,7 @@ $0.0752$, $5$, $10$
 
 
 \begin{problem}
-В оригинальном тесте Бройша-Пагана на гетероскедастичность два шага. Сначала строится основная регрессия $y_i$ на некоторые регрессоры и получаются остатки $\hat u_i$. На втором шаге строится регрессия квадрата остатков $\hat u_i$ на переменные, от которых потенциально зависит условная дисперсия $\Var(u_i|Z)$. Статистика Бройша-Пагана считается как $BP=ESS/2$, где $ESS$ — объяснённая сумма квадратов регрессии второго шага. Оригинальный тест Уайта считается как $W=nR^2$, где $R^2$ — коэффициент детерминации регрессии второго шага.  
+В оригинальном тесте Бройша-Пагана на гетероскедастичность два шага. Сначала строится основная регрессия $y_i$ на некоторые регрессоры и получаются остатки $\hat u_i$. На втором шаге строится регрессия квадрата остатков $\hat u_i$ на переменные, от которых потенциально зависит условная дисперсия $\Var(u_i|Z)$. Статистика Бройша-Пагана считается как $BP=ESS/2$, где $ESS$ — объяснённая сумма квадратов регрессии второго шага. Оригинальный тест Уайта считается как $W=nR^2$, где $R^2$ — коэффициент детерминации регрессии второго шага.
 \begin{enumerate}
   \item Найдите отношение $\frac{nR^2}{ESS/2}$;
   \item Найдите предел по вероятности $\plim \frac{nR^2}{ESS/2}$;
