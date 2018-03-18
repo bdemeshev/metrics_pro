@@ -1171,9 +1171,20 @@ I - CB^{-1}DA^{-1} + CB^{-1}DA^{-1} = I
   \item Найдите значения статистик отношения правдоподобия, множителей Лагранжа и Вальда для имеющейся выборки;
   \item Проверьте гипотезу $H_0$ с помощью трёх статистик.
 \end{enumerate}
-  \begin{sol}
-    $\ell'(\lambda)=\frac{n}{\lambda} - \sum y_i$; $I(\lambda)=n/\lambda^2$
-  \end{sol}
+\begin{sol}
+\begin{enumerate}
+\item $\ell = n \ln \lambda - \lambda \sum y_i$
+\item $\hat \lambda = \frac{\sum y_i}{n} = \frac{1}{2}$
+\item $I(\lambda)=\frac{n}{\lambda^2}$
+\item $LR = 2(n \ln \frac{n}{\sum y_i} - n - n \ln \lambda_R + \lambda_R \sum y_i)$
+
+$LM = \left(\frac{n}{\lambda} - \sum y_i \right)^2 \frac{\lambda^2}{n}$
+
+$W = \left(\frac{\sum y_i}{n} - \lambda_R \right)^2 \frac{n}{\lambda^2}$
+\item $LR \approx 61.37$, $LM = W = 100$
+\item $\chi^2_{1, 0.95} = 3.84$, основная гипотеза отвергается.
+\end{enumerate}
+\end{sol}
 \end{problem}
 
 
@@ -1196,9 +1207,20 @@ I - CB^{-1}DA^{-1} + CB^{-1}DA^{-1} = I
   \item Проверьте гипотезу $H_0$ с помощью трёх статистик.
 \end{enumerate}
 
-  \begin{sol}
+\begin{sol}
+\begin{enumerate}
+\item $\ell = n \ln \sqrt{2\pi} - \frac{1}{2} \sum (y_i - \beta x_i)^2$
+\item $\hb_{ML} = \frac{\sum y_i x_i}{\sum x_i^2} = 2.5$
+\item $I(\beta) = \sum x_i^2$
+\item $LR = -\sum (y_i - \hb_{ML} x_i)^2 + \sum (y_i - \beta_{R} x_i)^2$
 
-  \end{sol}
+$LM = (\sum (y_i x_i - \beta_R x_i^2))^2 \cdot \frac{1}{\sum x_i^2}$
+
+$W = (\hb_{ML} - \beta_R)^2 \sum x_i^2$
+\item $LR = LM = W = 625$
+\item $\chi^2_{1, 0.95} = 3.84$, основная гипотеза отвергается.
+\end{enumerate}
+\end{sol}
 \end{problem}
 
 
@@ -1221,18 +1243,31 @@ I - CB^{-1}DA^{-1} + CB^{-1}DA^{-1} = I
 \end{enumerate}
 
 
-  \begin{sol}
-
-  \end{sol}
+\begin{sol}
+\begin{enumerate}
+\item $\ell = const + y_1 \ln p_1 + y_2 \ln p_2 + y_3 \ln p_3 + (n - y_1 - y_2 - y_3) \ln(1 - y_1 - y_2 - y_3)$
+\item $\hat p = \begin{pmatrix} y_1 / n \\ y_2 / n \\ y_3 / n \end{pmatrix} = \begin{pmatrix} 0.2 \\ 0.3 \\ 0.2 \end{pmatrix}$
+\item $I(p) = \begin{pmatrix}
+\frac{n}{p_1} + \frac{n}{1-p_1-p_2-p_3} & \frac{n}{1-p_1-p_2-p_3} & \frac{n}{1-p_1-p_2-p_3} \\
+\frac{n}{1-p_1-p_2-p_3} & \frac{n}{p_2} + \frac{n}{1-p_1-p_2-p_3} & \frac{n}{1-p_1-p_2-p_3} \\
+\frac{n}{1-p_1-p_2-p_3} & \frac{n}{1-p_1-p_2-p_3} & \frac{n}{p_3} + \frac{n}{1-p_1-p_2-p_3}
+\end{pmatrix}$
+\item $I^{-1}(p) = \begin{pmatrix}
+\frac{p_1(1-p_1)}{n} & -\frac{p_1 p_2}{n} & -\frac{p_1 p_3}{n} \\
+-\frac{p_1 p_2}{n} & \frac{p_2(1-p_2)}{n} & -\frac{p_2 p_3}{n} \\
+-\frac{p_1 p_3}{n} & -\frac{p_2 p_3}{n} & \frac{p_3(1-p_3)}{n}
+\end{pmatrix}$
+\end{enumerate}
+\end{sol}
 \end{problem}
 
 
 \begin{problem}
   Логарифмическая функция правдоподобия имеет вид
   \[
-     \ell(\theta) = a + (\theta - h(y))' Q (\theta - h(y)),
+     \ell(\theta) = a - \frac{1}{2}(\theta - h(y))' Q (\theta - h(y)),
   \]
-  где $Q$ — постоянная матрица, а $h(y)$ — функция от выборки.
+  где $Q$ — постоянная симметричная матрица, а $h(y)$ — функция от выборки.
   Вектор параметров $\theta$ состоит из двух блоков, а матрица $Q$ — из четырёх блоков
   \[
     \theta = \begin{pmatrix}
@@ -1257,9 +1292,16 @@ I - CB^{-1}DA^{-1} + CB^{-1}DA^{-1} = I
   \end{enumerate}
 
 
-  \begin{sol}
-Все три статистики равны $LR=LM=W$;
-  \end{sol}
+\begin{sol}
+\begin{enumerate}
+\item $\hat \theta^{UR} = h(y)$
+\item $\theta^{R} = \begin{pmatrix}
+\theta_1^0 \\
+h_2(y) - C^{-1}B^T(\theta_1^0 - h_1(y))
+\end{pmatrix}$
+\item[3—6.] $LR=LM=W= (\theta_1^0 - h_1(y))^T(A-BC^{-1}B^T)(\theta_1^0 - h_1(y))$
+\end{enumerate}
+\end{sol}
 \end{problem}
 
 
@@ -1277,7 +1319,7 @@ I - CB^{-1}DA^{-1} + CB^{-1}DA^{-1} = I
   \begin{enumerate}
     \item Докажите, что логарифмическая функция правдоподобия представима в виде
 \[
-     \ell(\theta) = a + (\theta - h(y))' Q (\theta - h(y)),
+     \ell(\theta) = a - \frac{1}{2}(\theta - h(y))' Q (\theta - h(y)),
   \]
 \item Явно найдите матрицу $Q$ и функцию $h(y)$;
 \item Выведите формулу для $LR$, $LM$ и теста Вальда для проверки гипотезы $H_0$: $\beta_1 = \beta_1^0$;
@@ -1285,8 +1327,11 @@ I - CB^{-1}DA^{-1} + CB^{-1}DA^{-1} = I
 \item Как найденная формула упрощается для случая проверки гипотезы о незначимости регрессии в целом?
   \end{enumerate}
 
-  \begin{sol}
-  \end{sol}
+\begin{sol}
+\begin{enumerate}
+\item[2.] $Q = \frac{1}{\sigma^2} X^T X$, $h(y) = (X^T X)^{-1} X^T y$
+\end{enumerate}
+\end{sol}
 \end{problem}
 
 
@@ -1348,9 +1393,14 @@ I - CB^{-1}DA^{-1} + CB^{-1}DA^{-1} = I
   \]
   \end{enumerate}
 
-  \begin{sol}
-
-  \end{sol}
+\begin{sol}
+\begin{enumerate}
+\item $\hb_{OLS} = 11/9$
+\item $se(\hb) = \sqrt{5/162}$
+\item $se_{HC0}(\hb) = \sqrt{168}/81$, $se_{HC3}(\hb) = \sqrt{2649}/180$
+\item $\hb = 7/6$
+\end{enumerate}
+\end{sol}
 \end{problem}
 
 
