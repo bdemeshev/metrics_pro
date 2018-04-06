@@ -1790,8 +1790,48 @@ $z = \frac{\hb_2}{se(\hb_2)}=\frac{3}{0.3}=10$, $H_0$ отвергается.
 \end{problem}
 
 
+\begin{problem}
+  Исследователь Матвей оценил логит-модель по 10 тысячам наблюдений. $\hat\P(y_i = 1) = F(-0.5 + 1.2 x_i)$. Переменная $x_i$ — бинарная, 4 тысячи единиц и 6 тысяч нулей.
+
+\begin{enumerate}
+  \item Сколько наблюдений с $y_i = 1$? 
+  \item Сколько наблюдений с $y_i = 1$ и $x_i = 0$?
+  \item Сколько наблюдений с $y_i = 0$ и $x_i = 1$?
+\end{enumerate}
+\begin{sol}
+\end{sol}
+\end{problem}
 
 
+\section{Эндогенность}
+
+
+\begin{problem}
+Величины $x_i$, $z_i$ и $u_i$ имеют совместное распределение, задаваемое табличкой:
+
+\begin{tabular}{ccccc}
+  \toprule
+  $x_i$ & 0 & 1 & 0 & 1 \\
+  $z_i$ & 0 & 1 & 0 & 0 \\
+  $u_i$ & -1 & -1 & 1 & 1 \\
+  \midrule 
+  Вероятность & 0.2 & 0.3 & 0.3 & 0.2 \\
+  \bottomrule
+\end{tabular}
+
+Рассмотрим модель $y_i = \beta x_i + u_i$.
+
+\begin{enumerate}
+  \item Найдите $\plim \hb_{OLS}$;
+  \item Найдите $\plim \hb_{IV}$, если в качестве инструмента для $x_i$ используется $z_i$;
+\end{enumerate}
+
+\begin{sol}
+\end{sol}
+\end{problem}
+
+
+\section{Большая сила о-малых}
 
 \Closesolutionfile{solution_file}
 
