@@ -3,7 +3,7 @@
 # .Rnw extension is automatically added
 file_name = metrics_pro
 
-$(file_name).pdf: $(file_name).tex
+$(file_name).pdf: $(file_name).tex $(file_name).bib
 	# protection against biber error
 	# http://tex.stackexchange.com/questions/140814/
 	rm -rf `biber --cache`

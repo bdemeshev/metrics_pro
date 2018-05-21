@@ -11,7 +11,10 @@
 
 
 
-\usepackage[bibencoding = auto, backend = biber,
+\usepackage[bibencoding = auto, 
+style = alphabetic,
+backend = biber,
+citestyle = alphabetic,
 sorting = none]{biblatex}
 
 \addbibresource{metrics_pro.bib}
@@ -2088,6 +2091,38 @@ y_i = \beta_1 + \beta_2 green_i + u_i
 
 \begin{sol}
   Одинаково распределены: $y_1 \sim y_2 \sim y_3$, $x_1 \sim x_2 \sim x_3$. Независимы переменные с разными номерами.
+\end{sol}
+\end{problem}
+
+\section{GMM}
+
+Прочесть про обобщённый метод моментов можно, например, \cite{zsohar2010short}.
+
+\begin{problem}
+Исследователь Максимилиан оценивает параметр $\theta$ с помощью двух моментных условий, $\E(y_i)=2\theta$ и $\E(1/y_i)=\theta$.
+С трудом Максимилиан нашёл 200 наблюдений и оказалось, что $\sum 1/y_i = 1.5$.
+Сначала Максимилиан оценил $\theta$ с помощью простого метода моментов и первого моментного условия, получил $\hat\theta = 1$.
+        
+Затем Максимилиан решил применить обобщённый метод моментов, чтобы учесть оба момента. 
+В процессе получения GMM оценки Максимилиан обнаружил, что $\Cov(y_i, 1/y_i)=-\theta^2$, $\Var(1/y_i)=9\theta^2$, $\E(y_i^2)=20\theta^2$.
+
+\begin{enumerate}
+	\item Найдите ковариационную матрицу моментных условий, $\Var(g)$;
+	\item Найдите оптимальную теоретическую матрицу весов $W$;
+	\item Оцените матрицу весов $\hat W$;
+	\item Найдите оценку GMM с использованием найденной оценки матрицы весов;
+\end{enumerate}
+	
+
+\begin{sol}
+\[
+\Var(g)=\Var\left(
+\begin{pmatrix}
+y_i - 2\theta \\
+1/y_i - \theta\\
+\end{pmatrix}
+\right)
+\]
 \end{sol}
 \end{problem}
 
