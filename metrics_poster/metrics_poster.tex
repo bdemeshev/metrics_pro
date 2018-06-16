@@ -591,18 +591,18 @@ $H_a: \delta_1 \ne 0 \qquad \qquad \qquad$&$H_a: \delta_2 \ne 0$
 \underline{\textsc{\textit{Когда используется?}}}\textit{Для выбора между полулогарифмической и линейной моделями}\\
 %\textit{Шаг 1.}Оценить исходные регрессии и найти их RSS: \\ %
 %$$ y = \beta_1 + \beta_2x_1 + ... + \beta_kx_k +\epsilon \Longrightarrow RSS_1$$%
-%$$ ln(y) = \beta_1 + \beta_2x_1 + ... + \beta_kx_k +\epsilon \Longrightarrow RSS_2$$ %
+%$$ \ln(y) = \beta_1 + \beta_2x_1 + ... + \beta_kx_k +\epsilon \Longrightarrow RSS_2$$ %
 \textit{Шаг 1.} \[y_{mg} = (\prod\limits_{i=1}^ny_i)^{1/n}\]
 \textit{Шаг 2.} \[y_i* = \frac{y_i}{y_{mg}}\]
 \textit{Шаг 3.} Оценить новые регрессии: \\
 \[y_i^* = \beta_1 + \beta_2x_{i2} + ... + \beta_{k}x_{ik} +\varepsilon_i\]
-\[ln(y_i^*) = \beta_1 + \beta_2x_{i2} + ... + \beta_{k}x_{ik} +\varepsilon_i\]
+\[\ln(y_i^*) = \beta_1 + \beta_2x_{i2} + ... + \beta_{k}x_{ik} +\varepsilon_i\]
 И получить $RSS_1$ и $RSS_2$ соответственно.\\
 \textit{Шаг 4.} Проверить гипотезу:
 $$H_0: \text{между двумя моделями нет статистической разницы}$$
 $$H_a: \text{между моделями есть статистическая разница} $$
 Статистика рассчитывается как:
-\[\chi^2 = \frac{n}{2}|ln\frac{RSS_1}{RSS_2}| \sim \chi^2_1\]
+\[\chi^2 = \frac{n}{2}|\ln\frac{RSS_1}{RSS_2}| \sim \chi^2_1\]
 При $\chi^2 > \chi^2_{cr}$ гипотеза $H_0$ отвергается. Тогда из двух построенных моделей следует выбрать ту, для которой $RSS$ будет меньше.
 \end{itemize}
 
@@ -826,7 +826,7 @@ R-регрессия: $\sum\limits_{i=1}^n{\rho\{\frac{e_i}{\sigma}\}} \rightarr
 $$L(x_1, ..., x_n|\theta) = P(X_1=x_1, ..., X_n=x_n|\theta) \rightarrow \underset{\theta}{max},$$
 где $\theta$ -- вектор оцениваемых параметров.\\
 Однако на практике чаще ищут максимум логарифмической функции правдоподобия:
-$$l(x_1, ..., x_n|\theta) = lnL(x_1, ..., x_n|\theta)$$
+$$l(x_1, ..., x_n|\theta) = \ln L(x_1, ..., x_n|\theta)$$
 Для случая непрерывных величин $X_1, ..., X_n$ в качестве функции правдоподобия выбирается плотность их совместного распределения в точке $x_1, ..., x_n$:
 $$L(x_1, ..., x_n|\theta) = f(x_1, ..., x_n|\theta)$$
 \subsection*{8.1 Свойства ML-оценок}
@@ -924,7 +924,7 @@ $L(\beta)=\underset{y_i=1}{\prod}F(\beta_1+\beta_2x_{i2}+...+\beta_kx_{ik})\unde
 = \prod\limits_{i=1}^{n}(F(\beta_1 + \beta_2x_{i2} + ... + \beta_kx_{ik}))^{y_i} (1 - F(\beta_1 + \beta_2x_{i2} + ... + \beta_kx_{ik})) ^ {1-y_i}$\\
 \\
 Логарифмическая функция правдоподобия:\\
-$l(\beta) = lnL(\beta) = \sum\limits_{i=1}^n [y_i lnF(\beta_1 + \beta_2x_{i2} + ... + \beta_kx_{ik}) + (1 - y_i) ln(1 - F(\beta_1 + \\
+$l(\beta) = \ln L(\beta) = \sum\limits_{i=1}^n [y_i \ln F(\beta_1 + \beta_2x_{i2} + ... + \beta_kx_{ik}) + (1 - y_i) \ln(1 - F(\beta_1 + \\
 + \beta_2x_{i2} + ... + \beta_kx_{ik}))]$\\
 \\
 Если $F(z) = \Lambda(z) = \frac{1}{1 + e^{-z}}$, то для логит-моделей можно вывести следующую формулу:
@@ -1286,8 +1286,8 @@ $$t=1,...,T; \quad \varepsilon_t \sim WN(0, \sigma^2)$$
 \end{tcolorbox}
 
 \underline{\textit{Как выбрать оптимальное число лагов?}} Можно использовать информационные критерии Акаике (AIC) и Шварца (BIC):
-$$AIC(p,q) = ln\hat{\sigma}^2+2\frac{p+q+1}{T} \longrightarrow \min\limits_{p,q}$$
-$$BIC(p,q) = ln\hat{\sigma}^2 +\frac{p+q+1}{T}lnT \longrightarrow \min\limits_{p,q}$$
+$$AIC(p,q) = \ln\hat{\sigma}^2+2\frac{p+q+1}{T} \longrightarrow \min\limits_{p,q}$$
+$$BIC(p,q) = \ln\hat{\sigma}^2 +\frac{p+q+1}{T}\ln T \longrightarrow \min\limits_{p,q}$$
 \\
 Также можно провести тесты Льюнг - Бокса и Бокса - Пирса.\\ Оба проверяют следующую гипотезу:
 $$H_0: \text{процесс - } WN(0,\sigma^2)$$
