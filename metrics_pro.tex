@@ -326,10 +326,10 @@ RSS =  \sum\limits_{i=1}^{n}(y_i - x_i - \hb_2(z_i-x_i))^2 \rightarrow \min_{\hb
 
 Вовочка попробовал оценить 4 регрессии:
 \begin{enumerate}
-\item[A:] $y$ на константу и $f$;
-\item[B:] $y$ на константу и $m$;
-\item[C:] $y$ на $f$ и $m$ без константы;
-\item[D:] $y$ на константу, $f$ и $m$.
+\item[A:] $y$ на константу и $f$, $\hy_i = \hat \alpha_1 + \hat \alpha_2 f_i$;
+\item[B:] $y$ на константу и $m$, $\hy_i = \hb_1 + \hb_2 m_i$;
+\item[C:] $y$ на $f$ и $m$ без константы, $\hy_i = \hat \gamma_1 f_i + \hat \gamma_2 m_i$;
+\item[D:] $y$ на константу, $f$ и $m$, $\hy_i = \hat \delta_1 + \hat \delta_2 f_i + \hat \delta_3 m_i$;
 \end{enumerate}
 
 \begin{enumerate}
