@@ -667,6 +667,23 @@ y_n \\
 \end{enumerate}
 
 \begin{sol}
+\[
+\begin{cases}
+\hb_1 \sum z_i^2 + \hb_2 \sum x_i z_i = \sum z_i y_ i \\
+\hb_1 \sum x_i z_i + \hb_2 \sum x_i^2 = \sum x_i y_ i \\
+\end{cases}
+\]
+
+\[
+\begin{cases}
+\hb_1 n + \hb_2 \sum x_i = \sum y_ i \\
+\hb_1 \sum x_i + \hb_2 \sum x_i^2 = \sum x_i y_ i \\
+\end{cases}
+\]
+
+\[
+X'X\hb = X'y
+\]
 
 \end{sol}
 \end{problem}
@@ -805,11 +822,37 @@ $\sCov(\hy, y)=\sqrt{ESS^2/(n-1)^2}=ESS/(n-1)$
     \item В какой пропорции соотносятся выборочные дисперсии $x$, $y$ и $z$?
 \end{enumerate}
 \begin{sol}
+Для удобства центрируем мысленно все переменные. Это не меняет ни корреляций,
+ни выборочных дисперсий, ни угловых коэффициентов в регрессиях.
+В регрессиях при этом оценка коэффициента при константе превращается в ноль, но какое нам до неё дело? :)
+Зато при нулевом среднем выборочные корреляции превратились в косинус угла между векторами:
+\[
+\sCorr(x,y) = \frac{\sum x_i y_i}{ \sqrt{\sum x_i^2 \sum y_i^2}} = \cos(x, y)
+\]
+И при нулевом среднем выборочная дисперсия — это длина вектора с точностью до умножения на $(n-1)$:
+\[
+\sVar(x) = \frac{\sum x_i^2}{n-1} = \frac{||x||^2}{n-1}
+\]
+
+Начать можно с геометрического смысла оценок МНК:
+
+\[
+\begin{cases}
+1.4 = \frac{||y||}{||x||}\cos(x, y) \\
+0.6 = \frac{||x||}{||y||}\cos(x, y) \\
+\end{cases}
+\]
+
+Отсюда находим $||y||/||x|| = \hat{\sigma}_y / \hat{\sigma}_x$ и $\cos(x,y)=\sCorr(x,y)$.
+
+Дальше номер решается, например, по теореме косинусов.
+
 \begin{enumerate}
-\item $\sCorr(x,y) = \sqrt{0.84}$, $\sCorr(y,z) = \frac{7}{10}\sqrt{\frac{35}{29}}$, $\sCorr(x,z) = \frac{9}{10}\sqrt{\frac{5}{87}}$
+\item $\sCorr(x,y) = \sqrt{0.84}$, $\sCorr(y,z) = \frac{\sqrt{70}}{10}$,
+$\sCorr(x,z) = -\frac{\sqrt{30}}{10}$
 \item $\frac{\hat{\sigma}_x}{\hat{\sigma}_y} = \sqrt{\frac{0.6}{1.4}}$,
-$\frac{\hat{\sigma}_z}{\hat{\sigma}_y} = \sqrt{\frac{29}{35}}$,
-$\frac{\hat{\sigma}_x}{\hat{\sigma}_z} = \sqrt{\frac{15}{29}}$
+$\frac{\hat{\sigma}_z}{\hat{\sigma}_y} = \sqrt{\frac{8}{35}}$,
+$\frac{\hat{\sigma}_x}{\hat{\sigma}_z} = \sqrt{\frac{8}{29}}$
 \end{enumerate}
 \end{sol}
 \end{problem}
