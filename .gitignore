@@ -1,8 +1,8 @@
-metrics_pro.bbl
+*.bbl
+*.xdv
+*.log
+*.idx
+*.toc
 metrics_pro.run.xml
 all_solutions.tex
-.DS_Store
-
-.DS_Store
-.DS_Store
 .DS_Store
