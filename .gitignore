@@ -3,6 +3,11 @@
 *.log
 *.idx
 *.toc
+*.aux
+*.bcf
+*.fls
+*.out
+*.synctex.gz
 metrics_pro.run.xml
 all_solutions.tex
 .DS_Store
