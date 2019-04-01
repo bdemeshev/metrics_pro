@@ -2381,6 +2381,13 @@ y_i = \beta_1 + \beta_2 green_i + u_i
 \end{enumerate}
 
 \begin{sol}
+
+$\plim \hat \theta_2 = \frac{\gamma}{\alpha (1-\alpha)}$
+
+Заметим, что $\Cov(green_i, green_i^*) = 0$, так как $green_i$ — это результат подбрасывания монетки, $green_i^*$ определяется характеристиками студента.
+
+Ожидание такое же, хотя считается по-другому, $\E(\hat \theta_2) = \frac{\gamma}{\alpha (1-\alpha)}$.
+
 \end{sol}
 \end{problem}
 
@@ -2561,10 +2568,33 @@ W = \begin{pmatrix}
 \end{problem}
 
 
+\section{Панельки}
 
+Хорошо изложена теория у Kurt Schmidtheiny, \url{https://www.schmidheiny.name/teaching/shortguides.htm}.
+
+\begin{problem}
+Рассмотрим FE-модель $y_{it} = \alpha + \beta x_{it} + \gamma z_i + c_i + u_{it}$.
+
+Есть всего два момента времени, $t=1$ и $t=2$. Визина использует within-оценку $\hat \beta_{W}$,
+а Федя — оценку в первых разностях, $\hat \beta_{FD}$.
+
+\begin{enumerate}
+\item Как связаны между собой оценки $\hat \beta_W$ и $\hat \beta_{FD}$?
+\item Как связаны между собой $RSS_W$ и $RSS_{FD}$?
+\item Являются ли оценки $\hat\beta_W$ и $\hat\beta_{FD}$ состоятельными?
+\item Как построить 95\%-ый доверительный интервал с помощью $\hat\beta_{FD}$ и $\hat\beta_W$ для $\beta$?
+\end{enumerate}
+
+
+\begin{sol}
+$\hat\beta_W = \hat\beta_{FD}$, $RSS_W = 2RSS_{FD}$, обе оценки состоятельны.
+\end{sol}
+\end{problem}
 
 
 \section{Большая сила о-малых}
+
+Тут бы хорошо про $o_P$.
 
 \Closesolutionfile{solution_file}
 
