@@ -12,3 +12,5 @@ metrics_pro.run.xml
 all_solutions.tex
 .DS_Store
 metrics_pro-cache.yaml
+metrics_pro.fdb_latexmk
+metrics_pro.blg
