@@ -1001,10 +1001,12 @@ $n\bar y^2/\sigma^2$, $TSS/\sigma^2$, $RSS/\sigma^2$, $ESS/\sigma^2$?
 Исследовательница Мишель собрала данные по 20 студентам. 
 Переменная $y_i$ — количество решённых задач по эконометрике $i$-ым студентом, 
 а $x_i$ — количество просмотренных серий любимого сериала за прошедший год. 
-Оказалось, что $\sum y_i = $, $\sum x_i = $, $\sum x_i^2 = $, $\sum y_i^2 = $, $\sum x_i y_i = $.
+Оказалось, что $\sum y_i = 10$, $\sum x_i = 0$, $\sum x_i^2 = 40$, $\sum y_i^2 = 50$, $\sum x_i y_i = 60$.
 
 \begin{enumerate}
-\item
+\item Найдите МНК оценки коэффициентов парной регрессии.
+
+\item В рамках предположения $\E(u_i|X) = 0$ найдите $\E(y_i|X)$, $\E(\hb_j|X)$, $\E(\hat u_i|X)$, $\E(\hat y_i|X)$.
 
 \item Предположим дополнительно, что $\Var(u_i|X)=\sigma^2$ и $u_i$ при фиксированных $X$ независимы. Найдите $\Var(y_i|X)$, $\Var(y_i (x_i - \bar x)|X)$, $\Var(\sum y_i (x_i - \bar x)|X)$, $\Var(\hb_2 | X)$.
 
@@ -1013,6 +1015,16 @@ $n\bar y^2/\sigma^2$, $TSS/\sigma^2$, $RSS/\sigma^2$, $ESS/\sigma^2$?
 \begin{sol}
 \end{sol}
 \end{problem}
+
+\begin{problem}
+Рассмотрим классическую линейную модель $y=X\beta + u$ с предпосылками Гаусса-Маркова: $\E(u|X) = 0$, $\Var(u|X) = \sigma^2 I$.
+
+Для всех случайных векторов ($y$, $\hy$, $\hb$, $u$, $\hat u$, $\bar y$) найдите $\E(\cdot)$, $\Var(\cdot)$, $\Cov(\cdot, \cdot)$.
+
+\begin{sol}
+\end{sol}
+\end{problem}
+
 
 
 \begin{problem}
