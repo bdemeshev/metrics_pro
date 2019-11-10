@@ -3,12 +3,9 @@
 % If you can't see cyrillic letters in R-studio choose
 % File-Reopen with encoding
 % utf8 is the preferred encoding
-
+ 
 
 \input{title_bor_utf8_knitr}
-\input{emetrix_preamble}
-
-
 
 
 \usepackage[bibencoding = auto,
@@ -19,9 +16,6 @@ sorting = none]{biblatex}
 
 \addbibresource{metrics_pro.bib}
 
-\def \RR{\mathbb{R}}
-\def \cN{\mathcal{N}}
-\def \htheta{\hat{\theta}}
 
 \title{Заметки к семинарам по эконометрике}
 \author{Винни-Пух}
@@ -34,6 +28,28 @@ sorting = none]{biblatex}
 \setlength{\parsep}{0pt}
 
 
+\def \useR{$[$R$]$ }
+
+%% эконометрические сокращения
+\def \hb{\hat{\beta}}
+\def \hs{\hat{s}}
+\def \hy{\hat{y}}
+\def \hY{\hat{Y}}
+\def \he{\hat{\varepsilon}}
+\def \v1{\vec{1}}
+\def \e{\varepsilon}
+\def \z{z}
+\def \hVar{\widehat{\Var}}
+\def \hCorr{\widehat{\Corr}}
+\def \hCov{\widehat{\Cov}}
+\DeclareMathOperator{\Lin}{Lin}
+\DeclareMathOperator{\Linp}{Lin^{\perp}}
+
+\def \RR{\mathbb{R}}
+\def \cN{\mathcal{N}}
+\def \htheta{\hat{\theta}}
+
+\renewcommand{\L}{\mathrm{L}} %% лаг
 \DeclareMathOperator{\Med}{Med}
 
 
