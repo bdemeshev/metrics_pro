@@ -574,7 +574,7 @@ $6$ & ? \\
 \item $A(dR)B$
 \item $2r'dr$
 \item $r'(A'+A)dr$
-\item $R^{-1}\cdot dR \cdot R^{-1}$
+\item $-R^{-1}\cdot dR \cdot R^{-1}$
 \item $-\sin(r'r)\cdot 2r'dr$
 \item $\frac{r'(A'+A)dr \cdot r'r - r'Ar2r'dr}{(r'r)^2}$
 \end{enumerate}
@@ -619,9 +619,9 @@ Q(\hb) = (y - X\hb)'(y - X\hb) + \lambda \hb' \hb,
 
 \begin{sol}
 \begin{enumerate}
-\item $dQ(\hb) = -2((y-X\hb)^T X + \lambda \hb^T) d\hb$, $d^2Q(\hb)=2d\hb^T(X^T X - \lambda I) d\hb$
+\item $dQ(\hb) = -2(y-X\hb)^T X d\hb + 2\lambda \hb^T d\hb$, $d^2Q(\hb)=2d\hb^T(X^T X + \lambda I) d\hb$
 \item $dQ(\hb) = 0$
-\item $\hb = (X^T X - \lambda I)^{-1} X^T y$
+\item $\hb = (X^T X + \lambda I)^{-1} X^T y$
 \end{enumerate}
 \end{sol}
 \end{problem}
