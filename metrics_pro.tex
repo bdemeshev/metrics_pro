@@ -7,6 +7,12 @@
 
 \input{title_bor_utf8_knitr}
 
+% this magick is to solve problem that appeared after update of texlive 2018 to texlive 2020
+% https://tex.stackexchange.com/questions/511341/the-error-occurred-after-the-last-update
+\makeatletter
+\def\nobreak{\penalty\@M}
+\makeatother
+
 
 \usepackage[bibencoding = auto,
 style = alphabetic,
@@ -2358,6 +2364,11 @@ $(1-p)$ — не ядовитым. Вес ядовитых покемонов р
 \end{enumerate}
 
 \begin{sol}
+\begin{enumerate}
+  \item $\plim \hb_2^{LS} = \beta_2 - 1/5$
+  \item $\plim \hb_2^{IV} = \beta_2$
+  \item 
+\end{enumerate}  
 \end{sol}
 \end{problem}
 
@@ -2450,21 +2461,29 @@ y_{t2} = \beta_{21} + \beta_{22} z_t + \beta_{23} y_{t1} + \e_{t2}
 \begin{problem}
   Эконометресса Венера оценивает регрессию
   \[
-    y_i = \beta_1 + \beta_2 x_i + u_i,
+    \hy_i = \hb_1 + \hb_2 x_i. 
   \]
 
-  А на самом деле $y_i = \beta_1 + \beta_2 x_i + \beta_3 x_i^3 + w_i$, причём $x_i \sim \cN (0; 1)$ и ошибки $w_i \sim \cN(0; \sigma^2)$. Все остальные предпосылки теоремы Гаусса-Маркова выполнены.
+  А на самом деле $y_i = \beta_1 + \beta_2 x_i + \beta_3 x_i^3 + u_i$, причём $x_i \sim \cN (0; 1)$ и ошибки $u_i|x_i \sim \cN(0; \sigma^2)$. 
+  Все остальные предпосылки теоремы Гаусса-Маркова выполнены.
 
   \begin{enumerate}
      \item Будут ли оценки $\hb_1$ и $\hb_2$, получаемые Венерой, состоятельными?
-    \item Будут ли оценки $\hb_1$ и $\hb_2$, получаемые Венерой, несмещёнными?
+    \item В чём состоит трудность проверки несмещённости оценок?
     \item Будут ли состоятельны оценки МНК, если в качестве инструмента Венера возьмёт $z_i = \sin x_i$?
     А $z_i = \cos x_i$?
     \item Как изменятся ответы на предыдущие пункты, если истина имеет вид  $y_i = \beta_1 + \beta_2 x_i + \beta_3 x_i^2 + w_i$?
   \end{enumerate}
 
 \begin{sol}
-  Оценки будут несмещёнными и состоятельными. Вызвано это тем, что $u_i = \beta_3 x_i^2 + w_i$ некоррелировано с $x_i$.
+  Для $y_i = \beta_1 + \beta_2 x_i + \beta_3 x_i^3 + w_i$.
+  Оценка $\hb_2$ несостоятельна, $\plim \hb_2 = \beta_2 + 3\beta_3$, а $\hb_1$ состоятельная.
+
+  Трудность проверки несмещённости состоит в зависимости числителя и знаменателя в
+  формуле условного ожидания.
+
+  Для $y_i = \beta_1 + \beta_2 x_i + \beta_3 x_i^2 + w_i$.
+  Обе оценки будут состоятельными. Вызвано это тем, что $u_i = \beta_3 x_i^2 + w_i$ некоррелировано с $x_i$.
 \end{sol}
 \end{problem}
 
