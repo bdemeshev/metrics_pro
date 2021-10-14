@@ -23,8 +23,8 @@ sorting = none]{biblatex}
 \addbibresource{metrics_pro.bib}
 
 
-\title{Заметки к семинарам по эконометрике}
-\author{Винни-Пух}
+\title{Заметки к семинарам по метрике}
+\author{\url{https://github.com/bdemeshev/metrics_pro}}
 \date{\today}
 
 
@@ -99,13 +99,33 @@ sorting = none]{biblatex}
 
 
 
+\setcounter{tocdepth}{1} % в оглавление оставляем уровень 1
+
+%\usepackage[titles]{tocloft}
+\usepackage{tocbasic}
+\DeclareTOCStyleEntry[
+  beforeskip=.1em plus 1pt,% default is 1em plus 1pt
+  linefill=\bfseries\TOCLineLeaderFill,% точечки
+  pagenumberformat=\textbf
+]{tocline}{section}
+
+
 \begin{document}
+
+
+\maketitle
+
+% сюда поставим прикольную картинку
+
+\newpage
+
+\tableofcontents{}
+
 
 % \maketitle % ставим сюда название, автора и время создания
 
-\tableofcontents
 
-
+\newpage
 \section{МНК — это\ldots}
 
 Минитеория:
@@ -1493,8 +1513,124 @@ I - CB^{-1}DA^{-1} + CB^{-1}DA^{-1} = I
 \end{sol}
 \end{problem}
 
+\begin{problem}
+Матрица регрессоров $X$ состоит из двух блоков, $X=
+\begin{pmatrix}
+  L & R
+\end{pmatrix}$.
+
+\begin{enumerate}
+  \item Из каких блоков состоит матрица $X'X$?
+  \item Из каких блоков состоит матрица $(X'X)^{-1}$?
+\end{enumerate}
+
+\begin{sol}
+\end{sol}
+
+\end{problem}
 
 
+\section{Приятно-следственные связи, CUPED}
+
+
+\begin{problem}
+Предположим, что $w_i$ не зависим с гипотетическими значениями $y_i(0)$
+и $y_i(1)$.
+
+Верно ли, что $ATE = \E(y_i(1)  - y_i(0))$ можно записать как 
+$\E(y_i \mid w_i = 1) - \E(y_i \mid w_i = 0)$?
+
+\begin{sol}
+
+\[  
+  \E(y_i(1)  - y_i(0)) = \E(y_i \mid w_i = 1) - \E(y_i \mid w_i = 0)
+\]
+
+\end{sol}
+
+\end{problem}
+
+
+\begin{problem}
+  Предположим, что $y_i = \beta_1 + \delta w_i + \beta_2 x_i + \beta_3 x_i^2 + u_i$,
+  выполнены классические предпосылки на $u_i$: $\E(u_i \mid X) = 0$,
+  $\Var(u_i \mid X) = \sigma^2$, $\Cov(u_i, u_j \mid X) = 0$.
+  Наблюдения представляют собой случайную выборку, четвёртые моменты 
+  всех упомянутых случайных величин конечны. 
+
+  Здесь $w_i \in \{0, 1\}$ — индикатор того, что индивид получил воздействие 
+  в рамках рандомизированного эксперимента, $x_i$ — характеристика индивида,
+ а $y_i$ — интересующая переменная. 
+
+ \begin{enumerate}
+  \item Чему равны $\Cov(w_i, x_i \mid X)$ и $\Cov(w_i, u_i \mid X)$,
+  если рандомизированные эксперимент корректно проведён?
+   \item Агнесса использует простую регрессию $\hat y_i = \hat alpha + \hat \delta_a w_i$.
+   Верно ли, что оценка Агнессы $\hat \delta_a$ будет несмещённой и состоятельной?
+   \item Бриджит использует разницу средних 
+   \[
+     \hat \delta_b = \frac{\sum_{w_i = 1}y_i}{n_1} - \frac{\sum_{w_i = 1}y_i}{n_0}.
+  \]
+  Верно ли, что оценка Бриджит $\hat \delta_b$ будет несмещённой и состоятельной?
+\item Василиса использует множественную регрессию 
+\[
+  \hat y_i = \hat alpha + \hat \delta_c w_i + \hat \gamma x_i.
+\]
+Верно ли, что оценка Василисы $\hat \delta_c$ будет несмещённой и состоятельной?
+\end{enumerate}
+
+
+\begin{sol}
+
+\end{sol}
+
+
+
+
+\end{problem}
+
+\begin{problem}
+Предположим, что $y_i = \beta_1 + \delta w_i + \beta_2 x_i + \beta_3 x_i^2 + u_i$,
+ выполнены классические предпосылки на $u_i$: $\E(u_i \mid X) = 0$,
+ $\Var(u_i \mid X) = \sigma^2$, $\Cov(u_i, u_j \mid X) = 0$.
+ Наблюдения представляют собой случайную выборку, четвёртые моменты 
+ всех упомянутых случайных величин конечны. 
+
+ Здесь $w_i \in \{0, 1\}$ — индикатор того, что индивид получил воздействие 
+ в рамках рандомизированного эксперимента, $x_i$ — характеристика индивида,
+а $y_i$ — интересующая переменная. 
+  
+Василиса использует множественную регрессию 
+\[
+  \hat y_i = \hat \alpha + \hat \delta_c w_i + \hat \gamma x_i.
+\]
+
+Галатея использует CUPED. Для этого на первом шаге она оценивает 
+множественную регрессию Василисы.
+Затем Галатея создаёт новую переменную, очищая зависимую переменную $y_i$ 
+от эффекта $x_i$, $r_i =  y_i - \hat \gamma x_i$.
+
+На втором шаге Галатея оценивает парную регрессию $\hat r_i = \hat \mu + \hat \delta_d w_i$.
+
+\begin{enumerate}
+  \item Верно ли, что оценки $\hat \mu$ и $\hat \alpha$ совпадают?
+  \item Верно ли, что оценки $\hat \delta_c$ и $\hat \delta_d$ совпадают?
+  \item Верно ли, что совпадают суммы квадратов остатков в двух регрессиях Галатеи?
+  \item Верно ли, что совпадают классические стандартные ошибки $se(\hat\delta_c)$
+  и $se(\hat\delta_d)$?
+\end{enumerate}
+
+  \begin{sol}
+  \begin{enumerate}
+\item $\hat \mu = \hat \alpha$
+\item $\hat \delta_c = \hat \delta_d$ 
+\item $RSS_1 = RSS_2$
+\item $se(\hat\delta_c) \neq se(\hat\delta_d)$
+\end{enumerate}
+  
+  \end{sol}
+  
+\end{problem}
 
 
 
