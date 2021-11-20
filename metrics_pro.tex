@@ -111,6 +111,12 @@
 
 
 \usepackage{minted}
+% \usepackage{listings}
+% \lstset{
+%  basicstyle=\ttfamily,
+%  columns=fullflexible,
+%  keepspaces=true,
+% }
 
 
 \setmainlanguage{russian}
@@ -697,6 +703,7 @@ $6$ & ? \\
   Линии регрессий примерно равны $\hat y_i \approx 0.5 x_i$ и $\hat x_i \approx 0.5 y_i$, 
   что при выражении в обычных координатах даёт $y_i\approx 2 \hat x_i$. 
 
+  % \begin{lstlisting}[language=r]
   \begin{minted}{r}
     library(mvtnorm)
     library(tidyverse)
@@ -717,8 +724,10 @@ $6$ & ? \\
       geom_abline(slope = 1, intercept = 0, color = 'red') +
       geom_abline(slope = xy_slope, intercept = xy_int, color = 'blue')
   \end{minted}
+ %\end{lstlisting}
 
-  \includegraphics[scale=0.5]{figure/correlation_05.png}
+
+\includegraphics[scale=0.5]{figure/correlation_05.png}
 
 \end{sol}
 \end{problem}
