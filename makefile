@@ -10,14 +10,27 @@ $(file_name).pdf: $(file_name).tex $(file_name).bib
 
 	# create pdf
 	# will automatically run pdflatex/biber if necessary
-	latexmk -xelatex $(file_name).tex
+	# latexmk -xelatex -shell-escape $(file_name).tex
+	arara -v $(file_name).tex
 
 	# clean auxillary files
-	latexmk -c $(file_name).tex
+	# latexmk -c $(file_name).tex
 
 # $(file_name).tex : $(file_name).Rnw
 #	Rscript -e "library(knitr); knit('$(file_name).Rnw')"
 
 
 clean:
-	-rm $(file_name).pdf $(file_name).fls $(file_name).log $(file_name).out $(file_name).aux $(file_name).fdb_latexmk $(file_name)-concordance.tex
+	-rm $(file_name).pdf 
+	-rm $(file_name).fls 
+	-rm $(file_name).log 
+	-rm $(file_name).out 
+	-rm $(file_name).aux 
+	-rm $(file_name).fdb_latexmk 
+	-rm $(file_name)-concordance.tex
+	-rm $(file_name).bbl
+	-rm $(file_name).run.xml
+	-rm $(file_name).xdv
+	-rm all_solutions.tex
+
+

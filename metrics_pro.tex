@@ -1,11 +1,158 @@
+% arara: xelatex: {shell: yes}
+%% arara: biber
+%% arara: xelatex: {shell: yes}
+%% arara: xelatex: {shell: yes}
+
 \documentclass[11pt, a4paper]{article}
 
 % If you can't see cyrillic letters in R-studio choose
 % File-Reopen with encoding
 % utf8 is the preferred encoding
- 
 
-\input{title_bor_utf8_knitr}
+\usepackage{setspace}
+\setstretch{1}                          % Межстрочный интервал
+
+\flushbottom                            % Эта команда заставляет LaTeX чуть растягивать строки, чтобы получить идеально прямоугольную страницу
+\righthyphenmin=2                       % Разрешение переноса двух и более символов
+\widowpenalty=300                     % Небольшое наказание за вдовствующую строку (одна строка абзаца на этой странице, остальное --- на следующей)
+\clubpenalty=3000                     % Приличное наказание за сиротствующую строку (омерзительно висящая одинокая строка в начале страницы)
+\setlength{\parindent}{1.5em}           % Красная строка.
+%\captiondelim{. }
+\setlength{\topsep}{0pt}
+
+%\usepackage{showkeys} % показывать метки в готовом pdf
+
+\usepackage{etex} % расширение классического tex
+% в частности позволяет подгружать гораздо больше пакетов, чем мы и займёмся далее
+
+\usepackage{verbatim} % для многострочных комментариев
+\usepackage{makeidx} % для создания предметных указателей
+
+\usepackage{setspace}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathrsfs} % sudo yum install texlive-rsfs
+\usepackage{dsfont} % sudo yum install texlive-doublestroke
+\usepackage{array, multicol, multirow, bigstrut} % sudo yum install texlive-multirow
+\usepackage{indentfirst} % установка отступа в первом абзаце главы
+\usepackage{bm}
+\usepackage{bbm} % шрифт с двойными буквами
+
+\usepackage{dcolumn} % центрирование по разделителю для apsrtable
+
+% создание гиперссылок в pdf
+\usepackage[unicode, colorlinks=true, urlcolor=blue, hyperindex, breaklinks]{hyperref}
+
+% свешиваем пунктуацию
+% теперь знаки пунктуации могут вылезать за правую границу текста, при этом текст выглядит ровнее
+\usepackage{microtype}
+
+\usepackage{textcomp}  % Чтобы в формулах можно было русские буквы писать через \text{}
+
+% размер листа бумаги
+%\usepackage[paperwidth=145mm,paperheight=215mm,
+%height=182mm,width=113mm,top=20mm,includefoot]%{geometry}
+\usepackage[paper=a4paper, top=15mm, bottom=13.5mm, left=16.5mm, right=13.5mm, includefoot]{geometry}
+
+\usepackage{xcolor}
+
+
+\usepackage{float, longtable}
+\usepackage{soulutf8}
+
+\usepackage{enumitem} % дополнительные плюшки для списков
+%  например \begin{enumerate}[resume] позволяет продолжить нумерацию в новом списке
+
+\usepackage{mathtools}
+\usepackage{cancel,xspace} % sudo yum install texlive-cancel
+
+
+\usepackage{numprint} % sudo yum install texlive-numprint
+\npthousandsep{,}\npthousandthpartsep{}\npdecimalsign{.}
+
+
+\usepackage{subfigure} % для создания нескольких рисунков внутри одного
+
+\usepackage{tikz, pgfplots} % язык для рисования графики из latex'a
+\usepackage{tikz-3dplot} % для 3d графиков
+\usetikzlibrary{trees} % tikz-прибамбас для рисовки деревьев
+\usepackage{tikz-qtree} % альтернативный tikz-прибамбас для рисовки деревьев
+\usetikzlibrary{arrows} % tikz-прибамбас для рисовки стрелочек подлиннее
+
+\usepackage{todonotes} % для вставки в документ заметок о том, что осталось сделать
+% \todo{Здесь надо коэффициенты исправить}
+% \missingfigure{Здесь будет Последний день Помпеи}
+% \listoftodos --- печатает все поставленные \todo'шки
+
+
+% более красивые таблицы
+\usepackage{booktabs}
+% заповеди из докупентации:
+% 1. Не используйте вертикальные линни
+% 2. Не используйте двойные линии
+% 3. Единицы измерения - в шапку таблицы
+% 4. Не сокращайте .1 вместо 0.1
+% 5. Повторяющееся значение повторяйте, а не говорите "то же"
+
+
+
+
+\usepackage{fontspec} % что-то про шрифты?
+\usepackage{polyglossia} % русификация xelatex
+
+\setmainlanguage{russian}
+\setotherlanguages{english}
+
+% download "Linux Libertine" fonts:
+% http://www.linuxlibertine.org/index.php?id=91&L=1
+\setmainfont{Linux Libertine O} % or Helvetica, Arial, Cambria
+% why do we need \newfontfamily:
+% http://tex.stackexchange.com/questions/91507/
+\newfontfamily{\cyrillicfonttt}{Linux Libertine O}
+
+
+\emergencystretch=2em
+
+
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\VC}{VCdim}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\rk}{rank}
+
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\sCorr}{sCorr}
+\DeclareMathOperator{\sCov}{sCov}
+\DeclareMathOperator{\sVar}{sVar}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\E}{\mathbb E}
+
+\let\P\relax
+\DeclareMathOperator{\P}{\mathbb P}
+
+\DeclareMathOperator*{\plim}{plim}
+\DeclareMathOperator{\MSE}{MSE}
+
+
+
+
+\newcommand \R{\mathbb R}
+\newcommand \N{\mathbb N}
+\newcommand \Q{\mathbb Q}
+\newcommand \Z{\mathbb Z}
+
+% вместо горизонтальной делаем косую черточку в нестрогих неравенствах
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+
 
 
 \usepackage{minted}
@@ -44,7 +191,8 @@ sorting = none]{biblatex}
 \newcommand \hs{\hat{s}}
 \newcommand \hy{\hat{y}}
 \newcommand \hY{\hat{Y}}
-\newcommand \he{\hat{\varepsilon}}
+\newcommand \e{\varepsilon}
+\newcommand \he{\hat\e}
 \newcommand \vone{\vec{1}}
 \newcommand \z{z}
 \newcommand \hVar{\widehat{\Var}}
@@ -391,8 +539,8 @@ RSS =  \sum\limits_{i=1}^{n}(y_i - x_i - \hb_2(z_i-x_i))^2 \rightarrow \min_{\hb
 
 
 \begin{problem}
-Эконометрист Вовочка оценил методом наименьших квадратов модель 1, $y_i=\b_1+\b_2 x_i+\b_3 z_i+\e_i$,
-а затем модель 2, $y_i=\b_1+\b_2 x_i+\b_3 z_i+\b_4 w_i+\e$.
+Эконометрист Вовочка оценил методом наименьших квадратов модель 1, $y_i=\beta_1+\beta_2 x_i+\beta_3 z_i+\e_i$,
+а затем модель 2, $y_i=\beta_1+\beta_2 x_i+\beta_3 z_i+\beta_4 w_i+\e$.
 Сравните полученные $ESS$, $RSS$, $TSS$ и $R^2$.
 
 \begin{sol}
@@ -405,7 +553,6 @@ $RSS_2 \leq RSS_1$, $ESS_2 \geq ESS_1$.
 $R^2_2 \geq R^2_1$.
 \end{sol}
 \end{problem}
-
 
 \begin{problem}
 Что происходит с $TSS$, $RSS$, $ESS$, $R^2$ при добавлении нового наблюдения? Если величина может изменяться только в одну сторону, то докажите это. Если возможны и рост, и падение, то приведите пример.
@@ -1022,7 +1169,7 @@ $\frac{\hat{\sigma}_x^2}{\hat{\sigma}_z^2} = \frac{15}{8}$
 
 
 \begin{problem}
-Рассмотрим пространство $\RR^3$ и два подпространства в нём, $W = \left\{ (x_1, x_2, x_3) \mid x_1 + 2x_2 + x_3 =0 \right\}$ и $V = \Lin((1,2,3)^T)$.
+Рассмотрим пространство $\R^3$ и два подпространства в нём, $W = \left\{ (x_1, x_2, x_3) \mid x_1 + 2x_2 + x_3 =0 \right\}$ и $V = \Lin((1,2,3)^T)$.
 
 \begin{enumerate}
 \item Найдите $\dim V$, $\dim W$, $\dim V \cap W$, $\dim V^{\perp}$, $\dim W^{\perp}$.
@@ -1044,7 +1191,7 @@ $\dim V = 1$, $\dim W = 2$, $\dim V \cap W =0$, $\dim V^{\perp}=2$, $\dim W^{\pe
 
 
 \begin{problem}
-Рассмотрим пространство $\RR^n$, где $n>2$, и два подпространства в нём, $V = \Lin((1,1, \ldots, 1)^T)$
+Рассмотрим пространство $\R^n$, где $n>2$, и два подпространства в нём, $V = \Lin((1,1, \ldots, 1)^T)$
 и $W = \left\{ x \mid x_1 = x_2 + x_3  + \ldots + x_n \right\}$.
 
 \begin{enumerate}
@@ -1216,7 +1363,7 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
 
 \item $\Var(\beta_2-\beta_3)=0$
 
-\item $\corr(\hb_2,\hb_3)=\frac{\Cov(\hb_2,\hb_3)}{\sqrt{\Var(\hb_2)\Var(\hb_3)}}=\frac{-2}{\sqrt{4\cdot6}}=-\frac{\sqrt6}{6}$
+\item $\Corr(\hb_2,\hb_3)=\frac{\Cov(\hb_2,\hb_3)}{\sqrt{\Var(\hb_2)\Var(\hb_3)}}=\frac{-2}{\sqrt{4\cdot6}}=-\frac{\sqrt6}{6}$
 
 \item $\hCorr(\beta_2,\beta_3)=\frac{\hCov(\hb_2,\hb_3)}{\sqrt{\hVar(\hb_2)\hVar(\hb_3)}}=\frac{-\frac14}{\sqrt{\frac12\cdot\frac34}}=-\frac{\sqrt6}{6}$
 
@@ -2390,7 +2537,7 @@ loss(\beta_1, \beta_2) \approx 100 \ln 2 + 6 \beta_1 + 12 \beta_2 + \frac{1}{2}(
 \begin{problem}
 При оценке логит модели
 \(
-\P(y_i=1)=\Lambda(\b_1+\b_2 x_i)
+\P(y_i=1)=\Lambda(\beta_1+\beta_2 x_i)
 \)
 по 500 наблюдениям оказалось, что $\hb_1=0.7$ и $\hb_2=3$. 
 Оценка ковариационной матрицы коэффициентов имеет вид
