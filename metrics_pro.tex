@@ -19,6 +19,15 @@
 \setlength{\parindent}{1.5em}           % Красная строка.
 %\captiondelim{. }
 \setlength{\topsep}{0pt}
+\emergencystretch=2em
+
+% делаем короче интервал в списках
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+
+
+
 
 %\usepackage{showkeys} % показывать метки в готовом pdf
 
@@ -98,6 +107,11 @@
 
 \usepackage{fontspec} % что-то про шрифты?
 \usepackage{polyglossia} % русификация xelatex
+\usepackage{physics} % куча приятных сокращений
+
+
+\usepackage{minted}
+
 
 \setmainlanguage{russian}
 \setotherlanguages{english}
@@ -110,18 +124,7 @@
 \newfontfamily{\cyrillicfonttt}{Linux Libertine O}
 
 
-\emergencystretch=2em
-
-
-\DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\VC}{VCdim}
-\DeclareMathOperator{\card}{card}
-\DeclareMathOperator{\sign}{sign}
-\DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\rk}{rank}
-
-
-\DeclareMathOperator*{\argmin}{arg\,min}
 
 
 \DeclareMathOperator{\Corr}{Corr}
@@ -131,6 +134,15 @@
 \DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\E}{\mathbb E}
+\DeclareMathOperator{\hVar}{\widehat{\Var}}
+\DeclareMathOperator{\hCorr}{\widehat{\Corr}}
+\DeclareMathOperator{\hCov}{\widehat{\Cov}}
+\DeclareMathOperator{\Lin}{Lin}
+\DeclareMathOperator{\Linp}{Lin^{\perp}}
+\DeclareMathOperator{\Med}{Med}
+
+\let\L\relax
+\DeclareMathOperator{\L}{L} %% лаг
 
 \let\P\relax
 \DeclareMathOperator{\P}{\mathbb P}
@@ -138,13 +150,23 @@
 \DeclareMathOperator*{\plim}{plim}
 \DeclareMathOperator{\MSE}{MSE}
 
-
-
-
 \newcommand \R{\mathbb R}
 \newcommand \N{\mathbb N}
 \newcommand \Q{\mathbb Q}
 \newcommand \Z{\mathbb Z}
+
+\newcommand \hb{\hat{\beta}}
+\newcommand \hs{\hat{\sigma}}
+\newcommand \hy{\hat{y}}
+\newcommand \hY{\hat{Y}}
+\newcommand \htheta{\hat{\theta}}
+
+\newcommand \e{\varepsilon}
+\newcommand \he{\hat\e}
+\newcommand \vone{\vec{1}}
+
+\newcommand \cN{\mathcal{N}}
+
 
 % вместо горизонтальной делаем косую черточку в нестрогих неравенствах
 \renewcommand{\le}{\leqslant}
@@ -154,8 +176,6 @@
 
 
 
-
-\usepackage{minted}
 
 % this magick is to solve problem that appeared after update of texlive 2018 to texlive 2020
 % https://tex.stackexchange.com/questions/511341/the-error-occurred-after-the-last-update
@@ -177,35 +197,6 @@ sorting = none]{biblatex}
 \author{\url{https://github.com/bdemeshev/metrics_pro}}
 \date{\today}
 
-
-% делаем короче интервал в списках
-\setlength{\itemsep}{0pt}
-\setlength{\parskip}{0pt}
-\setlength{\parsep}{0pt}
-
-
-\newcommand \useR{$[$R$]$ }
-
-%% эконометрические сокращения
-\newcommand \hb{\hat{\beta}}
-\newcommand \hs{\hat{s}}
-\newcommand \hy{\hat{y}}
-\newcommand \hY{\hat{Y}}
-\newcommand \e{\varepsilon}
-\newcommand \he{\hat\e}
-\newcommand \vone{\vec{1}}
-\newcommand \z{z}
-\newcommand \hVar{\widehat{\Var}}
-\newcommand \hCorr{\widehat{\Corr}}
-\newcommand \hCov{\widehat{\Cov}}
-\DeclareMathOperator{\Lin}{Lin}
-\DeclareMathOperator{\Linp}{Lin^{\perp}}
-
-\newcommand \cN{\mathcal{N}}
-\newcommand \htheta{\hat{\theta}}
-
-\renewcommand{\L}{\mathrm{L}} %% лаг
-\DeclareMathOperator{\Med}{Med}
 
 
 \usepackage{answers} % дележка условий и ответов
