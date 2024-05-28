@@ -72,7 +72,7 @@
 \usepackage{enumitem} % дополнительные плюшки для списков
 %  например \begin{enumerate}[resume] позволяет продолжить нумерацию в новом списке
 
-\usepackage{mathtools}
+\usepackage{mathtools} % для \DeclarePairedDelimiter
 \usepackage{cancel,xspace} % sudo yum install texlive-cancel
 
 
@@ -108,7 +108,11 @@
 
 \usepackage{fontspec} % что-то про шрифты?
 \usepackage{polyglossia} % русификация xelatex
-\usepackage{physics} % куча приятных сокращений
+% \usepackage{physics} % куча приятных сокращений
+% не рекомендуют его использовать
+% https://tex.stackexchange.com/questions/471532/alternatives-to-the-physics-package
+\DeclarePairedDelimiter{\norm}\lVert\rVert
+\DeclareMathOperator{\tr}{trace}
 
 
 \usepackage{minted}
