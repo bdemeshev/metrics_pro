@@ -4,6 +4,7 @@
 %% arara: xelatex: {shell: yes}
 
 \documentclass[11pt, a4paper]{article}
+\usepackage{libertine}
 
 % If you can't see cyrillic letters in R-studio choose
 % File-Reopen with encoding
@@ -129,10 +130,10 @@
 
 % download "Linux Libertine" fonts:
 % http://www.linuxlibertine.org/index.php?id=91&L=1
-\setmainfont{Linux Libertine O} % or Helvetica, Arial, Cambria
+% \setmainfont{Linux Libertine O} % or Helvetica, Arial, Cambria
 % why do we need \newfontfamily:
 % http://tex.stackexchange.com/questions/91507/
-\newfontfamily{\cyrillicfonttt}{Linux Libertine O}
+% \newfontfamily{\cyrillicfonttt}{Linux Libertine O}
 
 
 \DeclareMathOperator{\rk}{rank}
@@ -334,12 +335,35 @@ $x_i$ & $y_i$ \\
 
 
 \begin{problem}
+Докажите формулы или приведите контр-пример:
+\begin{enumerate}
+\item $\sum_{i}(x_i - \bar x)^2 = \sum_i (x_i - \bar x) x_i$;
+\item $\sum_{i}(x_i - \bar x)(y_i - \bar y) = \sum_i (x_i - \bar x) y_i$;
+\item $\sum_{ij}(x_i - x_j)^2 = 2 \sum_i(x_i - \bar x)^2$;
+\item $\sum_{ij}(x_i - x_j)(y_i - y_j) = 2 \sum_i(x_i - \bar x)(y_i - \bar y)$;
+\item $\sum_{i}(x_i - \bar x)(y_i - \bar y) = \sum_i x_i  y_i$;
+\end{enumerate}
+
+\begin{sol}
+\begin{enumerate}
+\item верная формула
+\item верная формула
+\item верная формула
+\item верная формула
+\item нет, например, $n=1$, $x_1 = y_1 = 1$.
+\end{enumerate}
+\end{sol}
+\end{problem}
+  
+
+
+\begin{problem}
 Упростите выражения:
 \begin{enumerate}
-\item $n\bar x - \sum x_i$
-\item $\sum (x_i - \bar x)\bar x$
-\item $\sum (x_i - \bar x)\bar z$
-\item $\sum (x_i - \bar x)^2 + n \bar{x}^2$
+\item $n\bar x - \sum x_i$;
+\item $\sum (x_i - \bar x)\bar x$;
+\item $\sum (x_i - \bar x)\bar z$;
+\item $\sum (x_i - \bar x)^2 + n \bar{x}^2$.
 \end{enumerate}
 
 \begin{sol}
@@ -742,16 +766,36 @@ $6$ & ? \\
 Он нарисовал три точки на плоскости $(x, y)$ симметрично линии $x=y$ так, что
 выборочные средние $\bar x = \bar y = 0$, выборочные дисперсии равны $1$.
 А выборочная корреляция равна $0.5$.
+\begin{enumerate}
+\item Воспроизведите рисунок начинающего маэстро.
+\item Добавьте на рисунок линии парных регрессий $y$ от $x$ и $x$ от $y$. 
+\end{enumerate}
+\begin{sol}
+\end{sol}
+\end{problem}
+
+
+
+\begin{problem}
+Усердный муравей Виталий вместо того, чтобы построить одну регрессию по $n$ точкам,
+построил все возможные парные регрессии для каждой пары точек $(i, j)$.
+При этом Виталий получил множество оценок коэффициентов $\hb_{1ij}$ и $\hb_{2ij}$.
+
+Сами наблюдения не сохранились, однако для каждой пары точек помимо двух оценок также сохранился квадрат расстояния между ними по горизонтали
+$q_{ij} = (x_i - x_j)^2$.
+
+\begin{enumerate}
+  \item Помогите Виталию восстановить классическую мнк-оценку $\hb_2$.
+  \item Помогите Виталию восстановить классическую мнк-оценку $\hb_1$.
+\end{enumerate}
+\begin{sol}
   \begin{enumerate}
-    \item Воспроизведите рисунок начинающего маэстро.
-    \item Добавьте на рисунок линии парных регрессий $y$ от $x$ и $x$ от $y$. 
-  \end{enumerate}
-    \begin{sol}
-    \end{sol}
-  \end{problem}
+    \item $\hb_2 = \sum_{ij} w_{ij} \hb_{2ij}$, где веса считаются по формуле $w_{ij} = q_{ij} / \sum_{ij} q_{ij}$.
+    \item $\hb_1 = \sum_{ij} w_{ij} \hb_{1ij}$.
+  \end{enumerate}  
+\end{sol}
+\end{problem}
   
-
-
 
 
 
