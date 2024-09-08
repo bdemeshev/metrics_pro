@@ -1,5 +1,7 @@
 _minted-metrics_pro/
 
+*.pyg
+*.blg
 *.bbl
 *.xdv
 *.log
@@ -10,9 +12,9 @@ _minted-metrics_pro/
 *.fls
 *.out
 *.synctex.gz
-metrics_pro.run.xml
+*.run.xml
+*.fdb_latexmk
+
 all_solutions.tex
 .DS_Store
 metrics_pro-cache.yaml
-metrics_pro.fdb_latexmk
-metrics_pro.blg
