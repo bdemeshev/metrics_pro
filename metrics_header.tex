@@ -187,14 +187,13 @@
 
 \AddEnumerateCounter{\asbuk}{\russian@alph}{щ} % для списков с русскими буквами
 
-\begin{translationru}
+\trru{%
 \setlist[enumerate, 1]{label=\asbuk*),ref=\asbuk*} % списки уровня 1 будут буквами а) б) ...
-\end{translationru}
+}
 
-\begin{translationen}
+\tren{%
 \setlist[enumerate, 1]{label=\alph*),ref=\alph*} % списки уровня 1 будут буквами а) б) ...
-\end{translationen}
-    
+}    
 
 
 % this magick is to solve problem that appeared after update of texlive 2018 to texlive 2020
