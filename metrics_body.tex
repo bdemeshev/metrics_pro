@@ -12,10 +12,9 @@
 
 
 \newpage
+\section{\trru{МНК — это\ldots} \tren{OLS is\dots}}
 
-\begin{translation-ru}
-\section{МНК — это\ldots}
-
+\begin{translationru}
 \begin{leftbar}
 Истинная модель. Например, $y_i = \beta_1 + \beta_2 x_i + \beta_3 z_i + u_i$.
 
@@ -23,11 +22,9 @@
 
 Метод наименьших квадратов, $\sum (y_i - \hy_i)^2 \to \min$.  
 \end{leftbar}  
-\end{translation-ru}
+\end{translationru}
 
-\begin{translation-en}
-\section{OLS is\ldots}
-
+\begin{translationen}
 \begin{leftbar}
 True model. For example, $y_i = \beta_1 + \beta_2 x_i + \beta_3 z_i + u_i$.
 
@@ -35,12 +32,12 @@ Forecasting formula. For example, $\hy_i = \hb_1 + \hb_2 x_i + \hb_3 z_i$.
 
 Ordinary least squares, $\sum (y_i - \hy_i)^2 \to \min$.  
 \end{leftbar}  
-\end{translation-en}
+\end{translationen}
   
 
 
 \begin{problem}
-\begin{translation-ru}
+\begin{translationru}
 Каждый день Маша ест конфеты и решает задачи по эконометрике. Пусть $x_i$ — количество решённых задач, а $y_i$ — количество съеденных конфет.
 
 \begin{tabular}{cc}
@@ -67,9 +64,9 @@ $x_i$ & $y_i$ \\
 \item Нарисуйте исходные точки и полученную прямую регрессии.
 \item Выведите формулу для $\hb_2$ в общем виде для $n$ наблюдений.
 \end{enumerate}
-\end{translation-ru}
+\end{translationru}
 
-\begin{translation-en}
+\begin{translationen}
 Everyday Maria eats candies and solves econometrics problems.
 Let $x_i$ be the number of problems solved and $y_i$ be the number of candies eaten.
 
@@ -97,7 +94,7 @@ Now consider the model $y_i = \beta_1 + \beta_2 x_i + u_i$.
 \item Draw original points and estimated regression line on a graph.
 \item Derive the general formula for $\hb$ in the case of $n$ observations.
 \end{enumerate}
-\end{translation-en}
+\end{translationen}
 
 \begin{sol}
 \begin{enumerate}
@@ -113,12 +110,8 @@ Now consider the model $y_i = \beta_1 + \beta_2 x_i + u_i$.
 
 
 \begin{problem}
-\begin{translation-ru}
-    Докажите формулы или приведите контр-пример:    
-\end{translation-ru}
-\begin{translation-en}
-Prove the following formulas or provide a counter-example:
-\end{translation-en}
+\trru{Докажите формулы или приведите контр-пример:}
+\tren{Prove the following formulas or provide a counter-example:}
 \begin{enumerate}
 \item $\sum_{i}(x_i - \bar x)^2 = \sum_i (x_i - \bar x) x_i$;
 \item $\sum_{i}(x_i - \bar x)(y_i - \bar y) = \sum_i (x_i - \bar x) y_i$;
@@ -128,7 +121,7 @@ Prove the following formulas or provide a counter-example:
 \end{enumerate}
 
 \begin{sol}
-\begin{translation-ru}
+\begin{translationru}
 \begin{enumerate}
 \item верная формула;
 \item верная формула;
@@ -136,9 +129,9 @@ Prove the following formulas or provide a counter-example:
 \item неверная формула, верная имеет вид $\sum_{ij}(x_i - x_j)(y_i - y_j) = 2 n\sum_i(x_i - \bar x)(y_i - \bar y)$;
 \item неверная формула, верная имеет вид $\sum_{i}(x_i - \bar x)(y_i - \bar y) = \sum_i x_i  y_i - n \bar x \bar y$.
 \end{enumerate}            
-\end{translation-ru}
+\end{translationru}
 
-\begin{translation-en}
+\begin{translationen}
 \begin{enumerate}
 \item correct;
 \item correct;
@@ -146,7 +139,7 @@ Prove the following formulas or provide a counter-example:
 \item wrong, correct formula should be $\sum_{ij}(x_i - x_j)(y_i - y_j) = 2 n\sum_i(x_i - \bar x)(y_i - \bar y)$;
 \item wrong, correct formula should be $\sum_{i}(x_i - \bar x)(y_i - \bar y) = \sum_i x_i  y_i - n \bar x \bar y$.
 \end{enumerate}            
-\end{translation-en}
+\end{translationen}
     
 \end{sol}
 \end{problem}
@@ -154,12 +147,8 @@ Prove the following formulas or provide a counter-example:
 
 
 \begin{problem}
-\begin{translation-ru}
-    Упростите выражения:    
-\end{translation-ru}
-\begin{translation-en}
-    Simplify the following expressions:    
-\end{translation-en}
+\trru{Упростите выражения:}
+\tren{Simplify the following expressions:}
 \begin{enumerate}
 \item $n\bar x - \sum x_i$;
 \item $\sum (x_i - \bar x)\bar x$;
@@ -179,12 +168,8 @@ Prove the following formulas or provide a counter-example:
 
 
 \begin{problem}
-\begin{translation-ru}
-    При помощи метода наименьших квадратов найдите оценку неизвестного параметра $\theta$ в следующих моделях:    
-\end{translation-ru}
-\begin{translation-en}
-    Using OLS find the estimator $\theta$ in the following models:    
-\end{translation-en}
+\trru{При помощи метода наименьших квадратов найдите оценку неизвестного параметра $\theta$ в следующих моделях:}
+\tren{Using OLS find the estimator $\theta$ in the following models:}
 
 \begin{enumerate}
 \item $y_i = \theta + \theta x_i + \varepsilon_i$;
@@ -204,12 +189,12 @@ Prove the following formulas or provide a counter-example:
 \end{problem}
 
 \begin{problem}
-\begin{translation-ru}
+\begin{translationru}
     Найдите МНК-оценки параметров $\alpha$ и $\beta$ в модели $y_i = \alpha + \beta y_i + \e_i$.    
-\end{translation-ru}
-\begin{translation-en}
+\end{translationru}
+\begin{translationen}
     Find the OLS estimators $\alpha$ and $\beta$ for the model $y_i = \alpha + \beta y_i + \e_i$.    
-\end{translation-en}
+\end{translationen}
 
 \begin{sol}
 $\hat{\alpha} = 0,  \hb = 1$
@@ -771,7 +756,7 @@ b_i \\
 
 
 
-\section{МНК в матрицах и геометрия!}
+\section{\trru{МНК в матрицах и геометрия!}\tren{OLS in matrix form and geometry}}
 
 
 \begin{problem}
@@ -865,7 +850,9 @@ $(X'X)^{-1}= \begin{pmatrix} 1/3 & -1/3 & 0 \\ -1/3 & 4/3 & -1 \\ 0 & -1 & 2 \en
 
 
 \begin{problem}
-Найдите на картинке все перпендикулярные векторы. Найдите на картинке все прямоугольные треугольники. Сформулируйте для них теоремы Пифагора.
+Найдите на картинке все перпендикулярные векторы. 
+Найдите на картинке все прямоугольные треугольники. 
+Сформулируйте для них теоремы Пифагора.
 
 \tdplotsetmaincoords{70}{110}
 \begin{tikzpicture}[tdplot_main_coords]
@@ -884,8 +871,6 @@ $(X'X)^{-1}= \begin{pmatrix} 1/3 & -1/3 & 0 \\ -1/3 & 4/3 & -1 \\ 0 & -1 & 2 \en
 
 
 
-
-
 \begin{sol}
 $\sum y_i^2=\sum \hy_i^2+\sum \he_i^2$, $TSS=ESS+RSS$,
 \end{sol}
@@ -894,7 +879,9 @@ $\sum y_i^2=\sum \hy_i^2+\sum \he_i^2$, $TSS=ESS+RSS$,
 
 
 \begin{problem}
-Покажите на картинке TSS, ESS, RSS, $R^2$, $\sCorr(\hy,y)$, $\sCov(\hy,y)$
+\trru{Покажите на картинке $TSS$, $ESS$, $RSS$, $R^2$, $\sCorr(\hy,y)$, $\sCov(\hy,y)$:}
+\trru{Show $TSS$, $ESS$, $RSS$, $R^2$, $\sCorr(\hy,y)$, $\sCov(\hy,y)$ on the picture:}
+
 
 \tdplotsetmaincoords{70}{110}
 \begin{tikzpicture}[tdplot_main_coords]
@@ -933,7 +920,8 @@ $\sCov(\hy, y)=\sqrt{ESS^2/(n-1)^2}=ESS/(n-1)$
 
 
 \begin{problem}
-Предложите аналог $R^2$ для случая, когда константа среди регрессоров отсутствует. Аналог должен быть всегда в диапазоне $[0;1]$, совпадать с обычным $R^2$, когда среди регрессоров есть константа, равняться единице в случае нулевого $\he$.
+Предложите аналог $R^2$ для случая, когда константа среди регрессоров отсутствует. 
+Аналог должен быть всегда в диапазоне $[0;1]$, совпадать с обычным $R^2$, когда среди регрессоров есть константа, равняться единице в случае нулевого $\he$.
 
 
 \begin{sol}
@@ -944,7 +932,8 @@ $\sCov(\hy, y)=\sqrt{ESS^2/(n-1)^2}=ESS/(n-1)$
 
 
 \begin{problem}
-Вася оценил регрессию $y$ на константу, $x$ и $z$. А затем, делать ему нечего, регрессию $y$ на константу и полученный $\hy$. Какие оценки коэффициентов у него получатся? Чему будет равна оценка дисперсии коэффицента при $\hy$? Почему оценка коэффициента неслучайна, а оценка её дисперсии положительна?
+Вася оценил регрессию $y$ на константу, $x$ и $z$. 
+А затем, делать ему нечего, регрессию $y$ на константу и полученный $\hy$. Какие оценки коэффициентов у него получатся? Чему будет равна оценка дисперсии коэффицента при $\hy$? Почему оценка коэффициента неслучайна, а оценка её дисперсии положительна?
 
 
 \begin{sol}
@@ -956,7 +945,8 @@ $\sCov(\hy, y)=\sqrt{ESS^2/(n-1)^2}=ESS/(n-1)$
 
 
 \begin{problem}
-При каких условиях $TSS=ESS+RSS$?
+\trru{При каких условиях $TSS=ESS+RSS$?}
+\tren{Under which conditions $TSS=ESS+RSS$?}
 
 \begin{sol}
 Либо в регрессию включена константа, либо единичный столбец (тут была опечатка, столбей) можно получить как линейную комбинацию регрессоров, например, включены дамми-переменные для каждого возможного значения качественной переменной.
@@ -1008,7 +998,8 @@ $\frac{\hat{\sigma}_x^2}{\hat{\sigma}_z^2} = \frac{15}{8}$
 
 
 \begin{problem}
-Какие матрицы являются положительно полуопределёнными?
+\trru{Какие матрицы являются положительно полуопределёнными?}
+\tren{Which matrices are positive definite?}
 
 \begin{enumerate}
   \item $X'X$;
@@ -1019,11 +1010,34 @@ $\frac{\hat{\sigma}_x^2}{\hat{\sigma}_z^2} = \frac{15}{8}$
   \item $A'A - G(G'A^{-1}(A')^{-1}G)^{-1}G'$
 \end{enumerate}
   \begin{sol}
-    все :)
+    \trru{все :)} \tren{all of them :)}
   \end{sol}
 \end{problem}
 
-\section{Распределения, связанные с проецированием}
+\begin{problem}
+\trru{У нас есть $n$ наблюдений. 
+Для каждого из данных случаев найдите матрицу-шляпницу $H$, проецирующую на пространство столбцов матрицы регрессоров $X$, вектор $\hy$, $RSS$, $ESS$, $TSS$:}
+\tren{We have $n$ observations. 
+For each case find the hat-matrix $H$ that projects onto the column space of regressor matrix $X$, vector $\hy$, $RSS$, $ESS$, $TSS$:}
+
+
+\begin{enumerate}
+  \item $\hy_i = \hb$, $n = 10$;
+  \item $\hy_i = \hb_1 + \hb_2 x_i$, $n = 3$, $x_i = i$, $y_i = i^2$;
+  \item $\hy_i = \hb_1 + \hb_2 x_i$, $n = 15$, $y_i = i$, \trru{первые пять $x_i$ равны $0$, а остальные — $1$;}
+  \tren{first five $x_i$ are zero, other are equal to one;}
+  \item $\hy_i = \hb_1 + \hb_2 x_i$, $n = 15$, $y_i = i$, \trru{первые пять $x_i$ равны $1$, а остальные — $0$;}
+  \tren{first five $x_i$ are one, other are equal to zero;}
+
+\end{enumerate} 
+
+\end{problem}
+
+
+\section{%
+  \trru{Проекция и законы распределения}
+  \tren{Projection and distribution laws}
+  }
 
 
 \begin{problem}
@@ -1122,7 +1136,7 @@ $n\bar y^2/\sigma^2$, $TSS/\sigma^2$, $RSS/\sigma^2$, $ESS/\sigma^2$?
 \end{problem}
 
 
-\section{МНК со статистическими предпосылками}
+\section{\trru{МНК со статистическими предпосылками} \tren{OLS and statistical assumptions}}
 
 
 \begin{problem}
@@ -1305,7 +1319,7 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
 
 
 
-\section{Гамма, бета}
+\section{\trru{Гамма и бета распределения}\tren{Gamma and beta distributions}}
 
 \begin{problem}
 Вася делает эксперименты без устали со скоростью $d$ экспериментов в минуту. Каждый эксперимент независимо от других может окончится успехом с вероятностью $p$ или неудачей.
@@ -1388,7 +1402,7 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
 
 
 
-\section{Блочные матрицы}
+\section{\trru{Блочные матрицы}\tren{Block matrices}}
 
 \begin{problem}
 Найдите матрицу $M$ и укажите размеры всех блоков
@@ -3243,19 +3257,10 @@ y_{it} = \alpha + \beta x_{it} + \gamma z_i + c_i + u_{it}.
 {%
 }%
 
-\begin{translation-ru}
-    \section{Решения}    
-    \input{all_solutions}
+\section{\trru{Решения}\tren{Solutions}}
 
-    \section{Источники мудрости}
-    \printbibliography[heading=none]    
-\end{translation-ru}
+\input{all_solutions}
 
-\begin{translation-en}
-    \section{Solutions}    
-    \input{all_solutions}
-
-    \section{Wisdom sources}
-    \printbibliography[heading=none]    
-\end{translation-en}
+\section{\trru{Источники мудрости}\tren{Sources of Wisdom}}
+\printbibliography[heading=none]    
 

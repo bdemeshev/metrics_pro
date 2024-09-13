@@ -1,7 +1,12 @@
 file_name = metrics_pro
 file_name2 = metrics_pro_en
+.PHONY: clean
+.PHONY: all
 
 all: $(file_name).pdf $(file_name2).pdf
+
+
+
 
 $(file_name).pdf: $(file_name).tex $(file_name).bib
 	# protection against biber error
@@ -27,11 +32,11 @@ $(file_name2).pdf: $(file_name2).tex $(file_name2).bib
 
 	# create pdf
 	# will automatically run pdflatex/biber if necessary
-	latexmk -xelatex -shell-escape $(file_name).tex
-	# arara -v $(file_name).tex
+	latexmk -xelatex -shell-escape $(file_name2).tex
+	# arara -v $(file_name2).tex
 
 	# clean auxillary files
-	latexmk -c $(file_name).tex
+	latexmk -c $(file_name2).tex
 
 
 

@@ -110,8 +110,6 @@
 % \usepackage{physics} % куча приятных сокращений
 % не рекомендуют его использовать
 % https://tex.stackexchange.com/questions/471532/alternatives-to-the-physics-package
-\DeclarePairedDelimiter{\norm}\lVert\rVert
-\DeclareMathOperator{\tr}{trace}
 
 
 % \usepackage{minted}
@@ -135,6 +133,8 @@
 
 
 \DeclareMathOperator{\rk}{rank}
+\DeclarePairedDelimiter{\norm}\lVert\rVert
+\DeclareMathOperator{\tr}{trace}
 
 
 \DeclareMathOperator{\Corr}{Corr}
@@ -187,13 +187,13 @@
 
 \AddEnumerateCounter{\asbuk}{\russian@alph}{щ} % для списков с русскими буквами
 
-\begin{translation-ru}
+\begin{translationru}
 \setlist[enumerate, 1]{label=\asbuk*),ref=\asbuk*} % списки уровня 1 будут буквами а) б) ...
-\end{translation-ru}
+\end{translationru}
 
-\begin{translation-en}
+\begin{translationen}
 \setlist[enumerate, 1]{label=\alph*),ref=\alph*} % списки уровня 1 будут буквами а) б) ...
-\end{translation-en}
+\end{translationen}
     
 
 
@@ -212,13 +212,7 @@ sorting = none]{biblatex}
 
 \addbibresource{metrics_pro.bib}
 
-\begin{translation-ru}
-\title{Заметки к семинарам по метрике}    
-\end{translation-ru}
-
-\begin{translation-en}
-\title{Econometrics: class notes}    
-\end{translation-en}
+\title{\trru{Заметки к семинарам по метрике} \tren{Econometrics: class notes}}    
     
 
 \author{\url{https://github.com/bdemeshev/metrics_pro}}
