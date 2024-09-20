@@ -495,15 +495,22 @@ $6$ & ? \\
 
 
 \begin{problem}
-Предложите способ подсчёта корреляции
+\trru{Предложите способ подсчёта корреляции}
+\tren{Propose a way to define a correlation}
 \begin{enumerate}
-  \item между бинарной переменной и факторной переменной;
-  \item между количественной переменной и факторной переменной.
+  \item \trru{между бинарной переменной и факторной переменной;}
+  \tren{between binary and factor variables;}
+  \item \trru{между количественной переменной и факторной переменной.}
+  \tren{between quantitative and factor variables.}
 \end{enumerate}
   \begin{sol}
-    Заменяем факторную переменную на набор бинарных предикторов. 
+    \trru{Заменяем факторную переменную на набор бинарных предикторов. 
     С помощью этих предикторов прогнозируем бинарную или количественную переменную.
-    Считаем $R^2$. Извлекаем корень. 
+    Считаем $R^2$. Извлекаем корень.}
+    \tren{Replace factor variable with indicators for every its value.
+    Using this predictors obtain forecasts of binary or quantitative variable.
+    Calculate $R^2$ and take the square root. }
+
   \end{sol}
 \end{problem}
   
@@ -1285,17 +1292,25 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
   
 
 \begin{problem}
-Рассмотрим модель $y_i = \beta x_i + u_i$ с двумя наблюдениями, $x_1 = 1$, $x_2 = 2$.
-Величины $u_1$ и $u_2$ независимы и равновероятно равны $+1$ или $-1$.
+\trru{Рассмотрим модель $y_i = \beta x_i + u_i$ с двумя наблюдениями, $x_1 = 1$, $x_2 = 2$.
+Величины $u_1$ и $u_2$ независимы и равновероятно равны $+1$ или $-1$.}
+\tren{Consider the model $y_i = \beta x_i + u_i$ with two observations, $x_1 = 1$, $x_2 = 2$.
+Random errors $u_1$ and $u_2$ are independent with $\P(u_i = 1) = \P(u_i = -1) = 1/2$.}
 
 \begin{enumerate}
-  \item Найдите оценку $\hat\beta_{\text{ols}}$ для $\beta$ с помощью метода наименьших квадратов. 
-  \item Чему равна дисперсия $\Var(\hat\beta_{\text{ols}})$?
-  \item Постройте несмещённую оценку $\hat\beta_{\text{best}}$ с наименьшей дисперсией. 
-  \item Чему равна дисперсия $\Var(\hat\beta_{\text{best}})$?
-  \item А как же теорема Гаусса~— Маркова? 
+  \item \trru{Найдите оценку $\hat\beta_{\text{ols}}$ для $\beta$ с помощью метода наименьших квадратов. }
+  \tren{Find the estimator $\hat\beta_{\text{ols}}$ for $\beta$ using least squares.}
+  \item \trru{Чему равна дисперсия $\Var(\hat\beta_{\text{ols}})$?}
+  \tren{Find the variance $\Var(\hat\beta_{\text{ols}})$.}
+  \item \trru{Постройте несмещённую оценку $\hat\beta_{\text{best}}$ с наименьшей дисперсией. }
+  \tren{Construct an unbiased estimator $\hat\beta_{\text{best}}$ with lowest possible variance.}
+  \item \trru{Чему равна дисперсия $\Var(\hat\beta_{\text{best}})$?}
+  \tren{What is the variance $\Var(\hat\beta_{\text{best}})$?}
+  \item \trru{А как же теорема Гаусса~— Маркова? 
   Почему в данном примере удаётся построить оценку с дисперсией меньше, 
-  чем у оценки методом наименьших квадратов?
+  чем у оценки методом наименьших квадратов?}
+  \tren{What about Gauss~— Markov theorem?
+  Why is it possible to create an unbiased estimator with lower variance compared to OLS estimator?}
 \end{enumerate}
   \begin{sol}
     \begin{enumerate}
