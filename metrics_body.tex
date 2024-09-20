@@ -1300,12 +1300,12 @@ Random errors $u_1$ and $u_2$ are independent with $\P(u_i = 1) = \P(u_i = -1) =
 \begin{enumerate}
   \item \trru{Найдите оценку $\hat\beta_{\text{ols}}$ для $\beta$ с помощью метода наименьших квадратов. }
   \tren{Find the estimator $\hat\beta_{\text{ols}}$ for $\beta$ using least squares.}
-  \item \trru{Чему равна дисперсия $\Var(\hat\beta_{\text{ols}})$?}
-  \tren{Find the variance $\Var(\hat\beta_{\text{ols}})$.}
+  \item \trru{Чему равна дисперсия $\Var(\hat\beta_{\text{ols}} \mid x)$ и ожидание $\E(\hat\beta_{\text{ols}} \mid x)$?}
+  \tren{Find the variance $\Var(\hat\beta_{\text{ols}}\mid x)$ and the expected value $\E(\hat\beta_{\text{ols}} \mid x)$.}
   \item \trru{Постройте несмещённую оценку $\hat\beta_{\text{best}}$ с наименьшей дисперсией. }
-  \tren{Construct an unbiased estimator $\hat\beta_{\text{best}}$ with lowest possible variance.}
-  \item \trru{Чему равна дисперсия $\Var(\hat\beta_{\text{best}})$?}
-  \tren{What is the variance $\Var(\hat\beta_{\text{best}})$?}
+  \tren{Construct an unbiased estimator $\hat\beta_{\text{best} \mid x}$ with lowest possible variance.}
+  \item \trru{Чему равна дисперсия $\Var(\hat\beta_{\text{best}}\mid x)$?}
+  \tren{What is the variance $\Var(\hat\beta_{\text{best}}\mid x)$?}
   \item \trru{А как же теорема Гаусса~— Маркова? 
   Почему в данном примере удаётся построить оценку с дисперсией меньше, 
   чем у оценки методом наименьших квадратов?}
@@ -1315,7 +1315,7 @@ Random errors $u_1$ and $u_2$ are independent with $\P(u_i = 1) = \P(u_i = -1) =
   \begin{sol}
     \begin{enumerate}
       \item $\hat\beta_{\text{ols}} = (y_1 + 2y_2)/5$;
-      \item $\Var(\hat\beta_{\text{ols}}) = 1/5$;
+      \item $\Var(\hat\beta_{\text{ols}}\mid x) = 1/5$;
       \item Заметим, что по величине $2y_1 - y_2$ можно однозначно восстановить величины ошибок $u_1$ и $u_2$.
       Например, если $2y_1 -y_2 = 3$, то $u_1 = 1$, $u_2 = -1$.
       \[
@@ -1324,7 +1324,7 @@ Random errors $u_1$ and $u_2$ are independent with $\P(u_i = 1) = \P(u_i = -1) =
           y_1 - 1, \text{ если } 2y_1 - y_2 >0.
         \end{cases}
       \]
-      \item Шок контент, $\Var(\hat\beta_{\text{best}}) = 0$.
+      \item Шок контент, $\Var(\hat\beta_{\text{best}}\mid x) = 0$.
       \item Построенная оценка $\hat\beta_{\text{best}}$ является нелинейной по $y$, 
       а теорема Гаусса ~— Маркова гарантирует только, что метод наименьших квадратов 
       порождает несмещённую оценку с наименьшей дисперсией среди линейных по $y$ оценок. 
