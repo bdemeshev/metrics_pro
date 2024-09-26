@@ -1,3 +1,5 @@
+% !TEX root = metrics_pro_en.tex
+% !TEX root = metrics_pro.tex
 
 \maketitle
 
@@ -173,9 +175,9 @@ Now consider the model $y_i = \beta_1 + \beta_2 x_i + u_i$.
 
 \begin{enumerate}
 \item $y_i = \theta + \theta x_i + \varepsilon_i$;
-\item $y_i = 1 + \theta x_i + \e_i$;
-\item $y_i = \theta / x_i + \e_i$;
-\item $y_i = \theta x_i + (1-\theta)z_i+\e_i$.
+\item $y_i = 1 + \theta x_i + u_i$;
+\item $y_i = \theta / x_i + u_i$;
+\item $y_i = \theta x_i + (1-\theta)z_i+u_i$.
 \end{enumerate}
 
 \begin{sol}
@@ -190,10 +192,10 @@ Now consider the model $y_i = \beta_1 + \beta_2 x_i + u_i$.
 
 \begin{problem}
 \begin{translationru}
-    Найдите МНК-оценки параметров $\alpha$ и $\beta$ в модели $y_i = \alpha + \beta y_i + \e_i$.    
+    Найдите МНК-оценки параметров $\alpha$ и $\beta$ в модели $y_i = \alpha + \beta y_i + u_i$.    
 \end{translationru}
 \begin{translationen}
-    Find the OLS estimators $\alpha$ and $\beta$ for the model $y_i = \alpha + \beta y_i + \e_i$.    
+    Find the OLS estimators $\alpha$ and $\beta$ for the model $y_i = \alpha + \beta y_i + u_i$.    
 \end{translationen}
 
 \begin{sol}
@@ -203,7 +205,7 @@ $\hat{\alpha} = 0,  \hb = 1$
 
 
 \begin{problem}
-Рассмотрите модели $y_i = \alpha + \beta (y_i + z_i) + \e_i$, $z_i = \gamma + \delta(y_i+z_i) + \e_i$.
+Рассмотрите модели $y_i = \alpha + \beta (y_i + z_i) + u_i$, $z_i = \gamma + \delta(y_i+z_i) + u_i$.
 \begin{enumerate}
 \item Как связаны между собой $\hat{\alpha}$ и $\hat{\gamma}$?
 \item Как связаны между собой $\hb$ и $\hat{\delta}$?
@@ -224,13 +226,13 @@ $\hat{\alpha} = 0,  \hb = 1$
 
 
 \begin{problem}
-Как связаны МНК-оценки параметров $\alpha, \beta$ и $\gamma, \delta$ в моделях $y_i = \alpha + \beta x_i + \e_i$ и $z_i = \gamma + \delta x_i + \upsilon_i$, если $z_i = 2 y_i$?
+Как связаны МНК-оценки параметров $\alpha, \beta$ и $\gamma, \delta$ в моделях $y_i = \alpha + \beta x_i + u_i$ и $z_i = \gamma + \delta x_i + \upsilon_i$, если $z_i = 2 y_i$?
 
 
 \begin{sol}
 
 Исходя из условия, нужно оценить методом МНК коэффициенты двух следующих моделей:
-\[y_i = \alpha + \beta x_i + \e_i \]
+\[y_i = \alpha + \beta x_i + u_i \]
 \[y_i = \frac{\gamma}{2} + \frac{\delta}{2} x_i + \frac{1}{2} v_i \]
 
 Заметим, что на минимизацию суммы квадратов остатков коэффициент \(1/2\) не влияет, следовательно:
@@ -241,7 +243,7 @@ $\hat{\alpha} = 0,  \hb = 1$
 
 
 \begin{problem}
-Для модели $y_i = \beta_1 x_i + \beta_2 z_i + \e_i$ решите условную задачу о наименьших квадратах:
+Для модели $y_i = \beta_1 x_i + \beta_2 z_i + u_i$ решите условную задачу о наименьших квадратах:
 \[
 Q(\beta_1, \beta_2) := \sum_{i=1}^n (y_i - \hb_1 x_i - \hb_2 z_i)^2 \to \underset{\hb_1 + \hb_2 = 1}{\min}.
 \]
@@ -281,7 +283,7 @@ RSS =  \sum_{i=1}^{n}(y_i - x_i - \hb_2(z_i-x_i))^2 \to \min_{\hb_2}
 
 \begin{sol}
 Обозначив вес первого слитка за \(\beta_1\), вес второго слитка за \(\beta_2\), а показания весов за \(y_i\), получим, что
-\[y_1 = \beta_1 + \e_1, \ y_2 = \beta_2 + \e_2, \ y_3 = \beta_1 + \beta_2 + \e_3\]
+\[y_1 = \beta_1 + u_1, \ y_2 = \beta_2 + u_2, \ y_3 = \beta_1 + \beta_2 + u_3\]
 
 Тогда
 \[(300 - \beta_1)^2 + (200 - \beta_2)^2 + (400 - \beta_1 - \beta_2)^2 \to \min _{\beta_1,\  \beta_2} \]
@@ -360,8 +362,8 @@ RSS =  \sum_{i=1}^{n}(y_i - x_i - \hb_2(z_i-x_i))^2 \to \min_{\hb_2}
 
 
 \begin{problem}
-Эконометрист Вовочка оценил методом наименьших квадратов модель 1, $y_i=\beta_1+\beta_2 x_i+\beta_3 z_i+\e_i$,
-а затем модель 2, $y_i=\beta_1+\beta_2 x_i+\beta_3 z_i+\beta_4 w_i+\e$.
+Эконометрист Вовочка оценил методом наименьших квадратов модель 1, $y_i=\beta_1+\beta_2 x_i+\beta_3 z_i+u_i$,
+а затем модель 2, $y_i=\beta_1+\beta_2 x_i+\beta_3 z_i+\beta_4 w_i+u$.
 Сравните полученные $ESS$, $RSS$, $TSS$ и $R^2$.
 
 \begin{sol}
@@ -604,18 +606,22 @@ $q_{ij} = (x_i - x_j)^2$.
 
 
 
-\section{Дифференциал — просто няшка!}
+\section{\trru{Дифференциал — просто няшка!}
+\tren{Fun with differential}}
 
 
 \begin{leftbar}
-Дифференциал для матриц подчиняется правилам:
 \begin{itemize}
-\item $d(A+B) = dA + dB$;
-\item Если $A$ — матрица констант, то $dA = 0$;
-\item $d(AB) = dA \cdot B + A \cdot dB$. Если $A$ — матрица констант, то $d(AB) = AdB$;
+\item $d(A + B) = dA + dB$;
+\item \trru{Если $A$ — матрица констант, то $dA = 0$;}
+\tren{If $A$ is a constant matrix, then $dA = 0$;}
+\item $d(AB) = dA \cdot B + A \cdot dB$;
+\trru{Если $A$ — матрица констант, то $d(AB) = A \cdot dB$ и $d(BA) = dB \cdot A$;}
+\tren{If $A$ is a constant matrix, then $d(AB) = A \cdot dB$ and $d(BA) = dB \cdot A$;}
 \end{itemize}
 
-Штрих у матрицы традиционно обозначает не производную, а транспонирование, $A'=A^T$.
+\trru{Штрих у матрицы традиционно обозначает не производную, а транспонирование, $A'=A^T$.}
+\tren{Transpose of a matrix is often denoted by prime, $A' = A^T$.}
 \end{leftbar}
 
 \begin{problem}
@@ -644,19 +650,22 @@ $q_{ij} = (x_i - x_j)^2$.
 
 
 \begin{problem}
-Пусть $A$, $B$ — матрицы констант, $R$ — матрица переменных, $r$ — вектор столбец переменных. 
-Применив базовые правила дифференцирования найдите:
+\trru{Пусть $A$, $B$ — матрицы констант, $R$ — матрица переменных, $r$ — вектор столбец переменных.}
+\tren{Let $A$ and $B$ be constant matrices, $R$ be a matrix of variables and $r$ be a column vector of variables.  }
+
 
 \begin{enumerate}
-\item $d(ARB)$;
-\item $d(r'r)$;
-\item $d(r'Ar)$;
-\item $d(R^{-1})$, воспользовавшись тем, что $R^{-1} \cdot R = I$;
-\item $d \cos(r'r)$;
-\item $d(r'Ar/r'r)$.
+\item \trru{Найдите} \tren{Find} $d(ARB)$;
+\item \trru{Найдите} \tren{Find} $d(r'r)$;
+\item \trru{Найдите} \tren{Find} $d(r'Ar)$. \trru{Упростите ответ для случая симметричной матрицы $A$.}
+\tren{Simplify the answer for symmetric matrix $A$.}
+\item \trru{Найдите} \tren{Find} $d(R^{-1})$. \trru{Подсказка:}\tren{Hint:} $R^{-1} \cdot R = I$;
+\item \trru{Найдите} \tren{Find} $d \cos(r'r)$;
+\item \trru{Найдите} \tren{Find} $d(r'Ar/r'r)$. \trru{Упростите ответ для случая симметричной матрицы $A$.}
+\tren{Simplify the answer for symmetric matrix $A$.}
 \end{enumerate}
 
-Упростите ответ для случая симметричной матрицы $A$.
+
 
 \begin{sol}
 \begin{enumerate}
@@ -821,19 +830,41 @@ X'X\hb = X'y
 
 % 4.13
 \begin{problem}
-Пусть $y_i = \beta_1 + \beta_2 x_{i} + \beta_3 z_i + \e_i$ — регрессионная модель, 
-где $X = \begin{pmatrix} 1 & 0 & 0 \\ 1 & 0 & 0 \\ 1 & 0 & 0 \\ 1 & 1 & 0 \\ 1 & 1 & 1 \end{pmatrix}$, 
-$y = \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \\ 5 \end{pmatrix}$, 
-$\beta = \begin{pmatrix} \beta_1 \\ \beta_2 \\ \beta_3 \end{pmatrix}$, 
-$\e = \begin{pmatrix} \e_1 \\ \e_2 \\ \e_3 \\ \e_4 \\ \e_5  \end{pmatrix}$, ошибки 
-$\e_i$ независимы и нормально распределены с $\E(\e)$ = 0, $Var(\e) = \sigma^2 I$. 
+\trru{Рассмотрим модель} \tren{Consider the model} $y_i = \beta_1 + \beta_2 x_{i} + \beta_3 z_i + u_i$, 
+\trru{где}\tren{where} 
+\[
+X = \begin{pmatrix} 
+  1 & 0 & 0 \\ 
+  1 & 0 & 0 \\ 
+  1 & 0 & 0 \\ 
+  1 & 1 & 0 \\ 
+  1 & 1 & 1 
+\end{pmatrix}, \quad
+y = \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \\ 5 \end{pmatrix}, \quad
+\beta = \begin{pmatrix} \beta_1 \\ \beta_2 \\ \beta_3 \end{pmatrix}, \quad
+u = \begin{pmatrix} u_1 \\ u_2 \\ u_3 \\ u_4 \\ u_5  \end{pmatrix}
+\]
+\trru{Случайные ошибки $u_i$ независимы и нормально распределены с}
+\tren{Random errors $u_i$ are independen identically distributed with} 
+$\E(u \mid X) = 0$, $\Var(u \mid X) = \sigma^2 I$. 
 
-Для удобства расчётов даны матрицы: $X'X = \begin{pmatrix} 5 & 2 & 1 \\ 2 & 2 & 1\\ 1 & 1 & 1 \end{pmatrix}$ и 
-$(X'X)^{-1}= \begin{pmatrix} 1/3 & -1/3 & 0 \\ -1/3 & 4/3 & -1 \\ 0 & -1 & 2 \end{pmatrix}$
+
+\trru{Для удобства расчётов даны матрицы:}\tren{For simplicity $X'X$ and $(X'X)^{-1}$ matrices are provided:}
+\[
+X'X = \begin{pmatrix} 
+  5 & 2 & 1 \\ 
+  2 & 2 & 1\\ 
+  1 & 1 & 1 
+\end{pmatrix},
+(X'X)^{-1}= \begin{pmatrix} 
+  1/3 & -1/3 & 0 \\ 
+  -1/3 & 4/3 & -1 \\ 
+  0 & -1 & 2 \end{pmatrix}.
+\]
 
 
 \begin{enumerate}
-\item Укажите число наблюдений.
+\item \trru{Укажите число наблюдений.}\tren{Find the number of observations.}
 \item Укажите число регрессоров в модели, учитывая свободный член.
 \item Найдите $TSS = \sum_{i=1}^n (y_i - \bar y)^2$.
 \item Методом МНК найдите оценку для вектора неизвестных коэффициентов.
@@ -882,7 +913,7 @@ State Pythagorean theorem for all right triangles.}
 
 
 \begin{sol}
-$\sum y_i^2=\sum \hy_i^2+\sum \he_i^2$, $TSS=ESS+RSS$,
+$\sum y_i^2=\sum \hy_i^2+\sum \hat{u}_i^2$, $TSS=ESS+RSS$,
 \end{sol}
 \end{problem}
 
@@ -931,7 +962,7 @@ $\sCov(\hy, y)=\sqrt{ESS^2/(n-1)^2}=ESS/(n-1)$
 
 \begin{problem}
 Предложите аналог $R^2$ для случая, когда константа среди регрессоров отсутствует. 
-Аналог должен быть всегда в диапазоне $[0;1]$, совпадать с обычным $R^2$, когда среди регрессоров есть константа, равняться единице в случае нулевого $\he$.
+Аналог должен быть всегда в диапазоне $[0;1]$, совпадать с обычным $R^2$, когда среди регрессоров есть константа, равняться единице в случае нулевого $\hat{u}$.
 
 
 \begin{sol}
@@ -1170,9 +1201,16 @@ $n\bar y^2/\sigma^2$, $TSS/\sigma^2$, $RSS/\sigma^2$, $ESS/\sigma^2$?
 \end{problem}
 
 \begin{problem}
-Рассмотрим классическую линейную модель $y=X\beta + u$ с предпосылками Гаусса-Маркова: $\E(u \mid X) = 0$, $\Var(u \mid X) = \sigma^2 I$.
-
-Для всех случайных векторов ($y$, $\hy$, $\hb$, $u$, $\hat u$, $\bar y$) найдите $\E(\cdot)$, $\Var(\cdot)$, $\Cov(\cdot, \cdot)$.
+\trru{Рассмотрим классическую линейную модель} 
+\tren{Consider classic regression model} $y=X\beta + u$ 
+\trru{с предпосылками Гаусса~— Маркова:} 
+\tren{with Gauss~— Markov assumptions:}
+$\E(u \mid X) = 0$ and $\Var(u \mid X) = \sigma^2 I$.
+\trru{Для всех случайных векторов}
+\tren{For all random vectors} ($y$, $\hy$, $\hb$, $u$, $\hat u$, $\bar y$) 
+\trru{найдите все возможные ожидания и ковариационные матрицы} 
+\tren{find all possible expected values and covariance matrices}
+$\E(\cdot)$, $\Var(\cdot)$, $\Cov(\cdot, \cdot)$.
 
 \begin{sol}
 \end{sol}
@@ -1181,51 +1219,61 @@ $n\bar y^2/\sigma^2$, $TSS/\sigma^2$, $RSS/\sigma^2$, $ESS/\sigma^2$?
 
 
 \begin{problem}
-Пусть регрессионная модель $y_i = \beta_1 + \beta_2 x_{i2} + \beta_3 x_{i3} + \e_i$, $i = 1, \ldots, n$, задана в матричном виде при помощи уравнения $y = X \beta + \e$, где $\beta =  \begin{pmatrix}
-\beta_1 & \beta_2 & \beta_3\\
-\end{pmatrix} '$. Известно, что $\E \e = 0$ и $\Var (\e) = 4 \cdot I$. Известно также, что:
+\trru{Рассмотрим модель} \tren{Consider the model} $y_i = \beta_1 + \beta_2 x_{i} + \beta_3 z_i + u_i$, 
+\trru{где}\tren{where} 
+\[
+X = \begin{pmatrix} 
+  1 & 0 & 0 \\ 
+  1 & 0 & 0 \\ 
+  1 & 1 & 0 \\ 
+  1 & 1 & 0 \\ 
+  1 & 1 & 1 
+\end{pmatrix}, \quad
+y = \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \\ 5 \end{pmatrix}, \quad
+\beta = \begin{pmatrix} \beta_1 \\ \beta_2 \\ \beta_3 \end{pmatrix}, \quad
+u = \begin{pmatrix} u_1 \\ u_2 \\ u_3 \\ u_4 \\ u_5  \end{pmatrix}.
+\]
+\trru{Случайные ошибки $u_i$ независимы и нормально распределены с}
+\tren{Random errors $u_i$ are independen identically distributed with} 
+$\E(u \mid X) = 0$ and $\Var(u \mid X) = \sigma^2 I$. 
 
-$y =  \begin{pmatrix}
-1 \\
-2 \\
-3 \\
-4 \\
-5 \\
-\end{pmatrix} $, $X =  \begin{pmatrix}
-1 & 0 & 0 \\
-1 & 0 & 0 \\
-1 & 1 & 0 \\
-1 & 1 & 0 \\
-1 & 1 & 1 \\
-\end{pmatrix} $
-
-Для удобства расчётов ниже приведены матрицы:
-
-$X' X =  \begin{pmatrix}
-5 & 3 & 1 \\
-3 & 3 & 1 \\
-1 & 1 & 1 \\
-\end{pmatrix} $ и $(X' X)^{-1} =  \begin{pmatrix}
-0.5 & -0.5 & 0 \\
--0.5 & 1 & -0.5 \\
-0 & -0.5 & 1.5 \\
-\end{pmatrix} $.
+\trru{Для удобства расчётов даны матрицы:}\tren{For simplicity $X'X$ and $(X'X)^{-1}$ matrices are provided:}
+\[
+X'X = \begin{pmatrix} 
+  5 & 3 & 1 \\ 
+  3 & 3 & 1\\ 
+  1 & 1 & 1 
+\end{pmatrix}, \quad
+(X' X)^{-1} =  \begin{pmatrix}
+  0.5 & -0.5 & 0 \\
+  -0.5 & 1 & -0.5 \\
+  0 & -0.5 & 1.5 \\
+  \end{pmatrix}.
+\]
 
 
 \begin{enumerate}
-\item Найдите $\E (\hs^2)$, $\hs^2$.
-\item Найдите $\Var (\e_1)$, $\Var (\beta_1)$, $\Var (\hb_1)$, $\hVar(\hb_1)$, $\E (\hb_1^2) - \beta_1^2$;
-\item Предполагая нормальность ошибок, постройте $95\%$ доверительный интервал для $\beta_2$.
-\item Предполагая нормальность ошибок, проверьте гипотезу $H_0$: $\beta_2 = 0$;
-\item Найдите $\Cov (\hb_2, \hb_3)$, $\hCov(\hb_2, \hb_3)$, $\Var (\hb_2 - \hb_3)$, $\hVar(\hb_2 - \hb_3)$;
-\item Найдите $\Var (\beta_2 - \beta_3)$, $\Corr (\hb_2, \hb_3)$, $\hCorr(\hb_2, \hb_3)$;
-\item Предполагая нормальность ошибок, проверьте гипотезу $H_0$: $\beta_2 = \beta_3$;
+\item \trru{Найдите}\tren{Find} $\E (\hs^2 \mid X)$, $\hs^2$.
+\item \trru{Найдите}\tren{Find}  $\Var (u_1)$, $\Var (\beta_1)$, $\Var (\hb_1 \mid X)$, $\hVar(\hb_1 \mid X)$, $\E (\hb_1^2 \mid X) - \beta_1^2$;
+\item \trru{Найдите}\tren{Find}  $\Cov (\hb_2, \hb_3 \mid X)$, $\hCov(\hb_2, \hb_3 \mid X)$, $\Var (\hb_2 - \hb_3 \mid X)$, $\hVar(\hb_2 - \hb_3 \mid X)$;
+\item \trru{Найдите}\tren{Find}  $\Var (\beta_2 - \beta_3)$, $\Corr (\hb_2, \hb_3 \mid X)$, $\hCorr(\hb_2, \hb_3 \mid X)$;
+\end{enumerate}
+
+\trru{Дополнительно предположим, что случайные ошибки имеют нормальное распределение при фиксированных $X$. }
+\tren{Let's additionally suppose that random errors are normally distributed conditionally on $X$.}
+
+\begin{enumerate}[resume]
+\item \trru{Постройте $95\%$ доверительный интервал для $\beta_2$.} \tren{Construct $95\%$ confidence interval for $\beta_2$.}
+\item \trru{Проверьте гипотезу} \tren{Test the null-hypothesis} $H_0$: $\beta_2 = 0$ \trru{против}\tren{against} $H_a$: $\beta_2 \neq 0$;
+\item \trru{Проверьте гипотезу} \tren{Test the null-hypothesis} $H_0$: $\beta_2 = \beta_3$ \trru{против}\tren{against} $H_a$: $\beta_2 \neq \beta_3$;
 \end{enumerate}
 
 
 \begin{sol}
 \begin{enumerate}
-\item $\Var(\e_1)=\Var(\e)_{(1,1)}=4\cdot I_{(1,1)}=4$
+% TODO: replace 4 by \sigma^2
+% TODO: check order
+\item $\Var(u_1)=\Var(u)_{(1,1)}=4\cdot I_{(1,1)}=4$
 \item $\Var(\beta_1)=0$, так как $\beta_1$ — детерминированная величина.
 \item $\Var(\hb_1)=\sigma^2(X'X)^{-1}_{(1,1)}=0.5\sigma^2=0.5\cdot 4=2$
 \item $\hVar(\hb_1)=\hat\sigma^2(X'X)^{-1}_{(1,1)}=0.5\hat\sigma^2_{(1,1)}=0.5\frac{RSS}{5-3}=0.25RSS=0.25y'(I-X(X'X)^{-1}X')y=0.25\cdot 1=0.25$
@@ -1261,7 +1309,7 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
 \E(\hat\sigma^2)=2
 \]
 
-\item $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$
+\item $\hat\sigma^2=\frac{RSS}{n-k}=\frac{1}{2}$
 
 \end{enumerate}
 
@@ -1324,7 +1372,7 @@ Random errors $u_1$ and $u_2$ are independent with $\P(u_i = 1 \mid x) = \P(u_i 
           y_1 - 1, \text{ если } 2y_1 - y_2 >0.
         \end{cases}
       \]
-      \item Шок контент, $\Var(\hat\beta_{\text{best}}\mid x) = 0$.
+      \item \trru{Шок контент,}\tren{Unexpectedly,} $\Var(\hat\beta_{\text{best}}\mid x) = 0$.
       \item Построенная оценка $\hat\beta_{\text{best}}$ является нелинейной по $y$, 
       а теорема Гаусса ~— Маркова гарантирует только, что метод наименьших квадратов 
       порождает несмещённую оценку с наименьшей дисперсией среди линейных по $y$ оценок. 
@@ -2116,17 +2164,17 @@ h_2(y) - C^{-1}B^T(\theta_1^0 - h_1(y))
 
 
 \begin{problem}
-Известно, что после деления каждого уравнения регрессии $y_i = \beta_1 + \beta_2 x_i + \e_i$ на $x_i^2$ гетероскедастичность ошибок была устранена. Какой вид имела дисперсия ошибок, $\Var(\e_i)$?
+Известно, что после деления каждого уравнения регрессии $y_i = \beta_1 + \beta_2 x_i + u_i$ на $x_i^2$ гетероскедастичность ошибок была устранена. Какой вид имела дисперсия ошибок, $\Var(u_i)$?
 
 \begin{sol}
-$\Var(\e_i)=cx_i^4$
+$\Var(u_i)=cx_i^4$
 \end{sol}
 \end{problem}
 
 
 
 \begin{problem}
-Для линейной регрессии $y_i = \beta_1 + \beta_2 x_i + \beta_3 z_i + \e_i$ была
+Для линейной регрессии $y_i = \beta_1 + \beta_2 x_i + \beta_3 z_i + u_i$ была
 выполнена сортировка наблюдений по возрастанию переменной $x$. Исходная модель оценивалась по разным частям выборки:
 
 \begin{tabular}{c|cccc}
@@ -2147,7 +2195,7 @@ $i=20,\ldots, 30$ & $1.56$ & $1.06$ & $2.29$ & $14.51$ \\
 
 \begin{sol}
 Протестируем гетероскедастичность ошибок при помощи теста Голдфельда-
-Квандта. $H_0: \Var(\e_i)=\sigma^2$, $H_a: \Var(\e_i)=f(x_i)$
+Квандта. $H_0: \Var(u_i)=\sigma^2$, $H_a: \Var(u_i)=f(x_i)$
 
 \begin{enumerate}
 \item Тестовая статистика $GQ=\frac{RSS_3/(n_3-k)}{RSS_1/(n_1-k)}$, где $n_1=11$ — число наблюдений в первой подгруппе, $n_3=11$ — число наблюдений в
@@ -2163,9 +2211,9 @@ $i=20,\ldots, 30$ & $1.56$ & $1.06$ & $2.29$ & $14.51$ \\
 
 
 \begin{problem}
-Рассмотрим линейную регрессию $y_i = \beta_1 + \beta_2 x_i + \beta_3 z_i + \e_i$ по 50 наблюдениям. При оценивании с помощью МНК были получены результаты: $\hb_1=1.21$, $\hb_2=1.11$, $\hb_3=3.15$, $R^2=0.72$.
+Рассмотрим линейную регрессию $y_i = \beta_1 + \beta_2 x_i + \beta_3 z_i + u_i$ по 50 наблюдениям. При оценивании с помощью МНК были получены результаты: $\hb_1=1.21$, $\hb_2=1.11$, $\hb_3=3.15$, $R^2=0.72$.
 
-Оценена также вспомогательная регрессия: $\he^2_i=\delta_1+\delta_2 x_i +\delta_3 z_i+\delta_4 x_i^2+\delta_5 z_i^2+\delta_6 x_i z_i + u_i$. Результаты оценивания следующие: $\hat{\delta}_1=1.50$, $\hat{\delta}_2=-2.18$,  $\hat{\delta}_3=0.23$,  $\hat{\delta}_4=1.87$,  $\hat{\delta}_5=-0.56$,  $\hat{\delta}_6=-0.09$,  $R^2_{aux}=0.36$
+Оценена также вспомогательная регрессия: $\hat{u}^2_i=\delta_1+\delta_2 x_i +\delta_3 z_i+\delta_4 x_i^2+\delta_5 z_i^2+\delta_6 x_i z_i + u_i$. Результаты оценивания следующие: $\hat{\delta}_1=1.50$, $\hat{\delta}_2=-2.18$,  $\hat{\delta}_3=0.23$,  $\hat{\delta}_4=1.87$,  $\hat{\delta}_5=-0.56$,  $\hat{\delta}_6=-0.09$,  $R^2_{aux}=0.36$
 
 
 Известно, что ошибки в модели являются независимыми нормальными случайными величинами с нулевым математическим ожиданием. Протестируйте
@@ -2173,7 +2221,7 @@ $i=20,\ldots, 30$ & $1.56$ & $1.06$ & $2.29$ & $14.51$ \\
 
 
 \begin{sol}
-Протестируем гетероскедастичность ошибок при помощи теста Уайта. $H_0: \Var(\e_i)=\sigma^2$, $H_a: \Var(\e_i)=\delta_1+\delta_2 x_i +\delta_3 z_i+\delta_4 x_i^2+\delta_5 z_i^2+\delta_6 x_i z_i$.
+Протестируем гетероскедастичность ошибок при помощи теста Уайта. $H_0: \Var(u_i)=\sigma^2$, $H_a: \Var(u_i)=\delta_1+\delta_2 x_i +\delta_3 z_i+\delta_4 x_i^2+\delta_5 z_i^2+\delta_6 x_i z_i$.
 \begin{enumerate}
 \item Тестовая статистика $W=n\cdot R^2_{aux}$, где $n$ — число наблюдений, $R^2_{aux}$ — коэффициент детерминации для вспомогательной регрессии.
 \item Распределение тестовой статистики при верной $H_0$: $W\sim \chi^2_{k_{aux}-1}$, где $k_{aux}=6$ — число регрессоров во вспомогательной регрессии, считая константу.
@@ -2193,8 +2241,8 @@ $k(k+1)/2$
 \end{problem}
 
 \begin{problem}
-Рассмотрим модель регрессии $y_i=\beta_1+\beta_2 x_i + \beta_3 z_i+\e_i$, в которой
-ошибки $\e_i$ независимы и имеют нормальное распределение $N(0,\sigma^2)$. Для $n = 200$ наблюдений найдите
+Рассмотрим модель регрессии $y_i=\beta_1+\beta_2 x_i + \beta_3 z_i+u_i$, в которой
+ошибки $u_i$ независимы и имеют нормальное распределение $N(0,\sigma^2)$. Для $n = 200$ наблюдений найдите
 \begin{enumerate}
 \item вероятность того, что статистика Уайта окажется больше 10;
 \item ожидаемое значение статистики Уайта;
@@ -2209,8 +2257,8 @@ $0.0752$, $5$, $10$
 
 
 \begin{problem}
-Рассматривается модель $y_t=\beta_1+\e_t$, где ошибки $\e_t$  — независимые
-случайные величины с $\E(\e_t)=0$ и $\Var(\e_t)=t$. Найдите наиболее эффективную
+Рассматривается модель $y_t=\beta_1+u_t$, где ошибки $u_t$  — независимые
+случайные величины с $\E(u_t)=0$ и $\Var(u_t)=t$. Найдите наиболее эффективную
 оценку неизвестного параметра $\beta_1$ в классе линейных по $y$ и несмещённых оценок.
 
 \begin{sol}
@@ -2280,7 +2328,7 @@ $0.0752$, $5$, $10$
 
 
 \begin{problem}
-В модели $y_i=\beta x_i+\e_i$ предполагается гетероскедастичность вида $\Var(\e_i)=\exp(\gamma_1+\gamma_2 x_i)$ и нормальность ошибок.
+В модели $y_i=\beta x_i+u_i$ предполагается гетероскедастичность вида $\Var(u_i)=\exp(\gamma_1+\gamma_2 x_i)$ и нормальность ошибок.
 \begin{enumerate}
 \item Сформулируйте гипотезу о гомоскедастичности с помощью коэффициентов.
 \item Выведите в явном виде оценку максимального правдоподобия при предположении о гомоскедастичности.
@@ -2295,15 +2343,15 @@ $0.0752$, $5$, $10$
 \end{problem}
 
 \begin{problem}
-Для регрессии $y = X\beta + \e$ с $\E(\e) = 0$, $\Var(\e) = \Sigma \neq \sigma^2 I$, оцененной с помощью обобщённого метода наименьших квадратов, найдите ковариационную матрицу $\Cov(\hb_{GLS}, \e)$
+Для регрессии $y = X\beta + u$ с $\E(u) = 0$, $\Var(u) = \Sigma \neq \sigma^2 I$, оцененной с помощью обобщённого метода наименьших квадратов, найдите ковариационную матрицу $\Cov(\hb_{GLS}, u)$
 
 
 
 \begin{sol}
 \begin{multline*}
-\Cov(\hb_{GLS}, \e) = \Cov \left( (X' \Sigma^{-1} X)^{-1} X' \Sigma^{-1} y, \e \right) = \\
-= \Cov \left( (X' \Sigma^{-1} X)^{-1} X' \Sigma^{-1} \e, \e \right) = \\
-= (X' \Sigma^{-1} X)^{-1} X' \Sigma^{-1} \Cov(\e, \e) =\\
+\Cov(\hb_{GLS}, u) = \Cov \left( (X' \Sigma^{-1} X)^{-1} X' \Sigma^{-1} y, u \right) = \\
+= \Cov \left( (X' \Sigma^{-1} X)^{-1} X' \Sigma^{-1} \e, u \right) = \\
+= (X' \Sigma^{-1} X)^{-1} X' \Sigma^{-1} \Cov(\e, u) =\\
 = (X' \Sigma^{-1} X)^{-1} X' \Sigma^{-1} \Sigma = (X' \Sigma^{-1} X)^{-1} X'
 \end{multline*}
 \end{sol}
@@ -2494,13 +2542,13 @@ $z = \frac{\hb_2}{se(\hb_2)}=\frac{3}{0.3}=10$, $H_0$ отвергается.
 
 
 \begin{problem}
-Почему в пробит-модели предполагается, что $\e_i \sim \cN(0;1)$, а не $\e_i \sim \cN(0;\sigma^2)$ как в линейной регрессии?
+Почему в пробит-модели предполагается, что $u_i \sim \cN(0;1)$, а не $u_i \sim \cN(0;\sigma^2)$ как в линейной регрессии?
 \begin{sol}
 Если в пробит-уравнении ненаблюдаемой переменной домножить все коэффициенты и стандартную ошибку на произвольную константу, 
 то в результате получится ровно та же модель. 
-Следовательно, модель с $\e_i \sim \cN(0;\sigma^2)$ не идентифицируема. 
+Следовательно, модель с $u_i \sim \cN(0;\sigma^2)$ не идентифицируема. 
 Поэтому надо взять какое-то нормировочное условие. 
-Можно взять, например, $\beta_2 = 42$, но традиционно берут $\e_i \sim \cN(0;1)$.
+Можно взять, например, $\beta_2 = 42$, но традиционно берут $u_i \sim \cN(0;1)$.
 \end{sol}
 \end{problem}
 
@@ -2686,10 +2734,10 @@ $(1-p)$ — не ядовитым. Вес ядовитых покемонов р
 \end{problem}
 
 \begin{problem}
-Приведите примеры дискретных случайных величин $\e$ и $x$, таких, что
+Приведите примеры дискретных случайных величин $u$ и $x$, таких, что
 \begin{enumerate}
-\item $\E(\e)=0$, $\E(\e\mid x)=0$, но величины зависимы. Чему в этом случае равно $\Cov(\e,x)$?
-\item $\E(\e)=0$, $\Cov(\e,x)=0$, но $\E(\e\mid x)\neq 0$. Зависимы ли эти случайные величины?
+\item $\E(u)=0$, $\E(\e\mid x)=0$, но величины зависимы. Чему в этом случае равно $\Cov(\e,x)$?
+\item $\E(u)=0$, $\Cov(\e,x)=0$, но $\E(\e\mid x)\neq 0$. Зависимы ли эти случайные величины?
 \end{enumerate}
 
 
@@ -2699,11 +2747,11 @@ $(1-p)$ — не ядовитым. Вес ядовитых покемонов р
 
 
 \begin{problem}
-Эконометресса Агнесса хочет оценить модель $y_i=\beta_1+\beta_2 x_i +\e_i$, но, 
+Эконометресса Агнесса хочет оценить модель $y_i=\beta_1+\beta_2 x_i +u_i$, но, 
 к сожалению, величина $x_i$ ненаблюдаема. Вместо неё доступна величина  $x_i^*$. 
 Величина $x_i^*$  содержит ошибку измерения, $x_i^*=x_i+a_i$. 
-Известно, что $\Var(x_i)=9$, $\Var(a_i)=4$,   $\Var(\e_i)=1$. 
-Величины $x_i$, $a_i$ и $\e_i$ независимы.
+Известно, что $\Var(x_i)=9$, $\Var(a_i)=4$,   $\Var(u_i)=1$. 
+Величины $x_i$, $a_i$ и $u_i$ независимы.
 Наблюдения представляют собой случайную выборку.
 
 Агнесса оценивает регрессию $\hy_i=\hb_1+\hb_2 x_i^*$ с помощью МНК.
@@ -2723,8 +2771,8 @@ $(1-p)$ — не ядовитым. Вес ядовитых покемонов р
 
 
 \begin{problem}
-Эконометресса Анжелла хочет оценить модель $y_i=\beta_1+\beta_2 x_i +\beta_3 w_i +\e_i$, но, 
-к сожалению, величина $w_i$ ненаблюдаема. Известно, что $\Var(x_i)=9$, $\Var(w_i)=4$,  $\Var(\e_i)=1$ и $\Cov(x_i,w_i)=-2$. 
+Эконометресса Анжелла хочет оценить модель $y_i=\beta_1+\beta_2 x_i +\beta_3 w_i +u_i$, но, 
+к сожалению, величина $w_i$ ненаблюдаема. Известно, что $\Var(x_i)=9$, $\Var(w_i)=4$,  $\Var(u_i)=1$ и $\Cov(x_i,w_i)=-2$. 
 Случайная составляющая не коррелированна с регрессорами.
 Наблюдения представляют собой случайную выборку.
 
@@ -2735,7 +2783,7 @@ $(1-p)$ — не ядовитым. Вес ядовитых покемонов р
 \item Являются ли оценки, получаемые Анжеллой, состоятельными?
 \end{enumerate}
 
-%Анжелла сумела найти переменную $z_i$, такую что $\Cov(z_i,\e_i)=0$ $\Cov(z_i, x_i)=1$
+%Анжелла сумела найти переменную $z_i$, такую что $\Cov(z_i,u_i)=0$ $\Cov(z_i, x_i)=1$
 
 
 \begin{sol}
@@ -2909,13 +2957,13 @@ $\plim \hat \alpha = (\alpha + \beta)/2$
 
 \[
 \begin{cases}
-y_{t1} = \beta_{11} x_t + \e_{t1} \\
-y_{t2} = \beta_{21} z_t + \beta_{21} y_{t1} + \e_{t2}
+y_{t1} = \beta_{11} x_t + u_{t1} \\
+y_{t2} = \beta_{21} z_t + \beta_{21} y_{t1} + u_{t2}
 \end{cases},
 \]
-где вектор ошибок $\e_t$ имеет совместное нормальное распределение
+где вектор ошибок $u_t$ имеет совместное нормальное распределение
 \[
-\e_t \sim \cN\left(
+u_t \sim \cN\left(
 \begin{pmatrix}
   0 \\
   0
