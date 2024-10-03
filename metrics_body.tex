@@ -1382,6 +1382,110 @@ Random errors $u_1$ and $u_2$ are independent with $\P(u_i = 1 \mid x) = \P(u_i 
 \end{problem}
 
 
+\begin{problem}
+\trru{
+Трой и Чарли по разному проверяют гипотезу $H_0$ о том, что $\beta_a = 0$ и $\beta_b = 0$ в 
+модели $y_i = \beta_1 + \beta_a a_i + \beta_b b_i + u_i$ 
+против альтернативной гипотезы $H_1$ о том, что хотя бы один из коэффициентов $\beta_a$ или $\beta_b$ отличен от нуля. 
+
+Они оценили три регрессии:
+\[
+(A): \hat y_i = \hb_1, \quad (B): \hat y_i = \hb_1 + \hb_a a_i, \quad (C): \hat y_i = \hb_1 + \hb_a a_i + \hb_b b_i.
+\]
+
+Трой использует статистику 
+\[
+F_T = \frac{(RSS_A - RSS_C)/2}{RSS_C/(n - 3)}
+\]
+и сравнивает её с правосторонним 5\%-м квантилем $F_{2, n - 3}$ распределения.
+Если статистика больше критического значения, то Трой отвергает $H_0$.
+
+
+Чарли использует статистику 
+\[
+F_C = \frac{RSS_A - RSS_B}{RSS_B/(n - 2)}
+\]
+и сравнивает её с правосторонним 5\%-м квантилем $F_{1, n - 2}$ распределения.
+Если статистика больше критического значения, то Чарли отвергает $H_0$.
+
+\begin{enumerate}
+  \item Найдите вероятность ошибки первого рода для Троя.
+  \item Найдите вероятность ошибки первого рода для Чарли.
+\end{enumerate}
+
+Предположим, что на самом деле верна альтернативная гипотеза, $y_i = 2 + b_i + u_i$,
+Регрессоры $a_i$, $b_i$ и ошибки $u_i$ независимы и имеют стандартное нормальное распределение.
+
+\begin{enumerate}[resume]
+  \item Оцените вероятность ошибки второго рода для Троя, проведя $B = 10000$ симуляций.
+  \item Оцените вероятность ошибки второго рода для Чарли, проведя $B = 10000$ симуляций.
+\end{enumerate}
+
+Предположим, что на самом деле верна альтернативная гипотеза, $y_i = 2 + a_i + u_i$,
+Регрессоры $a_i$, $b_i$ и ошибки $u_i$ независимы и имеют стандартное нормальное распределение.
+
+\begin{enumerate}[resume]
+  \item Оцените вероятность ошибки второго рода для Троя, проведя $B = 10000$ симуляций.
+  \item Оцените вероятность ошибки второго рода для Чарли, проведя $B = 10000$ симуляций.
+  \item Какой подход, Чарли или Троя, лучше и почему?
+\end{enumerate}
+}
+
+\tren{
+Troye and Charli use different approaches to test the hypothesis $H_0$ that $\beta_a = 0$ and $\beta_b = 0$ in the model
+ $y_i = \beta_1 + \beta_a a_i + \beta_b b_i + u_i$ 
+against $H_1$ that at least one of $\beta_a$ or $\beta_b$ is not equal to zero. 
+
+They estimated three regressions:
+\[
+(A): \hat y_i = \hb_1, \quad (B): \hat y_i = \hb_1 + \hb_a a_i, \quad (C): \hat y_i = \hb_1 + \hb_a a_i + \hb_b b_i.
+\]
+
+Troye calculates statistic
+\[
+F_T = \frac{(RSS_A - RSS_C)/2}{RSS_C/(n - 3)}
+\]
+and compares it with 5\% right quantile of the $F_{2, n - 3}$ distribution.
+If statistic is higher than the critical value she rejects $H_0$.
+
+
+Charli calculates statistic
+\[
+F_C = \frac{RSS_A - RSS_B}{RSS_B/(n - 2)}
+\]
+and compares it with 5\% right quantile of the $F_{2, n - 3}$ distribution.
+If statistic is higher than the critical value she rejects $H_0$.
+
+\begin{enumerate}
+  \item Find the probability of the first type error for Troye.
+  \item Find the probability of the first type error for Charli.
+\end{enumerate}
+
+Assume that the alternative is true,  $y_i = 2 + b_i + u_i$,
+Regressors $a_i$, $b_i$ and random errors $u_i$ are independent and have standard normal distribution.
+
+\begin{enumerate}[resume]
+  \item Estimate the probability of the second type error for Troye, using $B = 10000$ simulations.
+  \item Estimate the probability of the second type error for Charli, using $B = 10000$ simulations.
+\end{enumerate}
+
+Assume that the alternative is true,  $y_i = 2 + a_i + u_i$,
+Regressors $a_i$, $b_i$ and random errors $u_i$ are independent and have standard normal distribution.
+
+\begin{enumerate}[resume]
+  \item Estimate the probability of the second type error for Troye, using $B = 10000$ simulations.
+  \item Estimate the probability of the second type error for Charli, using $B = 10000$ simulations.
+  \item Which approach, Troye or Charli, is better and why?
+\end{enumerate}
+}
+
+% Troye Charli
+
+\begin{sol}
+\end{sol}
+\end{problem}
+
+
 
 
 
