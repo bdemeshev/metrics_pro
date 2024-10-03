@@ -1413,7 +1413,7 @@ F_C = \frac{RSS_A - RSS_B}{RSS_B/(n - 2)}
   \item Найдите вероятность ошибки первого рода для Чарли.
 \end{enumerate}
 
-Предположим, что на самом деле верна альтернативная гипотеза, $y_i = 2 + b_i + u_i$,
+Предположим, что на самом деле верна альтернативная гипотеза, $y_i = 2 + b_i + u_i$, есть $n =100$ наблюдений.
 Регрессоры $a_i$, $b_i$ и ошибки $u_i$ независимы и имеют стандартное нормальное распределение.
 
 \begin{enumerate}[resume]
@@ -1421,7 +1421,7 @@ F_C = \frac{RSS_A - RSS_B}{RSS_B/(n - 2)}
   \item Оцените вероятность ошибки второго рода для Чарли, проведя $B = 10000$ симуляций.
 \end{enumerate}
 
-Предположим, что на самом деле верна альтернативная гипотеза, $y_i = 2 + a_i + u_i$,
+Предположим, что на самом деле верна альтернативная гипотеза, $y_i = 2 + a_i + u_i$, есть $n =100$ наблюдений.
 Регрессоры $a_i$, $b_i$ и ошибки $u_i$ независимы и имеют стандартное нормальное распределение.
 
 \begin{enumerate}[resume]
@@ -1461,7 +1461,7 @@ If statistic is higher than the critical value she rejects $H_0$.
   \item Find the probability of the first type error for Charli.
 \end{enumerate}
 
-Assume that the alternative is true,  $y_i = 2 + b_i + u_i$,
+Assume that the alternative is true,  $y_i = 2 + b_i + u_i$, there are $n=100$ observations.
 Regressors $a_i$, $b_i$ and random errors $u_i$ are independent and have standard normal distribution.
 
 \begin{enumerate}[resume]
@@ -1469,7 +1469,7 @@ Regressors $a_i$, $b_i$ and random errors $u_i$ are independent and have standar
   \item Estimate the probability of the second type error for Charli, using $B = 10000$ simulations.
 \end{enumerate}
 
-Assume that the alternative is true,  $y_i = 2 + a_i + u_i$,
+Assume that the alternative is true,  $y_i = 2 + a_i + u_i$, there are $n=100$ observations.
 Regressors $a_i$, $b_i$ and random errors $u_i$ are independent and have standard normal distribution.
 
 \begin{enumerate}[resume]
@@ -1482,10 +1482,55 @@ Regressors $a_i$, $b_i$ and random errors $u_i$ are independent and have standar
 % Troye Charli
 
 \begin{sol}
+\begin{enumerate}
+  \item $\alpha = 0.05$;
+  \item $\alpha = 0.05$;
+\end{enumerate}
+
 \end{sol}
 \end{problem}
 
 
+\begin{problem}
+\trru{Рассмотрим модель $y_i = \beta_1 + \beta_x x_i + u_i$.
+Лёва, Сева и Паша проверяют одну и ту же $H_0$: $\beta_1 = 0$ против разных альтернатив, $H_1$: $\beta_x < 0$, 
+$H_1$: $\beta_x \neq 0$ и $H_1$: $\beta_x > 0$.
+Все трое используя уровень значимости $\alpha = 0.05$.
+
+\begin{enumerate}
+  \item Чему равна вероятность ошибки первого рода у Лёвы, Севы и Паши?
+\end{enumerate}
+
+Предположим, что на самом деле верна альтернативная гипотеза, $y_i = 2 + x_i + u_i$, есть $n =100$ наблюдений.
+Регрессор $x_i$ и ошибки $u_i$ независимы и имеют стандартное нормальное распределение.
+
+\begin{enumerate}[resume]
+  \item Оцените вероятность ошибки второго рода для Лёвы, Севы и Паши, проведя $B= 10000$ симуляций.
+\end{enumerate}
+}
+\tren{Consider the model $y_i = \beta_1 + \beta_x x_i + u_i$.
+Lefty, Middly and Righty test the same $H_0$: $\beta_1 = 0$ against different alternatives, $H_1$: $\beta_x < 0$, 
+$H_1$: $\beta_x \neq 0$ and $H_1$: $\beta_x > 0$.
+All three of them use the significance level $\alpha = 0.05$.
+
+\begin{enumerate}
+  \item Find the probability of the first type error for Lefty, Middly and Righty.
+\end{enumerate}
+
+Assume that alternative hypothesis is true, $y_i = 2 + x_i + u_i$, there are $n =100$ observations.
+Regressor $x_i$ and random errors $u_i$ are independent and have standard normal distribution.
+
+\begin{enumerate}[resume]
+  \item Estimate the probability of the second type error for Lefty, Middly and Righty using $B= 10000$ simulations.
+\end{enumerate}
+}
+
+\begin{sol}
+  \begin{enumerate}
+    \item $\alpha = 0.05$;
+  \end{enumerate}
+\end{sol}
+\end{problem}
 
 
 
