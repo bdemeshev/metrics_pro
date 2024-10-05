@@ -1495,7 +1495,7 @@ Regressors $a_i$, $b_i$ and random errors $u_i$ are independent and have standar
 \trru{Рассмотрим модель $y_i = \beta_1 + \beta_x x_i + u_i$.
 Лёва, Сева и Паша проверяют одну и ту же $H_0$: $\beta_1 = 0$ против разных альтернатив, $H_1$: $\beta_x < 0$, 
 $H_1$: $\beta_x \neq 0$ и $H_1$: $\beta_x > 0$.
-Все трое используя уровень значимости $\alpha = 0.05$.
+Все трое используют уровень значимости $\alpha = 0.05$.
 
 \begin{enumerate}
   \item Чему равна вероятность ошибки первого рода у Лёвы, Севы и Паши?
@@ -1505,7 +1505,7 @@ $H_1$: $\beta_x \neq 0$ и $H_1$: $\beta_x > 0$.
 Регрессор $x_i$ и ошибки $u_i$ независимы и имеют стандартное нормальное распределение.
 
 \begin{enumerate}[resume]
-  \item Оцените вероятность ошибки второго рода для Лёвы, Севы и Паши, проведя $B= 10000$ симуляций.
+  \item Оцените вероятность ошибки второго рода у Лёвы, Севы и Паши, проведя $B= 10000$ симуляций.
 \end{enumerate}
 }
 \tren{Consider the model $y_i = \beta_1 + \beta_x x_i + u_i$.
@@ -1532,7 +1532,61 @@ Regressor $x_i$ and random errors $u_i$ are independent and have standard normal
 \end{sol}
 \end{problem}
 
+\begin{problem}
+  \trru{
+  Рассмотрим модель $y_i = \beta_1 + \beta_2 x_i + u_i$, $\E(u \mid X) = 0$, $\Var(u \mid X) = \sigma^2 I$, наблюдения независимы и одинаково распределены.
 
+  Количество наблюдений — чётное. Рассмотрим оценку
+  \[
+  \hb_2^A = \frac{2}{n}\left(\frac{y_2 - y_1}{x_2 - x_1} + \frac{y_4 - y_3}{x_4 - x_3} + \dots + \frac{y_n - y_{n-1}}{x_n - x_{n-1}}\right).
+  \]
+  \begin{enumerate}
+    \item Является ли оценка $\hb_2^A$ несмещённой для $\beta_2$? Состоятельной?
+  \end{enumerate}
+  Теперь рассмотрим оценку
+  \[
+  \hb_2^B = \frac{1}{n}\left(\frac{y_2 - y_1}{x_2 - x_1} + \frac{y_3 - y_1}{x_3 - x_1} + \dots + \frac{y_n - y_1}{x_n - x_1}\right).
+  \]
+  \begin{enumerate}[resume]
+    \item Является ли оценка $\hb_2^B$ несмещённой для $\beta_2$? Состоятельной?
+  \end{enumerate}
+  }
+
+  \tren{
+  Consider the simple regression model $y_i = \beta_1 + \beta_2 x_i + u_i$, $\E(u \mid X) = 0$, $\Var(u \mid X) = \sigma^2 I$, observations are independent and identically distributed.
+
+  The number of observations is even. Consider the estimator 
+  \[
+  \hb_2^A = \frac{2}{n}\left(\frac{y_2 - y_1}{x_2 - x_1} + \frac{y_4 - y_3}{x_4 - x_3} + \dots + \frac{y_n - y_{n-1}}{x_n - x_{n-1}}\right).
+  \]
+  \begin{enumerate}
+    \item Is $\hb_2^A$ unbiased for $\beta_2$? Consistent?
+  \end{enumerate}
+  Now consider the estimator 
+  \[
+  \hb_2^B = \frac{1}{n}\left(\frac{y_2 - y_1}{x_2 - x_1} + \frac{y_3 - y_1}{x_3 - x_1} + \dots + \frac{y_n - y_1}{x_n - x_1}\right).
+  \]
+  \begin{enumerate}[resume]
+    \item Is $\hb_2^B$ unbiased for $\beta_2$? Consistent?
+  \end{enumerate}
+  }
+
+\begin{sol}
+  \trru{
+    \begin{enumerate}
+      \item $\hb_2^A$ несмещённая и состоятельная;
+      \item $\hb_2^B$ несмещённая и несостоятельная;
+    \end{enumerate}
+    }    
+  \tren{
+\begin{enumerate}
+  \item $\hb_2^A$ is unbiased and consistent;
+  \item $\hb_2^B$ is unbiased and unconsistent;
+\end{enumerate}
+}
+\end{sol}
+
+\end{problem}
 
 \section{\trru{Гамма и бета распределения}\tren{Gamma and beta distributions}}
 
