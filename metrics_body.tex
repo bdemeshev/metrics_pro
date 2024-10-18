@@ -1574,19 +1574,84 @@ Regressor $x_i$ and random errors $u_i$ are independent and have standard normal
 \begin{sol}
   \trru{
     \begin{enumerate}
-      \item $\hb_2^A$ несмещённая и состоятельная;
-      \item $\hb_2^B$ несмещённая и несостоятельная;
+      \item Оценка $\hb_2^A$ несмещённая и состоятельная.
+      \item Оценка $\hb_2^B$ несмещённая и несостоятельная.
+      Интуиция за несостоятельностью: первое наблюдение очень сильно влияет на результат оценивания. 
+      Формально доказать несостоятельность можно конкретным примером.
+      Возьмём равномерно распределённые величины $x_i$ на отрезке $[0; 1]$.
+      И равновероятно равные плюс или минус единице $u_i$.
+      Скачок $\hat\beta_2^B$, вызываемый разными значениями $u_1$ не будет стремится к нулю с ростом $n$.
     \end{enumerate}
     }    
   \tren{
 \begin{enumerate}
-  \item $\hb_2^A$ is unbiased and consistent;
-  \item $\hb_2^B$ is unbiased and unconsistent;
+  \item The estimator $\hb_2^A$ is unbiased and consistent;
+  \item The estimator $\hb_2^B$ is unbiased and unconsistent.
+  Intuition behind unconsistency: the first observation has high influence even for large $n$.
+  One may formally consider a particular case as a counter-example to consistency.
+  Let $x_i$ be uniform on $[0;1]$, let $u_i$ be equiprobable $+1$ or $-1$.
+  The jump in $\hat \beta_2^B$ caused by two values of $u_1$ will not go to zero when $n$ tends to infinity.
 \end{enumerate}
 }
 \end{sol}
 
 \end{problem}
+
+
+\section{\trru{$F$-тест}\tren{$F$-test}}
+
+\begin{problem}
+\tren{ %
+Consider the standard $F$-test
+\[
+F = \frac{(SSRes_R - SSRes_{UR}) / q}{SSRes_{UR}/(n - k)}
+\]
+for the unrestricted model 
+\[
+y_i = \beta_0 + \beta_1 x_{i1} + \dots + \beta_{k-1} x_{i,k-1} + u_i. 
+\]
+
+Consider the null-hypothesis $H_0$: $\beta_1 = \beta_2 = \ldots = \beta_{k-1} = 0$.
+
+Express the $F$-statistic as a function of $R^2_{UR}$ in the unrestricted regression.
+}
+\begin{sol}
+\end{sol}
+\end{problem}
+
+
+\begin{problem}
+\tren{ %
+Consider the standard $F$-test
+\[
+F = \frac{(SSRes_R - SSRes_{UR}) / q}{SSRes_{UR}/(n - k)}
+\]
+for the unrestricted model 
+\[
+y_i = \beta_0 + \beta_1 x_{i} + u_i. 
+\]
+  
+Consider the null-hypothesis $H_0$: $\beta_1 = 0$.
+  
+Express the $F$-statistic as a function of the corresponding $t$-statistic in the unrestrited regression.
+}
+\begin{sol}
+$F = t^2$;
+\end{sol}
+\end{problem}
+    
+
+\begin{problem}
+\begin{sol}
+\end{sol}
+\end{problem}
+
+\begin{problem}
+\begin{sol}
+\end{sol}
+\end{problem}
+  
+
 
 \section{\trru{Гамма и бета распределения}\tren{Gamma and beta distributions}}
 
