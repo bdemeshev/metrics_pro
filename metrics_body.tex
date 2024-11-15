@@ -420,7 +420,7 @@ $R^2_2 \geq R^2_1$.
 
 
 \begin{problem}
-На работе Феофан построил парную регрессию по трём наблюдениям и посчитал прогнозы $\hat{y}_i$. Придя домой он отчасти вспомнил результаты:
+\trru{На работе Феофан построил парную регрессию по трём наблюдениям и посчитал прогнозы $\hat{y}_i$. Придя домой он отчасти вспомнил результаты:
 
 \begin{tabular}{rr}
 \toprule
@@ -433,7 +433,24 @@ $6$ & ? \\
 \end{tabular}
 
 Поднапрягшись, Феофан вспомнил, что третий прогноз был больше второго.
-Помогите Феофану восстановить пропущенные значения.
+Помогите Феофану восстановить пропущенные значения.}
+\tren{Foma estimated simple regression model using three observations and calculated the forecasts $\hat{y}_i$. 
+Unfortunately he remembers only this table:
+
+\begin{tabular}{rr}
+\toprule
+$y_i$ & $\hy_i$ \\
+\midrule
+$0$ & $1$ \\
+$6$ & ? \\
+$6$ & ? \\
+\bottomrule
+\end{tabular}
+
+He recalls that $\hat y_3 > \hat y_2$. 
+
+Help Foma to reconstruct the missing entries in the table. 
+}
 
 
 \begin{sol}
@@ -1980,6 +1997,107 @@ I - CB^{-1}DA^{-1} + CB^{-1}DA^{-1} = I
 \end{sol}
 
 \end{problem}
+
+
+\section{\trru{Регуляризация}\tren{Regularization}}
+
+
+\begin{problem}
+\trru{Все регрессоры $X$ уже стандартизированы, зависимая переменная $y$ предварительно центрирована.
+
+В гребневой регрессии минимизируют функцию 
+\[
+\loss(\hb) = (y - \hat y)^T (y - \hat y) + \lambda \hb^T \hb, \quad \hat y = X \hb.
+\]
+\begin{enumerate}
+  \item Найдите оптимальное значение оценок $\hb$ при фиксированном $\lambda$.
+  \item Что происходит с оценками при $\lambda\to\infty$?
+  \item Что происходит с оценками при $\lambda\to 0$?
+\end{enumerate}
+
+Истинная зависимость имеет вид $y= X \beta + u$ с $\E(u \mid X) = 0$ и $\Var(u \mid X) = \sigma^2 I$.
+
+\begin{enumerate}[resume]
+  \item Найдите $\E(\hb \mid X)$. 
+  \item Найдите $\Var(\hb \mid X)$.
+  \item Что происходит с $\E(\hb \mid X)$ и $\Var(\hb \mid X)$ при $\lambda\to\infty$?
+  \item Что происходит с $\E(\hb \mid X)$ и $\Var(\hb \mid X)$ при $\lambda\to 0$?
+\end{enumerate}
+}
+\trru{All regressors $X$ are standardized, dependent variable $y$ is centered.
+
+In the ridge regression one minimizes the goal function
+\[
+\loss(\hb) = (y - \hat y)^T (y - \hat y) + \lambda \hb^T \hb, \quad \hat y = X \hb.
+\]
+\begin{enumerate}
+  \item Find the optimal $\hb$ for fixed $\lambda$.
+  \item What happens with estimates when $\lambda\to\infty$?
+  \item What happens with estimates when $\lambda\to 0$?
+\end{enumerate}
+
+True model is $y= X \beta + u$ with $\E(u \mid X) = 0$, $\Var(u \mid X) = \sigma^2 I$.
+
+\begin{enumerate}[resume]
+  \item Find $\E(\hb \mid X)$.
+  \item Find $\Var(\hb \mid X)$.
+  \item What happens with $\E(\hb \mid X)$ and $\Var(\hb \mid X)$ when $\lambda\to\infty$?
+  \item What happens with $\E(\hb \mid X)$ and $\Var(\hb \mid X)$ when $\lambda\to 0$?
+\end{enumerate}
+}
+
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+  
+\begin{problem}
+\trru{Все регрессоры $X$ уже стандартизированы, зависимая переменная $y$ предварительно центрирована.
+
+  Боб минимизирует целевую функцию гребневой регрессии:  
+  \[
+  \loss(\hb) = (y - \hat y)^T (y - \hat y) + \lambda \hb^T \hb, \quad \hat y = X \hb.
+  \]
+  Алиса добавляет дополнительные наблюдения в исходный набор данных,
+  а далее на увеличенном наборе данных $y^{+}$, $X^{+}$ оценивает обычную регрессию. 
+
+  Какие наблюдения ей нужно добавить, чтобы получить такие же оценки $\hb$ как у Боба? 
+  }
+  \tren{All regressors $X$ are standardized, dependent variable $y$ is centered.
+
+  Bob minimizes the goal function of the ridge regression:  
+  \[
+  \loss(\hb) = (y - \hat y)^T (y - \hat y) + \lambda \hb^T \hb, \quad \hat y = X \hb.
+  \]
+  Alice adds some artificial observations to the original dataset and 
+  than estimates a linear regresion on the augmented dataset $y^{a}$, $X^{a}$.
+
+  Which estimates should she add to obtain the same estimates $\hb$ as Bob? 
+  }
+  \begin{sol}
+    $y^+ = 0$, $X^+ = \sqrt{\lambda} I$;
+  \end{sol}  
+\end{problem}
+
+\begin{problem}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
+\begin{problem}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
+\begin{problem}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
+\begin{problem}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
 
 
 \section{Приятно-следственные связи, CUPED}
