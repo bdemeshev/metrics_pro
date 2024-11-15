@@ -2032,8 +2032,8 @@ In the ridge regression one minimizes the goal function
 \]
 \begin{enumerate}
   \item Find the optimal $\hb$ for fixed $\lambda$.
-  \item What happens with estimates when $\lambda\to\infty$?
-  \item What happens with estimates when $\lambda\to 0$?
+  \item What happens to the estimates when $\lambda\to\infty$?
+  \item What happens to the estimates when $\lambda\to 0$?
 \end{enumerate}
 
 True model is $y= X \beta + u$ with $\E(u \mid X) = 0$, $\Var(u \mid X) = \sigma^2 I$.
@@ -2041,12 +2041,23 @@ True model is $y= X \beta + u$ with $\E(u \mid X) = 0$, $\Var(u \mid X) = \sigma
 \begin{enumerate}[resume]
   \item Find $\E(\hb \mid X)$.
   \item Find $\Var(\hb \mid X)$.
-  \item What happens with $\E(\hb \mid X)$ and $\Var(\hb \mid X)$ when $\lambda\to\infty$?
-  \item What happens with $\E(\hb \mid X)$ and $\Var(\hb \mid X)$ when $\lambda\to 0$?
+  \item What happens to the $\E(\hb \mid X)$ and $\Var(\hb \mid X)$ when $\lambda\to\infty$?
+  \item What happens to the $\E(\hb \mid X)$ and $\Var(\hb \mid X)$ when $\lambda\to 0$?
 \end{enumerate}
 }
 
   \begin{sol}
+    \begin{enumerate}
+      \item $\hb = (X^T X + \lambda I)^{-1} X^T y$;
+      \item $\lim_{\lambda\to \infty} \hb = (X^TX)^{-1} X^T y = 0$;
+      \item $\lim_{\lambda\to 0} \hb = (X^TX)^{-1} X^T y = \hb_{\text{ols}}$;
+      \item $\E(\hb \mid X) = (X^T X + \lambda I)^{-1} X^T X\beta$;
+      \item $\Var(\hb \mid X) = \sigma^2 (X^T X + \lambda I)^{-1} X^T X (X^T X + \lambda I)^{-1}$;
+      \tren{\item If $\lambda \to \infty$  then $\E(\hb \mid X) \to 0$ and $\Var(\hb \mid X) \to 0$;
+      \item If $\lambda \to 0$  then $\E(\hb \mid X) \to \beta$ and $\Var(\hb \mid X) \to \sigma^2 (X^TX)^{-1}$;}
+      \trru{\item Если $\lambda \to \infty$,  то $\E(\hb \mid X) \to 0$ и $\Var(\hb \mid X) \to 0$;
+      \item Если $\lambda \to 0$ то $\E(\hb \mid X) \to \beta$ и $\Var(\hb \mid X) \to \sigma^2 (X^TX)^{-1}$;}
+    \end{enumerate}
   \end{sol}  
 \end{problem}
   
@@ -2074,7 +2085,8 @@ True model is $y= X \beta + u$ with $\E(u \mid X) = 0$, $\Var(u \mid X) = \sigma
   Which estimates should she add to obtain the same estimates $\hb$ as Bob? 
   }
   \begin{sol}
-    $y^+ = 0$, $X^+ = \sqrt{\lambda} I$;
+    \tren{One can add $y^+ = 0$, $X^+ = \sqrt{\lambda} I$.}
+    \trru{Можно добавить, например, $y^+ = 0$, $X^+ = \sqrt{\lambda} I$.}
   \end{sol}  
 \end{problem}
 
