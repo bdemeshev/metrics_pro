@@ -253,19 +253,19 @@ Q(\beta_1, \beta_2) := \sum_{i=1}^n (y_i - \hb_1 x_i - \hb_2 z_i)^2 \to \underse
 Выпишем задачу:
 \[
 \begin{cases}
-RSS = \sum_{i=1}^{n}(y_i - \hb_1x_i - \hb_2z_i)^2 \to \min_{\hb_1, \hb_2}\\
+\SSR = \sum_{i=1}^{n}(y_i - \hb_1x_i - \hb_2z_i)^2 \to \min_{\hb_1, \hb_2}\\
 \hb_1 + \hb_2 = 1
 \end{cases}
 \]
 
 Можем превратить ее в задачу минимизации функции одного аргумента:
 \[
-RSS =  \sum_{i=1}^{n}(y_i - x_i - \hb_2(z_i-x_i))^2 \to \min_{\hb_2}
+\SSR =  \sum_{i=1}^{n}(y_i - x_i - \hb_2(z_i-x_i))^2 \to \min_{\hb_2}
 \]
 
 Выпишем условия первого порядка:
 \[
-\frac{\partial RSS}{\partial \hb_2} = \sum_{i=1}^{n}2(y_i-x_i-\hb_2(z_i-x_i))(x_i-z_i)=0
+\frac{\partial \SSR}{\partial \hb_2} = \sum_{i=1}^{n}2(y_i-x_i-\hb_2(z_i-x_i))(x_i-z_i)=0
 \]
 
 Отсюда:
@@ -364,13 +364,13 @@ RSS =  \sum_{i=1}^{n}(y_i - x_i - \hb_2(z_i-x_i))^2 \to \min_{\hb_2}
 \begin{problem}
 Эконометрист Вовочка оценил методом наименьших квадратов модель 1, $y_i=\beta_1+\beta_2 x_i+\beta_3 z_i+u_i$,
 а затем модель 2, $y_i=\beta_1+\beta_2 x_i+\beta_3 z_i+\beta_4 w_i+u$.
-Сравните полученные $ESS$, $RSS$, $TSS$ и $R^2$.
+Сравните полученные $ESS$, $\SSR$, $TSS$ и $R^2$.
 
 \begin{sol}
 Поскольку значения $y$ остались теми же, $TSS_1 = TSS_2$.
 
 Добавление ещё одного регрессора не уменьшит точность оценки, то есть
-$RSS_2 \leq RSS_1$, $ESS_2 \geq ESS_1$.
+$\SSR_2 \leq \SSR_1$, $ESS_2 \geq ESS_1$.
 
 Тогда и коэффициент детерминации $R^2 = ESS / TSS$ не уменьшится, то есть
 $R^2_2 \geq R^2_1$.
@@ -378,7 +378,7 @@ $R^2_2 \geq R^2_1$.
 \end{problem}
 
 \begin{problem}
-Что происходит с $TSS$, $RSS$, $ESS$, $R^2$ при добавлении нового наблюдения? Если величина может изменяться только в одну сторону, то докажите это. Если возможны и рост, и падение, то приведите пример.
+Что происходит с $TSS$, $\SSR$, $ESS$, $R^2$ при добавлении нового наблюдения? Если величина может изменяться только в одну сторону, то докажите это. Если возможны и рост, и падение, то приведите пример.
 
 
 \begin{sol}
@@ -391,7 +391,7 @@ $R^2_2 \geq R^2_1$.
 
 Следовательно, \(TSS' \geq TSS\).
 
-Также сумма \(RSS\) может только вырасти или остаться постоянной при добавлении нового наблюдения. Действительно, новое $(n+1)$-ое слагаемое в сумме неотрицательно. А сумма $n$ слагаемых минимальна при старых коэффициентах, а не при новых.
+Также сумма \(\SSR\) может только вырасти или остаться постоянной при добавлении нового наблюдения. Действительно, новое $(n+1)$-ое слагаемое в сумме неотрицательно. А сумма $n$ слагаемых минимальна при старых коэффициентах, а не при новых.
 
 \(ESS\) и \(R^2\) могут меняться в обе стороны. Например, рассмотрим ситуацию, где точки лежат симметрично относительно некоторой горизонтальной прямой. При этом $ESS=0$. Добавим наблюдение — $ESS$ вырастет, удалим наблюдение — $ESS$ вырастет.
 \end{sol}
@@ -886,7 +886,7 @@ X'X = \begin{pmatrix}
 \item Найдите $TSS = \sum_{i=1}^n (y_i - \bar y)^2$.
 \item Методом МНК найдите оценку для вектора неизвестных коэффициентов.
 \item Найдите вектор прогнозов $\hy$.
-\item Найдите $RSS = \sum_{i=1}^n (y_i - \hy_i)^2$.
+\item Найдите $\SSR = \sum_{i=1}^n (y_i - \hy_i)^2$.
 \item Чему равен $R^2$ в модели? Прокомментируйте полученное значение с точки зрения качества оценённого уравнения регрессии.\end{enumerate}
 \begin{sol}
 
@@ -896,8 +896,8 @@ X'X = \begin{pmatrix}
 \item $TSS = 10$
 \item $\hb = \begin{pmatrix} \hb_1 \\ \hb_2 \\ \hb_3 \end{pmatrix} = (X'X)^{-1}X'y = \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}$
 \item $\hy = X\hb$
-\item $RSS = 2$
-\item $R^2 = 1 - \frac {RSS}{TSS} = 0.8.$ $R^2$ высокий, построенная эконометрическая модель хорошо описывает данные
+\item $\SSR = 2$
+\item $R^2 = 1 - \frac {\SSR}{TSS} = 0.8.$ $R^2$ высокий, построенная эконометрическая модель хорошо описывает данные
 \end{enumerate}
 \end{sol}
 \end{problem}
@@ -930,15 +930,15 @@ State Pythagorean theorem for all right triangles.}
 
 
 \begin{sol}
-$\sum y_i^2=\sum \hy_i^2+\sum \hat{u}_i^2$, $TSS=ESS+RSS$,
+$\sum y_i^2=\sum \hy_i^2+\sum \hat{u}_i^2$, $TSS=ESS+\SSR$,
 \end{sol}
 \end{problem}
 
 
 
 \begin{problem}
-\trru{Покажите на картинке $TSS$, $ESS$, $RSS$, $R^2$, $\sCorr(\hy,y)$, $\sCov(\hy,y)$:}
-\trru{Show $TSS$, $ESS$, $RSS$, $R^2$, $\sCorr(\hy,y)$, $\sCov(\hy,y)$ on the picture:}
+\trru{Покажите на картинке $TSS$, $ESS$, $\SSR$, $R^2$, $\sCorr(\hy,y)$, $\sCov(\hy,y)$:}
+\trru{Show $TSS$, $ESS$, $\SSR$, $R^2$, $\sCorr(\hy,y)$, $\sCov(\hy,y)$ on the picture:}
 
 
 \tdplotsetmaincoords{70}{110}
@@ -995,7 +995,7 @@ $\sCov(\hy, y)=\sqrt{ESS^2/(n-1)^2}=ESS/(n-1)$
 
 
 \begin{sol}
-Проекция $y$ на $\hy$ это $\hy$, поэтому оценки коэффициентов будут 0 и 1. Оценка дисперсии $\frac{RSS}{(n-2)ESS}$. Нарушены предпосылки теоремы Гаусса-Маркова, например, ошибки новой модели в сумме дают 0, значит коррелированы.
+Проекция $y$ на $\hy$ это $\hy$, поэтому оценки коэффициентов будут 0 и 1. Оценка дисперсии $\frac{\SSR}{(n-2)ESS}$. Нарушены предпосылки теоремы Гаусса-Маркова, например, ошибки новой модели в сумме дают 0, значит коррелированы.
 \end{sol}
 \end{problem}
 
@@ -1003,8 +1003,8 @@ $\sCov(\hy, y)=\sqrt{ESS^2/(n-1)^2}=ESS/(n-1)$
 
 
 \begin{problem}
-\trru{При каких условиях $TSS=ESS+RSS$?}
-\tren{Under which conditions $TSS=ESS+RSS$?}
+\trru{При каких условиях $TSS=ESS+\SSR$?}
+\tren{Under which conditions $TSS=ESS+\SSR$?}
 
 \begin{sol}
 Либо в регрессию включена константа, либо единичный столбец (тут была опечатка, столбей) можно получить как линейную комбинацию регрессоров, например, включены дамми-переменные для каждого возможного значения качественной переменной.
@@ -1074,9 +1074,9 @@ $\frac{\hat{\sigma}_x^2}{\hat{\sigma}_z^2} = \frac{15}{8}$
 
 \begin{problem}
 \trru{У нас есть $n$ наблюдений. 
-Для каждого из данных случаев найдите матрицу-шляпницу $H$, проецирующую векторы на пространство столбцов матрицы регрессоров $X$, вектор $\hy$, $RSS$, $ESS$, $TSS$:}
+Для каждого из данных случаев найдите матрицу-шляпницу $H$, проецирующую векторы на пространство столбцов матрицы регрессоров $X$, вектор $\hy$, $\SSR$, $ESS$, $TSS$:}
 \tren{We have $n$ observations. 
-For each case find the hat-matrix $H$ that projects vectors onto the column space of regressor matrix $X$, vector $\hy$, $RSS$, $ESS$, $TSS$:}
+For each case find the hat-matrix $H$ that projects vectors onto the column space of regressor matrix $X$, vector $\hy$, $\SSR$, $ESS$, $TSS$:}
 
 
 \begin{enumerate}
@@ -1148,7 +1148,7 @@ $\dim V = 1$, $\dim W = n-1$, $\dim V \cap W =0$, $\dim V^{\perp}=n-1$, $\dim W^
 
 Какое распределение в регрессии Евлампии имеют $\bar y$, $\sum y_i^2/\sigma^2$,
 $\sum \hat y_i^2/\sigma^2$,
-$n\bar y^2/\sigma^2$, $TSS/\sigma^2$, $RSS/\sigma^2$, $ESS/\sigma^2$?
+$n\bar y^2/\sigma^2$, $TSS/\sigma^2$, $\SSR/\sigma^2$, $ESS/\sigma^2$?
 \begin{sol}
 
 \end{sol}
@@ -1293,9 +1293,9 @@ X'X = \begin{pmatrix}
 \item $\Var(u_1)=\Var(u)_{(1,1)}=4\cdot I_{(1,1)}=4$
 \item $\Var(\beta_1)=0$, так как $\beta_1$ — детерминированная величина.
 \item $\Var(\hb_1)=\sigma^2(X'X)^{-1}_{(1,1)}=0.5\sigma^2=0.5\cdot 4=2$
-\item $\hVar(\hb_1)=\hat\sigma^2(X'X)^{-1}_{(1,1)}=0.5\hat\sigma^2_{(1,1)}=0.5\frac{RSS}{5-3}=0.25RSS=0.25y'(I-X(X'X)^{-1}X')y=0.25\cdot 1=0.25$
+\item $\hVar(\hb_1)=\hat\sigma^2(X'X)^{-1}_{(1,1)}=0.5\hat\sigma^2_{(1,1)}=0.5\frac{\SSR}{5-3}=0.25\SSR=0.25y'(I-X(X'X)^{-1}X')y=0.25\cdot 1=0.25$
 
-$\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
+$\hat\sigma^2=\frac{\SSR}{n-k}=\frac12$.
 
 \item Так как оценки МНК являются несмещёнными, то $\E(\hb)=\beta$, значит:
 \[
@@ -1326,7 +1326,7 @@ $\hat\sigma^2=\frac{RSS}{n-k}=\frac12$.
 \E(\hat\sigma^2)=2
 \]
 
-\item $\hat\sigma^2=\frac{RSS}{n-k}=\frac{1}{2}$
+\item $\hat\sigma^2=\frac{\SSR}{n-k}=\frac{1}{2}$
 
 \end{enumerate}
 
@@ -1412,7 +1412,7 @@ Random errors $u_1$ and $u_2$ are independent with $\P(u_i = 1 \mid x) = \P(u_i 
 
 Трой использует статистику 
 \[
-F_T = \frac{(RSS_A - RSS_C)/2}{RSS_C/(n - 3)}
+F_T = \frac{(\SSR_A - \SSR_C)/2}{\SSR_C/(n - 3)}
 \]
 и сравнивает её с правосторонним 5\%-м квантилем $F_{2, n - 3}$ распределения.
 Если статистика больше критического значения, то Трой отвергает $H_0$.
@@ -1420,7 +1420,7 @@ F_T = \frac{(RSS_A - RSS_C)/2}{RSS_C/(n - 3)}
 
 Чарли использует статистику 
 \[
-F_C = \frac{RSS_A - RSS_B}{RSS_B/(n - 2)}
+F_C = \frac{\SSR_A - \SSR_B}{\SSR_B/(n - 2)}
 \]
 и сравнивает её с правосторонним 5\%-м квантилем $F_{1, n - 2}$ распределения.
 Если статистика больше критического значения, то Чарли отвергает $H_0$.
@@ -1460,7 +1460,7 @@ They estimated three regressions:
 
 Troye calculates statistic
 \[
-F_T = \frac{(RSS_A - RSS_C)/2}{RSS_C/(n - 3)}
+F_T = \frac{(\SSR_A - \SSR_C)/2}{\SSR_C/(n - 3)}
 \]
 and compares it with 5\% right quantile of the $F_{2, n - 3}$ distribution.
 If statistic is higher than the critical value she rejects $H_0$.
@@ -1468,7 +1468,7 @@ If statistic is higher than the critical value she rejects $H_0$.
 
 Charli calculates statistic
 \[
-F_C = \frac{RSS_A - RSS_B}{RSS_B/(n - 2)}
+F_C = \frac{\SSR_A - \SSR_B}{\SSR_B/(n - 2)}
 \]
 and compares it with 5\% right quantile of the $F_{2, n - 3}$ distribution.
 If statistic is higher than the critical value she rejects $H_0$.
@@ -2001,6 +2001,27 @@ I - CB^{-1}DA^{-1} + CB^{-1}DA^{-1} = I
 
 \section{\trru{Регуляризация}\tren{Regularization}}
 
+\begin{leftbar}
+  \tren{For standardized regressors $X$ and centered $y$ ridge regression minimizes the loss function}
+  \trru{При стандартизированных регрессорах $X$ и центрированной зависимой переменной гребневая регрессия минимизируют функцию}
+  \[
+  \loss(\hb) = (y - \hat y)^T (y - \hat y) + \lambda \hb^T \hb, \quad \hat y = X \hb.
+  \]
+  \trru{Матрица $(X^TX)^{-1}$ представима в виде}
+  \tren{The matrix $(X^TX)^{-1}$ can be written as}
+  \[
+    (X^TX)^{-1} = \begin{pmatrix}
+      1/\SSR_1 & -{\hb_{12}}/{\SSR_1} & -{\hb_{13}}/{\SSR_1}\\
+      - {\hb_{21}}/{\SSR_2} & 1/\SSR_2 & - {\hb_{23}}/{\SSR_2} \\
+      - {\hb_{31}}/{\SSR_3}  & - {\hb_{32}}/{\SSR_3} & 1/\SSR_3 \\
+  \end{pmatrix},
+  \]
+  \tren{where $\SSR_1$ is the residual sum of squares in the regression of $x_1$ onto all other regressors:}
+  \trru{где $\SSR_1$ — это сумма квадратов остатков в регрессии $x_1$ на остальные предикторы:}
+  \[
+  \hat x_1 = \hb_{12} x_2 + \hb_{13} x_3.
+  \] 
+\end{leftbar}
 
 \begin{problem}
 \trru{Все регрессоры $X$ уже стандартизированы, зависимая переменная $y$ предварительно центрирована.
@@ -2091,6 +2112,45 @@ True model is $y= X \beta + u$ with $\E(u \mid X) = 0$, $\Var(u \mid X) = \sigma
 \end{problem}
 
 \begin{problem}
+  \trru{Матрица $X$ содержит $100$ строк и $4$ столбца: столбец из единиц, столбцы $a$, $b$ и $c$.}
+  \tren{Matrix $X$ has $100$ rows and $4$ columns: column of ones, columns $a$, $b$ and $c$.}
+\[
+1000 \cdot (X^TX)^{-1} = \begin{pmatrix}
+  58.2 & 1.6 & 0.7 & 15.2 \\
+   & 16.5 & -7.7 & -0.7 \\
+   & & 23.6 & -13.1 \\
+   & & & 13.1 \\
+\end{pmatrix}
+\]
+\[
+\sum(a_i - \bar a)^2 = 100, \quad \sum(b_i - \bar b)^2 = 160,  \quad \sum(c_i - \bar c)^2 = 240.
+\]
+
+\trru{С помощью МНК построили регрессию} \tren{Regression with OLS gives us}
+\[
+\hat y_i = 2 + 3 a_i - 5 b_i + 6 c_i.
+\]
+\trru{Сумма квадратов остатков равна $\SSR = 80$, а общая сумма квадратов равна $\SST = 100$.
+
+\begin{enumerate}
+  \item Постройте 95\% доверительные интервалы для коэффициентов $\hb_a$, $\hb_b$ и $\hb_c$ в рамках классических предпосылок теоремы Гаусса~— Маркова и нормальных ошибок.
+  \item Найдите МНК-оценки коэффициентов в регрессии $\hat a_i = \hat \gamma_1 + \hat\gamma_b b_i + \hat\gamma_c c_i$ и величины $\SSR_a$, $R^2_a$ для этой регрессии.  
+  \item Найдите МНК-оценки коэффициентов в регрессии $\hat b_i = \hat \nu_1 + \hat\nu_a a_i + \hat\nu_c c_i$ и величины $\SSR_b$, $R^2_b$ для этой регрессии.  
+  \item Найдите МНК-оценки коэффициентов в регрессии $\hat c_i = \hat \delta_1 + \hat\delta_a a_i + \hat\delta_b b_i$ и величины $\SSR_c$, $R^2_c$  для этой регрессии.  
+  \item Найдите коэффициенты вздутия дисперсия $\VIF_a$, $\VIF_b$, $\VIF_c$.
+\end{enumerate}
+}
+
+\tren{Sum of squared residuals is $\SSR = 80$, total sum of squares is $\SST = 100$
+\begin{enumerate}
+  \item Find the 95\% confidence intervals for the coefficients $\hb_a$, $\hb_b$ and $\hb_c$ under classic Gauss~— Markov assumptions and normal random errors.
+  \item Find OLS estimates of coefficents in regression $\hat a_i = \hat \gamma_1 + \hat\gamma_b b_i + \hat\gamma_c c_i$ and $\SSR_a$, $R^2_a$ for this regression.  
+  \item Find OLS estimates of coefficents in regression  $\hat b_i = \hat \nu_1 + \hat\nu_a a_i + \hat\nu_c c_i$ and $\SSR_b$, $R^2_b$ for this regression.  
+  \item Find OLS estimates of coefficents in regression  $\hat c_i = \hat \delta_1 + \hat\delta_a a_i + \hat\delta_b b_i$ and $\SSR_c$, $R^2_c$  for this regression.  
+  \item Find the variance inflation factors $\VIF_a$, $\VIF_b$, $\VIF_c$.
+\end{enumerate}
+}
+
   \begin{sol}
   \end{sol}  
 \end{problem}
@@ -2206,7 +2266,7 @@ $\E(y_i \mid w_i = 1) - \E(y_i \mid w_i = 0)$?
   \begin{enumerate}
 \item $\hat \mu = \hat \alpha$
 \item $\hat \delta_c = \hat \delta_d$ 
-\item $RSS_1 = RSS_2$
+\item $\SSR_1 = \SSR_2$
 \item $se(\hat\delta_c) \neq se(\hat\delta_d)$
 \end{enumerate}
   
@@ -2244,11 +2304,11 @@ $\E(y_i \mid w_i = 1) - \E(y_i \mid w_i = 0)$?
     матрицу Гессе $H(\theta)$, теоретическую информацию Фишера $I(\theta)$.
     \item Найдите $\hat\theta_{UR}$, $\hat\theta_R$, $\ell(\hat\theta_{UR})$,
     $\ell(\hat\theta_R)$, $s(\hat\theta_{UR})$, $s(\hat\theta_R)$.
-    \item Выпишите формулу для $RSS_R$ и $RSS_{UR}$.
+    \item Выпишите формулу для $\SSR_R$ и $\SSR_{UR}$.
     \item Найдите оценку информации Фишера $\hat I_R$, $\hat I_{UR}$
     подставив в теоретическую информацию Фишера оценённые параметры.
     \item Выведите формулы для $LR$, $LM$ и $W$ статистики.
-    Можно выражать их через $RSS_R$ и $RSS_{UR}$.
+    Можно выражать их через $\SSR_R$ и $\SSR_{UR}$.
     \item Упорядочьте статистики по возрастанию.
 \end{enumerate}
 
@@ -2481,7 +2541,7 @@ h_2(y) - C^{-1}B^T(\theta_1^0 - h_1(y))
    LM = n(s-1)/s \\
 \end{cases},
 \]
-где $s = RSS_R / RSS_{UR}$.
+где $s = \SSR_R / \SSR_{UR}$.
 
 Докажите, что $LM \leq LR \leq W$.
   \begin{sol}
@@ -2500,7 +2560,7 @@ h_2(y) - C^{-1}B^T(\theta_1^0 - h_1(y))
    LM = n(s-1)/s \\
 \end{cases},
 \]
-где $s = RSS_R / RSS_{UR}$.
+где $s = \SSR_R / \SSR_{UR}$.
 
 Эконометрэсса Фиалка по 60 наблюдениям проверяет гипотезу о равенстве пяти параметров нулю
 в регрессии с десятью параметрами $\beta$ при 5\%-м уровне значимости.
@@ -2508,7 +2568,7 @@ h_2(y) - C^{-1}B^T(\theta_1^0 - h_1(y))
 Найдите точные критические значения для $LR$, $LM$ и $W$ и сравните их с асимптотическими.
 
   \begin{sol}
-      Мы знаем, что $(RSS_R - RSS_{UR}) \cdot (60 - 10) / 5 RSS_{UR}$ имеет в точности $F$-распределение.
+      Мы знаем, что $(\SSR_R - \SSR_{UR}) \cdot (60 - 10) / 5 \SSR_{UR}$ имеет в точности $F$-распределение.
       Находим критическое значение для него по таблице. Выражаем три статистики через $F$-распределение.
       Получаем точные критические значения.
   \end{sol}
@@ -2578,7 +2638,7 @@ $\Var(u_i)=cx_i^4$
 
 \begin{tabular}{c|cccc}
 \toprule
-Выборка & $\hb_1$ & $\hb_2$ & $\hb_3$ & $RSS$ \\
+Выборка & $\hb_1$ & $\hb_2$ & $\hb_3$ & $\SSR$ \\
 \midrule
 $i=1,\ldots, 30$ & $1.21$ & $1.89$ & $2.74$ & $48.69$ \\
 $i=1,\ldots, 11$ & $1.39$ & $2.27$ & $2.36$ & $10.28$ \\
@@ -2597,7 +2657,7 @@ $i=20,\ldots, 30$ & $1.56$ & $1.06$ & $2.29$ & $14.51$ \\
 Квандта. $H_0: \Var(u_i)=\sigma^2$, $H_a: \Var(u_i)=f(x_i)$
 
 \begin{enumerate}
-\item Тестовая статистика $GQ=\frac{RSS_3/(n_3-k)}{RSS_1/(n_1-k)}$, где $n_1=11$ — число наблюдений в первой подгруппе, $n_3=11$ — число наблюдений в
+\item Тестовая статистика $GQ=\frac{\SSR_3/(n_3-k)}{\SSR_1/(n_1-k)}$, где $n_1=11$ — число наблюдений в первой подгруппе, $n_3=11$ — число наблюдений в
 последней подгруппе, $k=3$ — число факторов в модели, считая единичный столбец.
 \item Распределение тестовой статистики при верной $H_0$: $GQ\sim F_{n_3-k,n_1-k}$
 \item Наблюдаемое значение $GQ_{obs}=1.41$
@@ -2737,7 +2797,7 @@ $0.0752$, $5$, $10$
 
 
 \begin{sol}
-В предположении о гомоскедастичности, $\gamma_2=0$, оценка правдоподобия совпадает с МНК-оценкой, значит $\hb=\sum y_i x_i/ \sum x_i^2$. И $\hs^2_i=RSS/n$, значит $\hat{\gamma_1}=\ln(RSS/n)$.
+В предположении о гомоскедастичности, $\gamma_2=0$, оценка правдоподобия совпадает с МНК-оценкой, значит $\hb=\sum y_i x_i/ \sum x_i^2$. И $\hs^2_i=\SSR/n$, значит $\hat{\gamma_1}=\ln(\SSR/n)$.
 \end{sol}
 \end{problem}
 
@@ -3652,14 +3712,14 @@ W = \begin{pmatrix}
 
 \begin{enumerate}
 \item Как связаны между собой оценки $\hat \beta_W$ и $\hat \beta_{FD}$?
-\item Как связаны между собой $RSS_W$ и $RSS_{FD}$?
+\item Как связаны между собой $\SSR_W$ и $\SSR_{FD}$?
 \item Являются ли оценки $\hat\beta_W$ и $\hat\beta_{FD}$ состоятельными?
 \item Как построить 95\%-ый доверительный интервал с помощью $\hat\beta_{FD}$ и $\hat\beta_W$ для $\beta$?
 \end{enumerate}
 
 
 \begin{sol}
-$\hat\beta_W = \hat\beta_{FD}$, $RSS_W = 2RSS_{FD}$, обе оценки состоятельны.
+$\hat\beta_W = \hat\beta_{FD}$, $\SSR_W = 2\SSR_{FD}$, обе оценки состоятельны.
 \end{sol}
 \end{problem}
 
@@ -3680,7 +3740,7 @@ y_{it} = \alpha + \beta x_{it} + \gamma z_i + c_i + u_{it}.
 
 \begin{enumerate}
 \item Как связаны между собой оценки $\hat \beta_W$ и $\hat \beta_{FD}$?
-\item Как связаны между собой $RSS_W$ и $RSS_{FD}$?
+\item Как связаны между собой $\SSR_W$ и $\SSR_{FD}$?
 \end{enumerate}
 
 \begin{sol}
