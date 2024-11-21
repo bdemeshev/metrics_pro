@@ -2171,6 +2171,214 @@ True model is $y= X \beta + u$ with $\E(u \mid X) = 0$, $\Var(u \mid X) = \sigma
 \end{problem}
 
 
+\section{SVD}
+
+
+\begin{problem}
+\tren{You know the SVD of $X = UDV^T$.
+
+Find the SVD of $X^TX$, $(X^TX)^{-1}$, $(X^TX)^{-1}X^T$,  $X(X^TX)^{-1}X^T$.
+}
+\trru{Вы знаете сингулярное разложение матрицы $X = UDV^T$.
+
+Найдите сингулярное разложение для матриц $X^TX$, $(X^TX)^{-1}$, $(X^TX)^{-1}X^T$,  $X(X^TX)^{-1}X^T$.
+}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
+\begin{problem}
+\tren{The matrix $X$ has size $n\times 3$. 
+All columns of $X$ are standardized, ie they have zero mean and unit sample variance. 
+You know the SVD of $X = UDV^T$ with $\diag(D) = (3, 2, 1)$.
+
+Find the SVD of sample correlation matrix of columns of $X$, its eigenvalues and eigenvectors.}
+\trru{Матрица $X$ имеет размер $n\times 3$.
+Все столбцы матрицы $X$ стандартизированы, то есть имеют нулевое среднее и единичную выборочную дисперсию. 
+
+Вы знаете сингулярное разложение матрицы $X = UDV^T$ и $\diag(D) = (3, 2, 1)$.
+
+Найдите сингулярное разложение выборочной корреляционной матрицы столбцов $X$, её собственные значения и собственные числа.}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
+
+\begin{problem}
+  \trru{Известно, что $U^TU= I$, где $I$ — единичная матрица. 
+  Докажите или утверждения или приведите контр-пример.}
+  \tren{We know that $U^TU = I$, where $I$ is an identity matrix.
+  Prove the following statements or provide a counter-example. }
+  \begin{enumerate}
+    \item $UU^T = I$;
+    \item \trru{Длина векторов $x$ и $Ux$ всегда одинаковая.} 
+    \tren{The lenght of vectors $x$ and $Ux$ is always the same. }
+    \item \trru{Равные скалярные произведения} \tren{Scalar products are equal, }
+     $\scalp{x, y} = \scalp{Ux, Uy}$.
+    \item \trru{Косинус угла между векторами $x$ и $y$ такой же, как косинус угла между векторами $Ux$ и $Uy$.}
+  \tren{The cosine of the angle between $x$ and $y$ is equal to the cosine of angle between $Ux$ and $Uy$.}  
+  \end{enumerate}
+  \begin{sol}
+    $(Ux)^T Ux=x^TU^TUx=x^Tx$, $(Ux)^TUy=x^TU^TUy=x^Ty$.
+  \end{sol}
+  \end{problem}
+  
+  
+  \begin{problem}
+  \trru{Найдите SVD-разложение матриц}
+  \tren{Find the SVD-decomposition of matrices}
+  \begin{enumerate}
+    \item
+  $X = \begin{pmatrix}
+  0 & -7 \\
+  0 & 0 \\
+  0 & 0 \\
+  \end{pmatrix}$;
+  \item
+  $X = \begin{pmatrix}
+  1 & 2 \\
+  2 & 1 \\
+  \end{pmatrix}$;
+  \item
+  $\begin{pmatrix}
+  3 \\
+  4 \\
+  \end{pmatrix}$;
+  \item
+  $\begin{pmatrix}
+  1 & 1 \\
+  2 & 2 \\
+  2 & 2 \\
+  \end{pmatrix}$
+  \item
+  $\begin{pmatrix}
+  3 & 1 & 1\\
+  -1 & 3 & 1 \\
+  \end{pmatrix}$;
+  \item $X = \begin{pmatrix}
+    1 & 1 \\
+    0 & 1 \\
+    -1 & 0 \\
+    \end{pmatrix}$.  
+\end{enumerate}
+  
+  \begin{sol}
+  $\begin{pmatrix}
+  3 & 1 & 1\\
+  -1 & 3 & 1 \\
+  \end{pmatrix}=
+  \begin{pmatrix}
+  1/\sqrt{2} & 1/\sqrt{2} \\
+  1/\sqrt{2} & -1/\sqrt{2} \\
+  \end{pmatrix}
+  \cdot \begin{pmatrix}
+  \sqrt{12} & 0 & 0 \\
+  0 & \sqrt{10} & 0 \\
+  \end{pmatrix}\cdot
+  \begin{pmatrix}
+  1/\sqrt{6} & 2/\sqrt{6} & 1/\sqrt{6} \\
+  2/\sqrt{5} & -1/\sqrt{5} & 0 \\
+  1/\sqrt{30} & 2/\sqrt{30} & -5/\sqrt{30} \\
+  \end{pmatrix}$
+
+\[
+X'X =
+\begin{pmatrix}
+1/\sqrt{2} & -1/\sqrt{2} \\
+1/\sqrt{2} & 1/\sqrt{2} \\
+\end{pmatrix}
+\begin{pmatrix}
+3 & 0 \\
+0 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+1/\sqrt{2} & 1/\sqrt{2} \\
+1/\sqrt{2} & -1/\sqrt{2} \\
+\end{pmatrix}
+\]
+\[
+XX' =
+\begin{pmatrix}
+2/\sqrt{6} & 0 & 1/\sqrt{3} \\
+1/\sqrt{6} & 1/\sqrt{2} & -1/\sqrt{3} \\
+-1/\sqrt{6} & 1/\sqrt{2} & 1/\sqrt{3} \\
+\end{pmatrix}
+\begin{pmatrix}
+3 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+2/\sqrt{6} & 1/\sqrt{6} & -1/\sqrt{6} \\
+0 & 1/\sqrt{2} & 1/\sqrt{2} \\
+1/\sqrt{3} & -1/\sqrt{3} & 1/\sqrt{3} \\
+\end{pmatrix}
+\]
+\[
+X =
+\begin{pmatrix}
+2/\sqrt{6} & 0 & 1/\sqrt{3} \\
+1/\sqrt{6} & 1/\sqrt{2} & -1/\sqrt{3} \\
+-1/\sqrt{6} & 1/\sqrt{2} & 1/\sqrt{3} \\
+\end{pmatrix}
+\begin{pmatrix}
+\sqrt{3} & 0 \\
+0 & 1 \\
+0 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+1/\sqrt{2} & 1/\sqrt{2} \\
+-1/\sqrt{2} & 1/\sqrt{2} \\
+\end{pmatrix}
+\]
+  \end{sol}
+  \end{problem}
+  
+
+
+
+
+\begin{problem}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
+
+\begin{problem}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
+\begin{problem}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
+\begin{problem}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
+
+
+\begin{problem}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
+\begin{problem}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
+\begin{problem}
+  \begin{sol}
+  \end{sol}  
+\end{problem}
+
+
+
+
 
 \section{Приятно-следственные связи, CUPED}
 
