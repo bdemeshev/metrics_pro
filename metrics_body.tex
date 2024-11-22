@@ -2339,12 +2339,55 @@ X =
 
 
 \begin{problem}
+  \tren{The $k\times k$ matrix $A$ is constant symmetric positive definite and its highest eigenvalues are $5$ and $2$. 
+  
+  \begin{enumerate}
+    \item Find $d(v^TAv)$ and $d(v^TAv/v^Tv)$.
+    \item Solve the optimization problem $\max_v v^T A v$ where $v$ is $k\times 1$ vector with $\norm{v} = 1$
+    
+    Hint: you may use the differential from (a) or Lagrange multiplier method. 
+
+    \item Solve the optimization problem $\max_w w^T Aw$ where $w$ is $k\times 1$ vector with $\norm{w}=1$ and $w\perp v$.
+  \end{enumerate}
+  }
+  \trru{Матрица $A$ размера $k\times k$ постоянна, положительно определена симметрична, а её наибольшие собственные числа равны  $5$ и $2$. 
+  
+  \begin{enumerate}
+    \item Найдите $d(v^TAv)$ и $d(v^TAv/v^Tv)$.
+    \item Найдите максимум $\max_v v^T A v$, где вектор $v$ имеет размер $k\times 1$ и длину $\norm{v} = 1$
+    
+    Подсказка: можно использовать дифференциал из пункта (а) или метод множителей Лагранжа.
+
+    \item Найдите максимум $\max_w w^T Aw$, где вектор $w$ имеет размер $k\times 1$, длина $\norm{w}=1$ и $w\perp v$.
+  \end{enumerate}
+  }
   \begin{sol}
   \end{sol}  
 \end{problem}
 
 
 \begin{problem}
+\tren{The matrix $X$ has SVD $X = UDV^T$. The columns of $U$ are $u_1$, $u_2$, \ldots, $u_n$.
+Singular values of the diagonal of $D$ are sorted from highest to lowest by absolute value, $d_{11} = 5$, $d_{22} = 3$. 
+The columns of $V$ are $v_1$, $v_2$, \ldots, $v_k$.
+
+\begin{enumerate}
+  \item Find $X \cdot v_1$, $X \cdot v_2$. 
+  \item Solve the optimization problem $\max_w \norm{Xw}$ where $w$ is $k\times 1$ vector with $\norm{w} = 1$.
+  \item Solve the optimization problem $\max_z \norm{Xz}$ where $z$ is $k\times 1$ vector with $\norm{z}=1$ and $z\perp w$.
+\end{enumerate}
+}
+\trru{Матрица $X$ имеет сингулярное разложение $X = UDV^T$. 
+Столбцы матрицы $U$ равны $u_1$, $u_2$, \ldots, $u_n$.
+Сингулярные значения отсортированы на диагонали матрицы $D$ от большего к меньшего по модулю, $d_{11} = 5$, $d_{22}= 3$.
+Столбцы матрицы $V$ равны $v_1$, $v_2$, \ldots, $v_k$.
+
+\begin{enumerate}
+  \item Найдите $X \cdot v_1$, $X \cdot v_2$. 
+  \item Найдите максимум $\max_w \norm{Xw}$, где вектор $w$ имеет размер $k\times 1$ и длину $\norm{w} = 1$.  
+  \item Найдите максимум $\max_z \norm{Xz}$, где вектор $z$ имеет размер $k\times 1$ и длину $\norm{z}=1$ и $z\perp w$.
+\end{enumerate}
+}
   \begin{sol}
   \end{sol}  
 \end{problem}
