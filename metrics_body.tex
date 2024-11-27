@@ -2156,9 +2156,80 @@ True model is $y= X \beta + u$ with $\E(u \mid X) = 0$, $\Var(u \mid X) = \sigma
 \end{problem}
 
 \begin{problem}
+  \tren{Consider the model $y = X\beta + u$.
+  There are two centered regressors in the matrix $X$, variable $a$ and variable $b$,
+  $\VIF_{a} = 10$, $\SST_a = 125$, $\SST_b = 5$.
+
+  \begin{enumerate}
+    \item Find possible values of sample correlation between $a$ and $b$. 
+    \item Find $(X^TX)^{-1}$.
+  \end{enumerate}}
+
+  \trru{Рассмотрим модель $y = X\beta + u$.
+  Матрица $X$ содержит два центрированных регрессора $a$ и $b$,
+  $\VIF_{a} = 10$, $\SST_a = 125$, $\SST_b = 5$.
+
+  \begin{enumerate}
+    \item Найдите возможные значения выборочной корреляции $a$ и $b$. 
+    \item Найдите $(X^TX)^{-1}$.
+  \end{enumerate}}
+
+
+  \begin{sol}
+    \begin{enumerate}
+      \item $R_{ab} = \pm 3/ \sqrt{10}$;
+      \item 
+      \[
+      (X^TX)^{-1} = \frac{1}{1 - R^2_{ab}}\begin{pmatrix}
+        1/\SST_{a} & -R_{ab} / \sqrt{\SST_a \SST_b} \\
+        -R_{ab} / \sqrt{\SST_a \SST_b} &  1/\SST_{b} \\
+      \end{pmatrix}
+      \]
+    \end{enumerate}
+  \end{sol}  
+\end{problem}
+
+\begin{problem}
+  \trru{Есть два совершенно одинаковых предварительно стандартизированных регрессоров $x$, а зависимая переменная $y$ предварительно центрирована.
+
+  В гребневой регрессии минимизируют функцию 
+  \[
+  \loss(\hb) = (y - \hat y)^T (y - \hat y) + \lambda \hb^T \hb, \quad \hat y = \hb_1 x + \hb_2 x.
+  \]
+  \begin{enumerate}
+    \item Найдите оптимальное значение оценок $\hb_1$ и $\hb_2$ при фиксированном $\lambda$.
+    \item Что происходит с оценками при $\lambda\to\infty$?
+    \item Что происходит с оценками при $\lambda\to 0$?
+  \end{enumerate}
+  }
+  \tren{We have two absolutely identical preliminary standardized regressors $x$. 
+  The dependent variable $y$ is centered.
+  
+  In the ridge regression one minimizes the goal function
+  \[
+  \loss(\hb) = (y - \hat y)^T (y - \hat y) + \lambda \hb^T \hb, \quad \hat y = \hb_1 x + \hb_2 x.
+  \]
+  \begin{enumerate}
+    \item Find the optimal $\hb_1$ and $\hb_2$ for fixed $\lambda$.
+    \item What happens to the estimates when $\lambda\to\infty$?
+    \item What happens to the estimates when $\lambda\to 0$?
+  \end{enumerate}
+  }
+  
+  \begin{sol}
+    \begin{enumerate}
+      \item $\hb_1 = \hb_2 = 0.5 (x^T x + \lambda / 2)^{-1} x^T y$;
+      \item $\hb_j \to 0$;
+      \item $\hb_j \to \hb_{\text{ols}} / 2$, $\hat y = \hb_{\text{ols}} x$.
+    \end{enumerate}
+  \end{sol}  
+\end{problem}
+
+\begin{problem}
   \begin{sol}
   \end{sol}  
 \end{problem}
+
 
 \begin{problem}
   \begin{sol}
@@ -2169,6 +2240,7 @@ True model is $y= X \beta + u$ with $\E(u \mid X) = 0$, $\Var(u \mid X) = \sigma
   \begin{sol}
   \end{sol}  
 \end{problem}
+
 
 
 \section{SVD}
