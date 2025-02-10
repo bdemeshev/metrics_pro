@@ -3405,9 +3405,11 @@ $(1-p)$ — не ядовитым. Вес ядовитых покемонов р
 \end{problem}
 
 
-\section{Эндогенность}
+\section{\trru{Эндогенность}\tren{Endogeneity}}
 
-Прочесть про инструментальные переменные можно, например, в \cite{kurt2021notes}.
+
+\trru{Прочесть про инструментальные переменные можно, например, в \cite{kurt2021notes}.}
+\tren{A good source on instrumental variables is \cite{kurt2021notes}.}
 
 
 \begin{problem}
@@ -3719,6 +3721,25 @@ $\plim \hat \theta_2 = \frac{\gamma}{\alpha (1-\alpha)}$
   Одинаково распределены: $y_1 \sim y_2 \sim y_3$, $x_1 \sim x_2 \sim x_3$. Независимы переменные с разными номерами.
 \end{sol}
 \end{problem}
+
+\begin{problem}
+\tren{Let $z_i$ be binary variable. }
+\begin{enumerate}
+  \item \tren{Prove that } \trru{Докажите, что }
+  \[
+  \frac{\Cov(y_i, z_i)}{\Cov(x_i, z_i)} = \frac{\E(y_i \mid z_i = 1) - \E(y_i \mid z_i = 0)}{\E(x_i \mid z_i = 1) - \E(x_i \mid z_i = 0)}.
+  \]
+  \item \tren{Prove that } \trru{Докажите, что }
+  \[
+  \frac{\sum (y_i - \bar y)(z_i - \bar z)}{\sum (x_i - \bar x)(z_i - \bar z)} = \frac{\bar y_1 - \bar y_0}{\bar x_1 - \bar x_0},  
+  \]
+  \tren{where $\bar x_1$ is the average value of $x$ when $z=1$, $\bar x_0$ is the average value of $x$ when $z=0$, and same notation applies for $\bar y_1$ and $\bar y_0$.}
+  \trru{где $\bar x_1$ — это среднее значение $x$ при $z=1$, $\bar x_0$ — это среднее $x$ при $z=0$, и аналогичный смысл несут обозначения $\bar y_1$ и $\bar y_0$.}
+\end{enumerate}
+\begin{sol}
+\end{sol}
+\end{problem}
+
 
 
 \section{Системы уравнений}
