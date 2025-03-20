@@ -1616,6 +1616,82 @@ Regressor $x_i$ and random errors $u_i$ are independent and have standard normal
 
 \end{problem}
 
+\begin{problem}
+\trru{
+У овечки Долли был набор данных из $n$ наблюдений для которого были выполнены предпосылки теоремы Гаусса~— Маркова. 
+Овечка Долли клонировала каждое наблюдение по одному разу и дописала каждое наблюдение-клон сразу после исходного наблюдения. 
+
+\begin{enumerate}
+  \item Как выглядит ковариационная матрица ошибок для нового набора данных?
+  \item Как изменится ответ на (а), если Долли клонирует только последнее наблюдение $n$ раз?
+\end{enumerate}
+}
+\tren{
+Sheep Dolly had a dataset of $n$ observations with Gauss~— Markov assumptions satisfied. 
+She cloned every observation once and added each cloned observation after original observation. 
+\begin{enumerate}
+  \item Describe the error covariance matrix of the augmented dataset.
+  \item How the answer in (a) will change if Dolly will clone only the last observation $n$ times?
+\end{enumerate}
+}
+\begin{sol}
+\trru{
+  \begin{enumerate}
+    \item Ковариационная матрица будет содержать блоки $B$ на диагонали
+\[
+\Var(u) = \begin{pmatrix}
+        B & 0 & 0 & \dots \\
+        0 & B & 0 & \dots \\
+        0 & 0 & B & \dots \\
+        \dots
+    \end{pmatrix},
+\]
+где каждый блок равен $B = \begin{pmatrix}
+\sigma^2 & \sigma^2 \\
+\sigma^2 & \sigma^2 \\    
+\end{pmatrix}$.
+    \item Ковариационная матрица будет состоять из четырех блоков: два блока нулевые, левые верхний блок пропорционален единичной матрицы, 
+    а все элементы правого нижнего блока равны $\sigma^2$:
+\[
+\Var(u) = \begin{pmatrix}
+        \sigma^2 \cdot I & 0 \\
+        0 & S \\
+    \end{pmatrix},
+\]
+где $I$ — единичная матрица, а все $S_{ij} = \sigma^2$.
+\end{enumerate}
+}    
+\tren{
+  \begin{enumerate}
+    \item Error covariance matrix will contain blocks $B$ on the main diagonal
+\[
+\Var(u) = \begin{pmatrix}
+        B & 0 & 0 & \dots \\
+        0 & B & 0 & \dots \\
+        0 & 0 & B & \dots \\
+        \dots
+    \end{pmatrix},
+\]
+where each block is equal to $B = \begin{pmatrix}
+\sigma^2 & \sigma^2 \\
+\sigma^2 & \sigma^2 \\    
+\end{pmatrix}$.
+    \item Error covariance matrix will consist of four blocks: the top left is proportional to the identity matrix,
+    bottom right block will have all elements equal to $\sigma^2$ and two other blocks will be zero:
+\[
+\Var(u) = \begin{pmatrix}
+        \sigma^2 \cdot I & 0 \\
+        0 & S \\
+    \end{pmatrix},
+\]
+where $I$ is an identity matrix, and all $S_{ij} = \sigma^2$.
+\end{enumerate}
+}
+\end{sol}
+\end{problem}
+
+
+
 
 \section{\trru{$F$-тест}\tren{$F$-test}}
 
@@ -3163,7 +3239,7 @@ $0.0752$, $5$, $10$
 
 
 
-\section{Логит, пробит и хоббит!}
+\section{Логит и пробит!}
 
 
 \begin{problem}
@@ -3403,6 +3479,129 @@ $(1-p)$ — не ядовитым. Вес ядовитых покемонов р
   прогноза для каждой части наблюдений берут долю игреков, равных единице на этой части выборки.
 \end{sol}
 \end{problem}
+
+\section{\trru{Хоббит}\tren{Hobbit}}
+
+\begin{problem}
+\trru{
+Случайная величина $u$ имеет стандартное нормальное распределение $\cN(0, 1)$ и $w = \max\{u + s, 0\}$, где $s$ — некоторая константа.
+
+\begin{enumerate}
+  \item Выразите функцию $\lambda(s) = \E(u \mid u + s > 0)$ с помощи стандартной нормальной функции плотности и функции распределения.
+  \item Выразите $\P(w > 0)$, $\E(w)$ и $\E(w \mid w > 0)$ с помощью стандартной нормальной функции плотности или функции распределения.
+\end{enumerate}
+
+Функция $\lambda(s)$ называется обратным отношением Миллса.
+}
+\tren{
+  The random variable $u$ has standard normal distribution $\cN(0, 1)$ and $w = \max\{u + s, 0\}$, where $s$ is a constant.
+\begin{enumerate}
+    \item Write the function $\lambda(s) = \E(u \mid u + s > 0)$ in terms of standard normal density or distribution function.
+    \item Write $\P(w > 0)$, $\E(w)$ and $\E(w \mid w > 0)$ in terms of standard normal density or distribution function.
+\end{enumerate}
+
+The function $\lambda(s)$ is called inverse Mills ratio.
+}
+
+  \begin{sol}
+  \end{sol}
+\end{problem}
+  
+\begin{problem}
+\tren{Consider the tobit-I model:
+\[
+\begin{cases}
+    y_i^* = x_i^T \beta + u_i, \quad y^* = X^T \beta + u \\
+    (u \mid X) \sim \cN(0, \sigma^2 I) \\
+    y_i = \max\{y_i^*, 0\} \\
+    (x_i, y_i) \text{ are observable for all }i \\
+\end{cases}
+\]
+
+Find $\E(y_i^* \mid x_i)$, $\E(y_i \mid x_i)$, $\E(y_i \mid x_i, y_i^* > 0)$.
+}
+\trru{Рассмотрим модель тобит-I:
+\[
+\begin{cases}
+    y_i^* = x_i^T \beta + u_i, \quad y^* = X^T \beta + u \\
+    (u \mid X) \sim \cN(0, \sigma^2 I) \\
+    y_i = \max\{y_i^*, 0\} \\
+    (x_i, y_i) \text{ наблюдаемы при всех }i \\
+\end{cases}
+\]
+
+Найдите $\E(y_i^* \mid x_i)$, $\E(y_i \mid x_i)$, $\E(y_i \mid x_i, y_i^* > 0)$.
+}
+  \begin{sol}
+  \end{sol}
+\end{problem}
+
+
+\begin{problem}
+\trru{Рассмотрим логит модель с константой и даже без регрессора,
+\[
+\P(y_i^* = 1 ) = \Lambda(\beta).
+\]
+Наблюдения независимы. 
+
+\begin{enumerate}
+  \item Оцените $\beta$ для выборки $y^* = (1, 1, 0, 1, 0)$.
+\end{enumerate}
+Злая Колдунья вычёркивает из набора данных все наблюдения с $y_i^* = 0$.
+\begin{enumerate}[resume]
+  \item Заметим теперь, что у нас появилось два неизвестных параметра, $n$ и $\beta$.
+  Найдите оценки обоих параметров методом максимального правдоподобия по выборке $y_i = (1, 1, 1)$.
+\end{enumerate}
+}
+  \begin{sol}
+  \end{sol}
+\end{problem}
+
+
+\begin{problem}
+\trru{
+Величины $y_i^*$ независимы и экспоненциально распределены с неизвестной интенсивностью $\lambda$. 
+
+Злая Колдунья заменяет все наблюдения больше $10$ на $10$.
+\begin{enumerate}
+  \item Найдите оценку $\lambda$ методом максимального правдоподобия по выборке $y = (5, 10, 6, 10)$.
+  \item Найдите оценку $\lambda$ методом максимального правдоподобия по 
+  произвольной большой выборке и постройте $95\%$ доверительный интервал. 
+\end{enumerate}
+}
+\begin{sol}
+\end{sol}
+\end{problem}
+
+\begin{problem}
+\trru{
+Величины $y_i^*$ независимы и экспоненциально распределены с неизвестной интенсивностью $\lambda$. 
+
+Злая Колдунья вычеркивает из набора данных все наблюдения меньше $10$.
+\begin{enumerate}
+  \item Найдите оценку $\lambda$ методом максимального правдоподобия по выборке $y = (12, 13, 14)$.
+  \item Найдите оценку $\lambda$ методом максимального правдоподобия по 
+  произвольной большой выборке и постройте $95\%$ доверительный интервал.
+  \item Что произойдёт, если по усечённой выборке попытаться оценить $n$ в исходной выборке? 
+\end{enumerate}
+}
+\begin{sol}
+\end{sol}
+\end{problem}
+  
+
+
+
+\begin{problem}
+
+  \begin{sol}
+  \end{sol}
+\end{problem}
+
+
+
+
+
 
 
 \section{\trru{Эндогенность}\tren{Endogeneity}}
