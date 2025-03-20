@@ -3725,13 +3725,59 @@ Sleeping Beauty awakens and observes the modified sample $y = (1, 1, 0, 1, 1, 0)
 \end{enumerate}
 }
 
-
-
-
 \begin{sol}
   \end{sol}
 \end{problem}
 
+
+
+\begin{problem}
+\trru{
+  Регрессор $x_i$ равновероятно принимает два значения, $x_i = 1$ или $x_i = 2$.
+  Условные распределения вектора $(s_i, y_i^*)$ заданы парой табличек
+
+\begin{tabular}{ccc}
+\toprule
+$(s_i, y_i^* \mid x_i = 1)$ & $y_i^* = 1$ & $y_i^* = 2$ \\
+\midrule
+$s_i = 0$ & $2a$ & $1 - 6a$ \\
+$s_i = 1$ & $3a$ & $a$ \\
+\bottomrule
+\end{tabular}
+\quad
+\begin{tabular}{ccc}
+\toprule
+$(s_i, y_i^* \mid x_i = 2)$   & $y_i^* = 1$ & $y_i^* = 2$ \\
+\midrule
+$s_i = 0$ & $a$ & $a$ \\
+$s_i = 1$ & $1-4a$ & $2a$ \\
+\bottomrule
+\end{tabular}
+
+
+Мы знаем значение $y_i^*$, если $s_i = 1$, и не знаем $y_i^*$, если $s_i = 0$.
+Для удобства можно считать, что вместо $y_i^*$ мы наблюдаем $y_i = s_i \cdot y_i^*$.
+Мы всегда наблюдаем $s_i$ и $x_i$.
+
+
+\begin{enumerate}
+  \item Найдите $\E(y_i^* \mid x_i)$.
+  \item Найдите $\E(y_i \mid x_i)$.
+  \item Найдите $\E(y_i^* \mid x_i, s_i = 1)$.
+\end{enumerate}
+
+Рассмотрим наблюдаемую выборку $(x_1 = 1, y_1 = 0)$, $(x_2 = 2, y_2 = 1)$, $(x_3 = 1, y_3 = 1)$.
+
+\begin{enumerate}[resume]
+  \item Найдите оценку $a$ методом максимального правдоподобия.
+  \item Найдите оценку $a$ используя только значение $x_i$ и $s_i$ для каждого наблюдения. 
+  \item Найдите оценку $a$ используя только значение $s_i$ для каждого наблюдения. 
+\end{enumerate}
+}
+
+  \begin{sol}
+  \end{sol}
+\end{problem}
 
 
 \begin{problem}
@@ -3740,6 +3786,26 @@ Sleeping Beauty awakens and observes the modified sample $y = (1, 1, 0, 1, 1, 0)
   \end{sol}
 \end{problem}
 
+
+\begin{problem}
+
+  \begin{sol}
+  \end{sol}
+\end{problem}
+
+
+\begin{problem}
+
+  \begin{sol}
+  \end{sol}
+\end{problem}
+
+
+\begin{problem}
+
+  \begin{sol}
+  \end{sol}
+\end{problem}
 
 
 
