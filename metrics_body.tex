@@ -3553,6 +3553,23 @@ Find $\E(y_i^* \mid x_i)$, $\E(y_i \mid x_i)$, $\E(y_i \mid x_i, y_i^* > 0)$.
   Найдите оценки обоих параметров методом максимального правдоподобия по выборке $y = (1, 1, 1)$.
 \end{enumerate}
 }
+\tren{
+  Consider a logit model with a constant but without other regressors,
+\[
+\P(y_i^* = 1 ) = \Lambda(\beta).
+\]
+Observations are independent.
+
+\begin{enumerate}
+  \item Estimate $\beta$ for the sample $y^* = (1, 1, 0, 1, 0)$.
+\end{enumerate}
+Dark Fairy removes all observations with $y_i^* = 0$.
+\begin{enumerate}[resume]
+  \item Now we have two unknowns: $n$ and $\beta$.
+  Estimate both unknown parameters for the truncated sample $y = (1, 1, 1)$.
+\end{enumerate}
+
+}
   \begin{sol}
   \end{sol}
 \end{problem}
@@ -3569,6 +3586,17 @@ Find $\E(y_i^* \mid x_i)$, $\E(y_i \mid x_i)$, $\E(y_i \mid x_i, y_i^* > 0)$.
   произвольной большой выборке и постройте $95\%$ доверительный интервал. 
 \end{enumerate}
 }
+\tren{
+Random variables $y_i^*$ are independnent and exponentially distributed with unknown rate $\lambda$. 
+
+Dark Fairy replaces all observations greater than $10$ by $10$.
+\begin{enumerate}
+  \item Estimate $\lambda$ by maximal likelihood for the sample $y = (5, 10, 6, 10)$.
+  \item Find the estimator of $\lambda$ using maximum likelihood for large arbitrary sample 
+  and construct the  $95\%$ confidence interval. 
+\end{enumerate}
+}
+
 \begin{sol}
 \end{sol}
 \end{problem}
@@ -3582,9 +3610,22 @@ Find $\E(y_i^* \mid x_i)$, $\E(y_i \mid x_i)$, $\E(y_i \mid x_i, y_i^* > 0)$.
   \item Найдите оценку $\lambda$ методом максимального правдоподобия по выборке $y = (12, 13, 14)$.
   \item Найдите оценку $\lambda$ методом максимального правдоподобия по 
   произвольной большой выборке и постройте $95\%$ доверительный интервал.
-  \item Что произойдёт, если по усечённой выборке попытаться оценить $n$ в исходной выборке? 
+  \item Что произойдёт, если по усечённой выборке попытаться оценить размер $n$ исходной выборке? 
 \end{enumerate}
 }
+\tren{
+Random variables $y_i^*$ are independnent and exponentially distributed with unknown rate $\lambda$. 
+
+Dark Fairy removes all observations lower than $10$.
+\begin{enumerate}
+  \item Estimate $\lambda$ by maximal likelihood for the sample $y = (12, 13, 14)$.
+  \item Find the estimator of $\lambda$ using maximum likelihood for large arbitrary sample 
+  and construct the  $95\%$ confidence interval. 
+  \item What happens if one tries to estimate original sample size $n$ using truncated sample?
+\end{enumerate}
+}
+
+
 \begin{sol}
 \end{sol}
 \end{problem}
@@ -3608,7 +3649,24 @@ Find $\E(y_i^* \mid x_i)$, $\E(y_i \mid x_i)$, $\E(y_i \mid x_i, y_i^* > 0)$.
   если Злая Колдунья удаляет все наблюдения меньше $2$.
 \end{enumerate}
 }
-  \begin{sol}
+\tren{
+Random variables $y_i^*$ are independent and uniformly distributed on $[0, a]$ with unknown $a > 2$.
+
+Dark Fairy arrives and makes her black magic!
+
+\begin{enumerate}
+  \item If possible estimate $a$ using maximum likelihood for the sample $y = (1.7, 2, 0.8, 2, 2, 0.9)$,
+  if Dark Fairy replaces all observations larger than $2$ by $2$.
+  \item If possible estimate $a$ using maximum likelihood for the sample $y = (1.7, 0.8, 0.9)$,
+  if Dark Fairy removes all observations larger than $2$.
+  \item If possible estimate $a$ using maximum likelihood for the sample $y = (2.7, 2, 3.8, 2, 2, 4.9)$,
+  if Dark Fairy replaces all observations less than $2$ by $2$.
+  \item If possible estimate $a$ using maximum likelihood for the sample $y = (2.7, 3.8, 4.9)$,
+  if Dark Fairy removes all observations less than $2$.
+\end{enumerate}
+}
+
+\begin{sol}
   \end{sol}
 \end{problem}
 
@@ -3640,7 +3698,37 @@ $s_i = 1$ & $3a$ & $a$ \\
   если Злая Колдунья ничего не делает.
 \end{enumerate}
 }
-  \begin{sol}
+\tren{
+The joint distribution of $s_i$ and $y_i^*$ is described by
+
+\begin{tabular}{ccc}
+\toprule
+  & $y_i^* = 0$ & $y_i^* = 1$ \\
+\midrule
+$s_i = 0$ & $2a$ & $1 - 6a$ \\
+$s_i = 1$ & $3a$ & $a$ \\
+\bottomrule
+\end{tabular}
+
+Observations are independent.
+
+Dark Fairy arrives and makes her black magic!
+Sleeping Beauty awakens and observes the modified sample $y = (1, 1, 0, 1, 1, 0)$.
+
+\begin{enumerate}
+  \item If possible estimate $a$ by maximum likelihood, if
+  Dark Fairy replaces all $y_i^*$ by $0$ where $s_i = 1$.
+  \item If possible estimate $a$ by maximum likelihood, if
+  Dark Fairy removes all observations with $s_i = 1$.
+  \item If possible estimate $a$ by maximum likelihood, if
+  Dark Fairy does nothing.
+\end{enumerate}
+}
+
+
+
+
+\begin{sol}
   \end{sol}
 \end{problem}
 
